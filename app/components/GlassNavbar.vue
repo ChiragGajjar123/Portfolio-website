@@ -132,7 +132,7 @@ const isActive = (path) => {
   align-items: center;
   justify-content: space-between;
   padding: 0.65rem 1.4rem;
-  background: var(--bg-card);
+  background: rgba(8, 12, 28, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
