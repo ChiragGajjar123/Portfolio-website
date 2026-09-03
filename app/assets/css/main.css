@@ -390,6 +390,10 @@ button {
   margin: 0 auto 3.5rem auto;
 }
 
+.page-wrapper > .site-container > .section-header {
+  margin-top: 2rem;
+}
+
 .section-tag {
   display: inline-flex;
   align-items: center;

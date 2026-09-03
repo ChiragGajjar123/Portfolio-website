@@ -6,7 +6,7 @@
         <div class="section-tag">Production Portfolios</div>
         <h1 class="section-title">Featured Projects &amp; Architecture</h1>
         <p class="section-desc">
-          High-performance distributed web applications, enterprise SaaS platforms, and digital storefronts with verifiable source code and live deployments.
+          High-performance distributed web applications built with Angular, React, and CSS, alongside enterprise SaaS platforms and digital storefronts with verifiable source code and live deployments.
         </p>
       </div>
 

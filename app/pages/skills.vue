@@ -6,7 +6,7 @@
         <div class="section-tag">Technical Competencies</div>
         <h1 class="section-title">Skills &amp; Architecture Matrix</h1>
         <p class="section-desc">
-          Every skill, language, framework, protocol, and cloud tool backed by 7+ years of commercial production experience and verifiable project repositories.
+          Angular, React, and CSS lead a complete matrix of skills, languages, frameworks, protocols, and cloud tools backed by 7+ years of commercial production experience and verifiable project repositories.
         </p>
       </div>
 

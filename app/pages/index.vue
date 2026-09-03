@@ -19,7 +19,7 @@
 
         <!-- Subtitle with Resume Summary -->
         <p class="hero-summary">
-          I am <strong>Chirag Gajjar</strong>, a Software Engineer with <strong>7+ years of experience</strong> delivering resilient web applications across <strong>Frontend</strong>, <strong>Frameworks</strong>, <strong>Backend &amp; Protocols</strong>, <strong>Databases &amp; Caching</strong>, <strong>Cloud &amp; DevOps</strong>, and <strong>E-commerce</strong>. Harnessing modern AI tools (Cursor, Augment, ChatGPT) to accelerate engineering cycles and ship production-grade software.
+          I am <strong>Chirag Gajjar</strong>, a Software Engineer with <strong>7+ years of experience</strong> delivering resilient web applications with <strong>Angular</strong>, <strong>React</strong>, and <strong>CSS</strong> across <strong>Frontend</strong>, <strong>Frameworks</strong>, <strong>Backend &amp; Protocols</strong>, <strong>Databases &amp; Caching</strong>, <strong>Cloud &amp; DevOps</strong>, and <strong>E-commerce</strong>. Harnessing modern AI tools (Cursor, Augment, ChatGPT) to accelerate engineering cycles and ship production-grade software.
         </p>
 
         <!-- CTA Action Buttons -->
@@ -43,7 +43,7 @@
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>Download Resume (PDF)</span>
+            <span>Resume</span>
           </a>
 
           <NuxtLink to="/contact" class="btn-liquid-secondary">
@@ -454,7 +454,7 @@
                   <polyline points="7 10 12 15 17 10" />
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                <span>Download Resume (PDF)</span>
+                <span>Resume</span>
               </a>
               <a
                 href="/Chirag_Software_Engineer.pdf"

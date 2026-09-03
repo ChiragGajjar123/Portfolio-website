@@ -6,7 +6,7 @@
         <div class="section-tag">Career Milestones</div>
         <h1 class="section-title">Professional Experience</h1>
         <p class="section-desc">
-          7+ years of continuous commercial engineering delivery across enterprise SaaS products, e-commerce storefronts, and cross-functional teams.
+          7+ years of continuous commercial engineering delivery with Angular, React, and CSS across enterprise SaaS products, e-commerce storefronts, and cross-functional teams.
         </p>
       </div>
 
@@ -235,7 +235,7 @@
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              Download PDF Resume
+              Resume
             </a>
             <NuxtLink to="/contact" class="btn-liquid-secondary">
               Contact Chirag

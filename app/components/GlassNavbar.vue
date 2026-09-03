@@ -17,32 +17,32 @@
         <!-- Desktop Navigation Links -->
         <ul class="nav-links">
           <li>
-            <NuxtLink to="/" class="nav-link" active-class="active" exact>
+            <NuxtLink to="/" class="nav-link" :class="{ active: isActive('/') }">
               Home
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/about" class="nav-link" active-class="active">
+            <NuxtLink to="/about" class="nav-link" :class="{ active: isActive('/about') }">
               About
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/skills" class="nav-link" active-class="active">
+            <NuxtLink to="/skills" class="nav-link" :class="{ active: isActive('/skills') }">
               Skills
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/projects" class="nav-link" active-class="active">
+            <NuxtLink to="/projects" class="nav-link" :class="{ active: isActive('/projects') }">
               Projects
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/experience" class="nav-link" active-class="active">
+            <NuxtLink to="/experience" class="nav-link" :class="{ active: isActive('/experience') }">
               Experience
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contact" class="nav-link" active-class="active">
+            <NuxtLink to="/contact" class="nav-link" :class="{ active: isActive('/contact') }">
               Contact
             </NuxtLink>
           </li>
@@ -75,12 +75,12 @@
       <!-- Mobile Dropdown Menu -->
       <div v-if="isMobileMenuOpen" class="mobile-drawer liquid-glass">
         <ul class="mobile-nav-links">
-          <li><NuxtLink to="/" @click="isMobileMenuOpen = false" active-class="active" exact>Home</NuxtLink></li>
-          <li><NuxtLink to="/about" @click="isMobileMenuOpen = false" active-class="active">About</NuxtLink></li>
-          <li><NuxtLink to="/skills" @click="isMobileMenuOpen = false" active-class="active">Skills</NuxtLink></li>
-          <li><NuxtLink to="/projects" @click="isMobileMenuOpen = false" active-class="active">Projects</NuxtLink></li>
-          <li><NuxtLink to="/experience" @click="isMobileMenuOpen = false" active-class="active">Experience</NuxtLink></li>
-          <li><NuxtLink to="/contact" @click="isMobileMenuOpen = false" active-class="active">Contact</NuxtLink></li>
+          <li><NuxtLink to="/" @click="isMobileMenuOpen = false" :class="{ active: isActive('/') }">Home</NuxtLink></li>
+          <li><NuxtLink to="/about" @click="isMobileMenuOpen = false" :class="{ active: isActive('/about') }">About</NuxtLink></li>
+          <li><NuxtLink to="/skills" @click="isMobileMenuOpen = false" :class="{ active: isActive('/skills') }">Skills</NuxtLink></li>
+          <li><NuxtLink to="/projects" @click="isMobileMenuOpen = false" :class="{ active: isActive('/projects') }">Projects</NuxtLink></li>
+          <li><NuxtLink to="/experience" @click="isMobileMenuOpen = false" :class="{ active: isActive('/experience') }">Experience</NuxtLink></li>
+          <li><NuxtLink to="/contact" @click="isMobileMenuOpen = false" :class="{ active: isActive('/contact') }">Contact</NuxtLink></li>
         </ul>
         <div class="mobile-actions">
           <a
@@ -95,7 +95,7 @@
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            Download Resume (PDF)
+            Resume
           </a>
         </div>
       </div>
@@ -108,8 +108,14 @@ import { defineAsyncComponent, ref } from 'vue'
 import AppLoader from '~/components/AppLoader.vue'
 
 const isMobileMenuOpen = ref(false)
+const route = useRoute()
 const asyncOptions = (loader) => defineAsyncComponent({ loader, loadingComponent: AppLoader, delay: 0 })
 const AsyncResumeDownloadButton = asyncOptions(() => import('~/components/ResumeDownloadButton.vue'))
+
+const isActive = (path) => {
+  const currentPath = route.path.replace(/\/$/, '') || '/'
+  return currentPath === path
+}
 </script>
 
 <style scoped>

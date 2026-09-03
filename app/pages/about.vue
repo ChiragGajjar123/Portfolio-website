@@ -6,7 +6,7 @@
         <div class="section-tag">Career Evolution &amp; Background</div>
         <h1 class="section-title">About Chirag Gajjar</h1>
         <p class="section-desc">
-          7+ years crafting scalable web applications, from UI/UX design and high-converting e-commerce to enterprise Angular CRM architectures and high-throughput Node.js/Express, Go, and Rust microservices.
+          7+ years crafting scalable web applications with Angular, React, and CSS, from UI/UX design and high-converting e-commerce to enterprise CRM architectures and high-throughput Node.js/Express, Go, and Rust microservices.
         </p>
       </div>
 
@@ -32,7 +32,7 @@
             <div class="story-body">
               <h3 class="story-heading">Executive Summary</h3>
               <p>
-                I am a dedicated <strong>Software Engineer with 7+ years of experience</strong> delivering enterprise-grade web applications. My journey spans the full engineering spectrum: starting with UI/UX prototyping and front-end craftsmanship at <strong>Infibeam Avenues</strong>, evolving into high-speed e-commerce architecture at <strong>Lucent Innovation</strong>, scaling complex SaaS workflows for <strong>Salesmate CRM at 1center</strong>, and engineering high-concurrency systems in <strong>Node.js (Express)</strong>, <strong>Go (fasthttp)</strong>, and <strong>Rust (Axum &amp; Tokio)</strong>.
+                I am a dedicated <strong>Software Engineer with 7+ years of experience</strong> delivering enterprise-grade web applications. My journey spans the full engineering spectrum: starting with UI/UX prototyping and front-end craftsmanship at <strong>Infibeam Avenues</strong>, evolving into high-speed e-commerce architecture at <strong>Lucent Innovation</strong>, and scaling complex SaaS workflows at <strong>Salesmate CRM at 1center</strong> using <strong>Angular</strong>, <strong>React</strong>, and <strong>CSS</strong>, alongside high-concurrency systems in <strong>Node.js (Express)</strong>, <strong>Go (fasthttp)</strong>, and <strong>Rust (Axum &amp; Tokio)</strong>.
               </p>
               <p>
                 I actively harness modern <strong>AI tooling (Cursor, Augment, ChatGPT APIs)</strong> to supercharge development workflows, automate unit tests, refactor legacy codebases, and maintain rigorous code quality and delivery speed.
@@ -127,7 +127,7 @@
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              <span>Download Resume</span>
+              <span>Resume</span>
             </a>
 
             <a

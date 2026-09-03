@@ -6,7 +6,7 @@
         <div class="section-tag">Direct Communication</div>
         <h1 class="section-title">Get in Touch</h1>
         <p class="section-desc">
-          Interested in connecting with a Software Engineer, discussing high-concurrency systems, or exploring engineering opportunities? Send a direct message below.
+          Interested in connecting with a Software Engineer experienced in Angular, React, and CSS, discussing high-concurrency systems, or exploring engineering opportunities? Send a direct message below.
         </p>
       </div>
 
@@ -20,7 +20,7 @@
               <span class="status-text">Actively Open to Opportunities</span>
             </div>
             <p class="status-sub">
-              Available for Software Engineering positions, Node.js/Express, high-concurrency Go and Rust systems, and modern web application development.
+              Available for Software Engineering positions using Angular, React, CSS, Node.js/Express, high-concurrency Go and Rust systems, and modern web application development.
             </p>
           </div>
 
@@ -124,7 +124,7 @@
                   <polyline points="7 10 12 15 17 10" />
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                Download Resume (PDF)
+                Resume
               </a>
               <a
                 href="/Chirag_Software_Engineer.pdf"
@@ -353,6 +353,10 @@ async function handleSubmit() {
 </script>
 
 <style scoped>
+.contact-page .section-header {
+  margin-top: 2rem;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.6fr);
@@ -731,6 +735,10 @@ async function handleSubmit() {
 }
 
 @media (max-width: 640px) {
+  .social-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+
   .form-row-2 {
     grid-template-columns: 1fr;
   }
