@@ -20,7 +20,7 @@
               <span class="status-text">Actively Open to Opportunities</span>
             </div>
             <p class="status-sub">
-              Available for Software Engineering positions, high-concurrency Rust/Go systems, and modern web application development.
+              Available for Software Engineering positions, Node.js/Express, high-concurrency Go and Rust systems, and modern web application development.
             </p>
           </div>
 

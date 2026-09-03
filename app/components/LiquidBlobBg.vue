@@ -102,23 +102,4 @@
   }
 }
 
-:global(html.light) .liquid-bg-canvas {
-  background-color: #f1f5f9;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(186, 230, 253, 0.55) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(233, 213, 255, 0.55) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(204, 251, 241, 0.4) 0px, transparent 50%);
-}
-
-:global(html.light) .grid-mesh-overlay {
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-}
-
-:global(html.light) .liquid-orb {
-  opacity: 0.28;
-  mix-blend-mode: multiply;
-  filter: blur(80px);
-}
 </style>

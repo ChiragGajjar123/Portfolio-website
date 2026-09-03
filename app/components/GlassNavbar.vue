@@ -48,9 +48,8 @@
           </li>
         </ul>
 
-        <!-- Action / Resume Download & Theme Toggle -->
+        <!-- Resume Download & Mobile Navigation -->
         <div class="nav-actions">
-          <AsyncThemeToggle :is-dark="isDark" @toggle="toggleTheme" />
           <AsyncResumeDownloadButton />
 
           <!-- Mobile Toggle Button -->
@@ -84,14 +83,6 @@
           <li><NuxtLink to="/contact" @click="isMobileMenuOpen = false" active-class="active">Contact</NuxtLink></li>
         </ul>
         <div class="mobile-actions">
-          <button
-            @click="toggleTheme"
-            class="btn-liquid-secondary"
-            style="width: 100%; margin-bottom: 0.75rem;"
-          >
-            <span v-if="isDark">☀️ Switch to Light Mode</span>
-            <span v-else>🌙 Switch to Dark Mode</span>
-          </button>
           <a
             href="/Chirag_Software_Engineer.pdf"
             download="Chirag_Software_Engineer.pdf"
@@ -113,31 +104,12 @@
 </template>
 
 <script setup>
-import { defineAsyncComponent, ref, onMounted } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 import AppLoader from '~/components/AppLoader.vue'
 
 const isMobileMenuOpen = ref(false)
-const isDark = ref(true)
 const asyncOptions = (loader) => defineAsyncComponent({ loader, loadingComponent: AppLoader, delay: 0 })
-const AsyncThemeToggle = asyncOptions(() => import('~/components/ThemeToggle.vue'))
 const AsyncResumeDownloadButton = asyncOptions(() => import('~/components/ResumeDownloadButton.vue'))
-
-onMounted(() => {
-  const saved = localStorage.getItem('theme')
-  isDark.value = saved !== 'light'
-  document.documentElement.classList.toggle('light', !isDark.value)
-})
-
-function toggleTheme() {
-  isDark.value = !isDark.value
-  if (!isDark.value) {
-    document.documentElement.classList.add('light')
-    localStorage.setItem('theme', 'light')
-  } else {
-    document.documentElement.classList.remove('light')
-    localStorage.setItem('theme', 'dark')
-  }
-}
 </script>
 
 <style scoped>
@@ -241,28 +213,6 @@ function toggleTheme() {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-
-.btn-theme-toggle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--glass-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-primary);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: var(--liquid-cyan);
-  color: var(--liquid-cyan);
-  transform: rotate(15deg);
 }
 
 .btn-resume-nav {

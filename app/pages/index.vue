@@ -59,19 +59,19 @@
             <div class="metric-sub">Enterprise &amp; SaaS Products</div>
           </div>
           <div class="metric-card liquid-glass">
-            <div class="metric-number text-gradient-violet">512K</div>
+            <div class="metric-number text-gradient-violet">Node</div>
+            <div class="metric-label">Express 5 API</div>
+            <div class="metric-sub">Cluster Mode Process Scaling</div>
+          </div>
+          <div class="metric-card liquid-glass">
+            <div class="metric-number text-gradient-cyan">512K</div>
             <div class="metric-label">Concurrent Connections</div>
             <div class="metric-sub">Go / fasthttp Microservice</div>
           </div>
           <div class="metric-card liquid-glass">
-            <div class="metric-number text-gradient-cyan">&lt; 1ms</div>
+            <div class="metric-number text-gradient-violet">&lt; 1ms</div>
             <div class="metric-label">Sub-millisecond Latency</div>
             <div class="metric-sub">Rust Axum &amp; Zero-Cost Tokio</div>
-          </div>
-          <div class="metric-card liquid-glass">
-            <div class="metric-number text-gradient-violet">6+</div>
-            <div class="metric-label">Major Production Deliveries</div>
-            <div class="metric-sub">Web, Cloud &amp; E-commerce</div>
           </div>
         </div>
       </section>

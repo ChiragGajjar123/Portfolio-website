@@ -6,7 +6,7 @@
         <div class="section-tag">Career Evolution &amp; Background</div>
         <h1 class="section-title">About Chirag Gajjar</h1>
         <p class="section-desc">
-          7+ years crafting scalable web applications, from UI/UX design and high-converting e-commerce to enterprise Angular CRM architectures and high-throughput Rust/Go microservices.
+          7+ years crafting scalable web applications, from UI/UX design and high-converting e-commerce to enterprise Angular CRM architectures and high-throughput Node.js/Express, Go, and Rust microservices.
         </p>
       </div>
 
@@ -32,7 +32,7 @@
             <div class="story-body">
               <h3 class="story-heading">Executive Summary</h3>
               <p>
-                I am a dedicated <strong>Software Engineer with 7+ years of experience</strong> delivering enterprise-grade web applications. My journey spans the full engineering spectrum: starting with UI/UX prototyping and front-end craftsmanship at <strong>Infibeam Avenues</strong>, evolving into high-speed e-commerce architecture at <strong>Lucent Innovation</strong>, scaling complex SaaS workflows for <strong>Salesmate CRM at 1center</strong>, and engineering high-concurrency systems in <strong>Go (fasthttp)</strong> and <strong>Rust (Axum &amp; Tokio)</strong>.
+                I am a dedicated <strong>Software Engineer with 7+ years of experience</strong> delivering enterprise-grade web applications. My journey spans the full engineering spectrum: starting with UI/UX prototyping and front-end craftsmanship at <strong>Infibeam Avenues</strong>, evolving into high-speed e-commerce architecture at <strong>Lucent Innovation</strong>, scaling complex SaaS workflows for <strong>Salesmate CRM at 1center</strong>, and engineering high-concurrency systems in <strong>Node.js (Express)</strong>, <strong>Go (fasthttp)</strong>, and <strong>Rust (Axum &amp; Tokio)</strong>.
               </p>
               <p>
                 I actively harness modern <strong>AI tooling (Cursor, Augment, ChatGPT APIs)</strong> to supercharge development workflows, automate unit tests, refactor legacy codebases, and maintain rigorous code quality and delivery speed.
@@ -41,7 +41,7 @@
               <h3 class="story-heading">Engineering Philosophy</h3>
               <ul class="philosophy-list">
                 <li>
-                  <strong>Performance as a Feature:</strong> Whether optimizing Angular change detection with signals and lazy loading or handling 512K concurrent connections with Go's fasthttp and a 64-shard atomic rate limiter, speed and zero-cost abstractions are non-negotiable.
+                  <strong>Performance as a Feature:</strong> From Node.js (Express) cluster mode process scaling to Go's fasthttp handling 512K concurrent connections with a 64-shard atomic rate limiter, and Rust's zero-cost abstractions, speed is non-negotiable.
                 </li>
                 <li>
                   <strong>Fluid User Experience:</strong> Clean, accessible, intuitive interfaces designed with Liquid Glass aesthetics, responsive layouts, and rich micro-interactions that captivate users.

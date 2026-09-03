@@ -54,9 +54,15 @@
               <div class="skill-header">
                 <div class="skill-title-row">
                   <span class="skill-name">{{ skill.name }}</span>
-                  <span class="skill-level-tag">{{ skill.level }}</span>
                 </div>
-                <div class="skill-bar-wrap">
+                <div
+                  class="skill-bar-wrap"
+                  role="progressbar"
+                  :aria-label="`${skill.name} experience`"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  :aria-valuenow="skill.percent"
+                >
                   <div
                     class="skill-bar-fill"
                     :style="{ width: skill.percent + '%' }"
@@ -166,15 +172,15 @@ const domains = [
   {
     id: 'backend',
     name: 'Backend, Systems & Protocols',
-    summary: 'Rust (Axum, Tokio), Go (fasthttp), Node.js (Express 5), WebSockets, RESTful APIs, Docker',
+    summary: 'Node.js (Express 5), Go (fasthttp), Rust (Axum, Tokio), WebSockets, RESTful APIs, Docker',
     colorClass: 'indigo',
     pillClass: 'indigo',
     barClass: 'bar-indigo',
     iconSvg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
     skills: [
+      { name: 'Node.js & Express 5 (Cluster Mode)', level: 'Expert', percent: 95, context: 'Multi-core cluster scaling, Pino logging, Helmet security headers, HTTP-only JWTs', projects: 'CM Expense Tracker API' },
       { name: 'Go (Golang 1.26 & fasthttp)', level: 'Advanced', percent: 92, context: 'Tuned for 512K concurrent connections with sub-millisecond response & 64-shard rate limiters', projects: 'CM Notes Go Microservice' },
       { name: 'Rust (Axum 0.7 & Tokio)', level: 'Advanced', percent: 90, context: 'Zero-cost abstractions, asynchronous multithreading, sub-millisecond REST endpoints', projects: 'CM Notes Rust Backend' },
-      { name: 'Node.js & Express 5 (Cluster Mode)', level: 'Expert', percent: 95, context: 'Multi-core cluster scaling, Pino logging, Helmet security headers, HTTP-only JWTs', projects: 'CM Expense Tracker API' },
       { name: 'WebSockets & REST APIs', level: 'Expert', percent: 94, context: 'Real-time state synchronization, clean contract schemas, streaming endpoints', projects: 'Notes App, CRM Dashboards' },
       { name: 'Docker & Containerization', level: 'Advanced', percent: 88, context: 'Multi-stage builds, container isolation, local environment reproducibility', projects: 'Backend Microservices' }
     ]
@@ -374,11 +380,22 @@ function getCategoryCount(catId) {
 }
 
 .skill-spec-card {
+  position: relative;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.skill-spec-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--liquid-cyan), var(--liquid-indigo));
+  opacity: 0.7;
 }
 
 .skill-spec-card:hover {
@@ -392,22 +409,15 @@ function getCategoryCount(catId) {
 }
 
 .skill-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.7rem;
 }
 
 .skill-name {
+  display: block;
   font-weight: 700;
   font-size: 1.02rem;
   color: #f8fafc;
-}
-
-.skill-level-tag {
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  color: #00f5d4;
+  line-height: 1.35;
 }
 
 .skill-bar-wrap {

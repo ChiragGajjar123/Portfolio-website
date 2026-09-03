@@ -26,11 +26,6 @@ export default defineNuxtConfig({
         },
         { property: 'og:type', content: 'website' }
       ],
-      script: [
-        {
-          innerHTML: "(() => { try { document.documentElement.classList.toggle('light', localStorage.getItem('theme') === 'light'); } catch (_) {} })()"
-        }
-      ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

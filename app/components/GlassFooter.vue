@@ -86,15 +86,17 @@
           <p class="footer-resume-desc">
             Download the complete PDF version of Chirag Gajjar's resume.
           </p>
-          <AsyncResumeDownloadButton />
-          <a
-            href="/Chirag_Software_Engineer.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="view-pdf-link"
-          >
-            Preview in Browser &rarr;
-          </a>
+          <div class="resume-actions">
+            <AsyncResumeDownloadButton />
+            <a
+              href="/Chirag_Software_Engineer.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="view-pdf-link"
+            >
+              Preview in Browser &rarr;
+            </a>
+          </div>
         </div>
       </div>
 
@@ -198,6 +200,8 @@ const AsyncResumeDownloadButton = defineAsyncComponent({
 }
 
 .footer-list a {
+  display: inline-flex;
+  max-width: 100%;
   font-size: 0.9rem;
   color: var(--text-secondary);
   transition: all 0.2s ease;
@@ -205,15 +209,16 @@ const AsyncResumeDownloadButton = defineAsyncComponent({
 
 .footer-list a:hover {
   color: var(--liquid-cyan);
-  transform: translateX(3px);
-  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }
 
 .footer-contact-link {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  word-break: break-all;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .footer-resume-desc {
@@ -223,10 +228,13 @@ const AsyncResumeDownloadButton = defineAsyncComponent({
   margin-bottom: 1.25rem;
 }
 
+.resume-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .view-pdf-link {
-  display: block;
-  text-align: center;
-  margin-top: 0.85rem;
   font-size: 0.82rem;
   color: var(--liquid-sky);
   transition: all 0.2s;
@@ -251,7 +259,7 @@ const AsyncResumeDownloadButton = defineAsyncComponent({
   font-size: 0.8rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -268,6 +276,9 @@ const AsyncResumeDownloadButton = defineAsyncComponent({
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
+  }
+  .resume-actions {
+    gap: 0.8rem;
   }
 }
 </style>
