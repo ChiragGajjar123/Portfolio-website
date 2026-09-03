@@ -4,7 +4,6 @@
       <nav
         class="liquid-navbar"
         aria-label="Main Navigation"
-        style="backdrop-filter: blur(20px);"
       >
         <!-- Logo / Brand -->
         <NuxtLink to="/" class="nav-brand" aria-label="Chirag Gajjar Home">
