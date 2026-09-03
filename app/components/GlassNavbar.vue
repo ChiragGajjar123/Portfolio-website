@@ -132,9 +132,9 @@ const isActive = (path) => {
   align-items: center;
   justify-content: space-between;
   padding: 0.65rem 1.4rem;
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid var(--glass-border);
   border-radius: 9999px;
   box-shadow: var(--glass-shadow);
