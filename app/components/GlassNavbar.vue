@@ -1,7 +1,11 @@
 <template>
   <header class="navbar-wrapper">
     <div class="site-container">
-      <nav class="liquid-navbar" aria-label="Main Navigation">
+      <nav
+        class="liquid-navbar"
+        aria-label="Main Navigation"
+        style="backdrop-filter: blur(20px);"
+      >
         <!-- Logo / Brand -->
         <NuxtLink to="/" class="nav-brand" aria-label="Chirag Gajjar Home">
           <div class="brand-badge">
@@ -132,9 +136,8 @@ const isActive = (path) => {
   align-items: center;
   justify-content: space-between;
   padding: 0.65rem 1.4rem;
-  background: var(--bg-card) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 9999px;
   box-shadow: var(--glass-shadow);

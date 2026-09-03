@@ -213,7 +213,6 @@ button {
 .liquid-glass {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
@@ -236,7 +235,6 @@ button {
 .liquid-glass-elevated {
   background: var(--bg-card-hover);
   backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border-bright);
   box-shadow: var(--glass-shadow-elevated);
 }
@@ -260,7 +258,6 @@ button {
   font-weight: 500;
   color: var(--text-highlight);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: var(--transition-smooth);
 }
 
@@ -324,7 +321,6 @@ button {
   border: 1px solid var(--glass-border-bright);
   border-radius: var(--radius-full);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   box-shadow: var(--glass-shadow);
   transition: var(--transition-smooth);
   cursor: pointer;
