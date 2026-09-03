@@ -1,0 +1,825 @@
+/* ==========================================================================
+   CHIRAG GAJJAR PORTFOLIO - LIQUID GLASS DESIGN SYSTEM
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Obsidian & Space Dark Spectrum */
+  --bg-space: #050711;
+  --bg-card: rgba(13, 18, 36, 0.55);
+  --bg-card-hover: rgba(21, 28, 56, 0.7);
+  --bg-glass-pill: rgba(255, 255, 255, 0.05);
+
+  /* Luminous Liquid Accents */
+  --liquid-cyan: #00f5d4;
+  --liquid-cyan-glow: rgba(0, 245, 212, 0.25);
+  --liquid-indigo: #6366f1;
+  --liquid-indigo-glow: rgba(99, 102, 241, 0.25);
+  --liquid-violet: #8b5cf6;
+  --liquid-sky: #38bdf8;
+  --liquid-rose: #f43f5e;
+  --liquid-amber: #f59e0b;
+  --liquid-emerald: #10b981;
+
+  /* Specular Glass Borders & Reflections */
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-bright: rgba(255, 255, 255, 0.25);
+  --glass-border-cyan: rgba(0, 245, 212, 0.4);
+  --glass-border-indigo: rgba(99, 102, 241, 0.4);
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-highlight: #e2e8f0;
+
+  /* Shadows */
+  --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --glass-shadow-elevated: 0 20px 45px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --glass-shadow-cyan: 0 10px 30px -5px rgba(0, 245, 212, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Fonts */
+  --font-sans: 'Poppins', sans-serif;
+  --font-mono: 'Poppins', sans-serif;
+
+  /* Sizing & Transitions */
+  --container-max: 1240px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-space);
+  color-scheme: dark;
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-space);
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050711;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--liquid-cyan);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 245, 212, 0.3);
+  color: #ffffff;
+}
+
+/* Layout Utilities */
+.site-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-wrapper {
+  padding-top: 6.5rem;
+  padding-bottom: 5rem;
+  min-height: calc(100vh - 120px);
+}
+
+/* Typography Utilities */
+.heading-display {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.heading-section {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.heading-card {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 10%, #00f5d4 70%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #ffffff 20%, #a78bfa 60%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-rainbow {
+  background: linear-gradient(90deg, #00f5d4, #38bdf8, #818cf8, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Liquid Glass Cards */
+.liquid-glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  pointer-events: none;
+}
+
+.liquid-glass-elevated {
+  background: var(--bg-card-hover);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border-bright);
+  box-shadow: var(--glass-shadow-elevated);
+}
+
+.liquid-glass-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-bright);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 245, 212, 0.15);
+}
+
+/* Glass Pills & Badges */
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-highlight);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+}
+
+.glass-pill.cyan {
+  border-color: rgba(0, 245, 212, 0.35);
+  background: rgba(0, 245, 212, 0.08);
+  color: var(--liquid-cyan);
+}
+
+.glass-pill.indigo {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.08);
+  color: #a5b4fc;
+}
+
+.glass-pill.rose {
+  border-color: rgba(244, 63, 94, 0.35);
+  background: rgba(244, 63, 94, 0.08);
+  color: #fda4af;
+}
+
+/* Liquid Interactive Buttons */
+.btn-liquid-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.9) 0%, rgba(56, 189, 248, 0.9) 100%);
+  color: #030712;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 20px rgba(0, 245, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-liquid-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 245, 212, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #000000;
+}
+
+.btn-liquid-primary:active {
+  transform: translateY(0);
+}
+
+.btn-liquid-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--glass-border-bright);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-liquid-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn-liquid-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-liquid-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.35rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-liquid-download:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.45) 0%, rgba(139, 92, 246, 0.45) 100%);
+  border-color: rgba(168, 85, 247, 0.8);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Pulse Dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--liquid-cyan);
+  box-shadow: 0 0 10px var(--liquid-cyan);
+  display: inline-block;
+  animation: pulse-animation 2s infinite ease-in-out;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 16px var(--liquid-cyan); }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+/* Grid & Section Layouts */
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  border-radius: var(--radius-full);
+  color: var(--liquid-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(30px, -25px) rotate(8deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-35px, 20px) rotate(-6deg); }
+}
+
+@keyframes shimmerGlow {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-container {
+    padding: 0 1.2rem;
+  }
+  .page-wrapper {
+    padding-top: 5.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE LIQUID GLASS DESIGN SYSTEM
+   ========================================================================== */
+html.light {
+  color-scheme: light;
+  --bg-space: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-card-hover: rgba(255, 255, 255, 0.92);
+  --bg-glass-pill: rgba(0, 0, 0, 0.04);
+
+  --liquid-cyan: #0891b2;
+  --liquid-cyan-glow: rgba(8, 145, 178, 0.2);
+  --liquid-indigo: #4f46e5;
+  --liquid-indigo-glow: rgba(79, 70, 229, 0.2);
+  --liquid-violet: #7c3aed;
+  --liquid-sky: #0284c7;
+  --liquid-rose: #e11d48;
+  --liquid-amber: #d97706;
+  --liquid-emerald: #059669;
+
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-bright: rgba(0, 0, 0, 0.16);
+  --glass-border-cyan: rgba(8, 145, 178, 0.35);
+  --glass-border-indigo: rgba(79, 70, 229, 0.35);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-highlight: #1e293b;
+
+  --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --glass-shadow-elevated: 0 20px 45px -15px rgba(0, 0, 0, 0.1), 0 0 25px rgba(99, 102, 241, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --glass-shadow-cyan: 0 10px 30px -5px rgba(8, 145, 178, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light body {
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+}
+
+html.light #__nuxt,
+html.light .app-layout {
+  min-height: 100vh;
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--liquid-cyan);
+}
+
+/* Light Mode Navigation */
+html.light .liquid-navbar {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+html.light .nav-link {
+  color: #475569;
+}
+
+html.light .nav-link:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html.light .nav-link.active {
+  color: #0891b2;
+  background: rgba(8, 145, 178, 0.09);
+  border: 1px solid rgba(8, 145, 178, 0.25);
+  box-shadow: 0 0 12px rgba(8, 145, 178, 0.1);
+}
+
+html.light .brand-name {
+  color: #0f172a;
+}
+
+html.light .btn-resume-nav {
+  color: #0f172a;
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12) 0%, rgba(99, 102, 241, 0.12) 100%);
+  border-color: rgba(8, 145, 178, 0.35);
+}
+
+html.light .mobile-menu-btn {
+  color: #0f172a;
+}
+
+html.light .mobile-drawer {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html.light .mobile-nav-links a {
+  color: #334155;
+}
+
+html.light .mobile-nav-links a.active {
+  color: #0891b2;
+  background: rgba(8, 145, 178, 0.1);
+}
+
+/* Light Mode Typography & Headings */
+html.light .hero-title,
+html.light .section-title,
+html.light .card-title,
+html.light .project-title,
+html.light .role-title,
+html.light .category-heading,
+html.light .profile-name,
+html.light .details-heading,
+html.light .form-title,
+html.light .cta-heading,
+html.light .resume-cta-heading,
+html.light .story-heading,
+html.light .card-section-title,
+html.light .sidebar-section-title,
+html.light .widget-title,
+html.light .footer-brand-title,
+html.light .footer-col-title,
+html.light .highlights-title,
+html.light .skill-name {
+  color: #0f172a !important;
+}
+
+html.light .text-gradient-cyan {
+  background: linear-gradient(135deg, #0f172a 10%, #0891b2 70%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .text-gradient-violet {
+  background: linear-gradient(135deg, #0f172a 20%, #7c3aed 60%, #e11d48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .hero-summary,
+html.light .section-desc,
+html.light .card-description,
+html.light .project-desc,
+html.light .role-summary,
+html.light .story-body,
+html.light .cta-desc,
+html.light .resume-cta-desc,
+html.light .form-desc,
+html.light .footer-bio,
+html.light .footer-resume-desc,
+html.light .skill-context,
+html.light .arch-desc {
+  color: #475569 !important;
+}
+
+html.light .hero-summary strong,
+html.light .story-body strong,
+html.light .role-summary strong,
+html.light .achievement-item strong {
+  color: #0f172a;
+}
+
+/* Light Mode Cards, Inputs, Buttons */
+html.light .btn-liquid-secondary {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+html.light .btn-liquid-secondary:hover {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+html.light .glass-input {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #0f172a;
+}
+
+html.light .glass-input:focus {
+  background: #ffffff;
+  border-color: #0891b2;
+  box-shadow: 0 0 15px rgba(8, 145, 178, 0.2);
+}
+
+html.light .glass-select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html.light .search-box {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+html.light .search-input {
+  color: #0f172a;
+}
+
+html.light .filter-tab-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+html.light .filter-tab-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html.light .filter-tab-btn.active {
+  background: rgba(8, 145, 178, 0.12);
+  border-color: rgba(8, 145, 178, 0.35);
+  color: #0891b2;
+}
+
+html.light .chip,
+html.light .tech-chip,
+html.light .tag,
+html.light .mini-pill {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #334155;
+}
+
+html.light .skill-spec-card {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+html.light .project-highlights-box {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+html.light .detail-val-link {
+  color: #0f172a;
+}
+
+html.light .detail-val {
+  color: #334155;
+}
+
+html.light .social-pill-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #334155;
+}
+
+html.light .social-pill-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+html.light .sidebar-route-link {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+html.light .sidebar-route-link:hover {
+  background: rgba(8, 145, 178, 0.08);
+  border-color: rgba(8, 145, 178, 0.3);
+  color: #0891b2;
+}
+
+html.light .icon-link-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+html.light .footer-bottom {
+  color: #64748b;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html.light .footer-list a {
+  color: #475569;
+}
+
+html.light .footer-list a:hover {
+  color: #0891b2;
+}
+
+/* Shared resume action: used in the header, footer, and narrow layouts. */
+.resume-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.15) 0%, rgba(99, 102, 241, 0.2) 100%);
+  border: 1px solid var(--glass-border-cyan);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px var(--liquid-cyan-glow);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.resume-download-button:hover {
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.3) 0%, rgba(99, 102, 241, 0.35) 100%);
+  border-color: var(--liquid-cyan);
+  box-shadow: 0 6px 20px var(--liquid-cyan-glow);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+html.light .resume-download-button {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12) 0%, rgba(79, 70, 229, 0.12) 100%);
+  color: #0f172a;
+}
+
+/* Page components use scoped styles; these complete the light-theme contrast. */
+html.light .profile-tagline,
+html.light .edu-inst,
+html.light .widget-meta,
+html.light .info-value,
+html.light .footer-location,
+html.light .footer-brand-role,
+html.light .skill-level-tag,
+html.light .provenance-text,
+html.light .role-company,
+html.light .role-period,
+html.light .project-meta,
+html.light .detail-label,
+html.light .form-label,
+html.light .resume-box-size {
+  color: #475569 !important;
+}
+
+html.light .chip-lang,
+html.light .chip-interest,
+html.light .achievement-item,
+html.light .footer-contact-link,
+html.light .glass-pill:not(.cyan):not(.indigo):not(.rose),
+html.light .project-highlight-item {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.1);
+  color: #334155;
+}
+
+html.light .timeline-dot,
+html.light .edu-dot {
+  border-color: #f1f5f9;
+}
+
+html.light .contact-detail-row,
+html.light .story-header,
+html.light .card-section-title,
+html.light .sidebar-section-title,
+html.light .role-footer,
+html.light .project-footer {
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 640px) {
+  .navbar-wrapper .resume-download-button {
+    width: 38px;
+  }
+}
