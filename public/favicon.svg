@@ -1,12 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="gradient" x1="8" y1="6" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00f5d4"/>
-      <stop offset="1" stop-color="#6366f1"/>
+      <stop stop-color="#00f5d4" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity=".25"/>
+    </linearGradient>
+    <linearGradient id="text-gradient" x1="20" y1="22" x2="46" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#00f5d4"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="18" fill="#050711"/>
-  <rect x="3" y="3" width="58" height="58" rx="15" fill="url(#gradient)" opacity=".22"/>
-  <path d="M24.7 20.2c-7.8 0-13 4.7-13 11.8s5.2 11.8 13 11.8c3.7 0 6.6-1 8.7-2.9v-7.1H24v4.2h4.4v.8c-1 .6-2.2.9-3.7.9-4.4 0-7.3-3-7.3-7.7s2.9-7.7 7.3-7.7c2.6 0 4.6.9 6.2 2.7l3.1-3c-2.3-2.5-5.4-3.8-9.3-3.8Z" fill="#f8fafc"/>
-  <path d="M36.2 20.7h5v8.4c1.2-1.4 2.9-2.1 5.1-2.1 4.2 0 7.1 2.9 7.1 8.2v8.1h-5v-7.2c0-2.8-1.2-4.2-3.5-4.2-2.4 0-3.7 1.5-3.7 4.5v6.9h-5V20.7Z" fill="url(#gradient)"/>
+  <rect x="1" y="1" width="62" height="62" rx="20" fill="#050711" stroke="#00f5d4" stroke-opacity=".4" stroke-width="2"/>
+  <rect x="2" y="2" width="60" height="60" rx="19" fill="url(#gradient)"/>
+  <text x="32" y="42" text-anchor="middle" fill="url(#text-gradient)" font-family="Poppins, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="-1">CG</text>
 </svg>

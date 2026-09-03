@@ -65,7 +65,7 @@
                 >
                   <div
                     class="skill-bar-fill"
-                    :style="{ width: skill.percent + '%' }"
+                    style="width: 100%"
                     :class="domain.barClass"
                   ></div>
                 </div>
@@ -312,6 +312,10 @@ function getCategoryCount(catId) {
   gap: 2.5rem;
 }
 
+.section-block {
+  margin-top: 5rem;
+}
+
 .skill-category-block {
   padding: 2.75rem;
   border-radius: var(--radius-lg);
@@ -341,6 +345,13 @@ function getCategoryCount(catId) {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.category-icon span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
 }
 
 .category-icon.cyan {
