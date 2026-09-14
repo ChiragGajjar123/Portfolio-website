@@ -16,14 +16,7 @@ export function useTheme() {
     htmlAttrs: {
       lang: 'en',
       class: htmlClass
-    },
-      meta: [
-      {
-        key: 'theme-color',
-        name: 'theme-color',
-        content: computed(() => (isDark.value ? '#050711' : '#f0f2f5'))
-      }
-    ]
+    }
   })
 
   function setTheme(next: ThemeName) {

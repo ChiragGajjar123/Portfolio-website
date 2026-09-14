@@ -58,65 +58,81 @@
 
 /* --------------------------------------------------------------------------
    2. CSS VARIABLES — LIGHT THEME (default)
+   Google Brand Colors
    -------------------------------------------------------------------------- */
 
 :root,
 .light {
-  --color-cyan: #06b6d4;
-  --color-cyan-rgb: 6, 182, 212;
-  --color-indigo: #6366f1;
-  --color-indigo-rgb: 99, 102, 241;
-  --color-violet: #8b5cf6;
-  --color-violet-rgb: 139, 92, 246;
-  --color-rose: #f43f5e;
-  --color-rose-rgb: 244, 63, 94;
-  --color-success: #10b981;
-  --color-error: #ef4444;
+  --color-cyan: #4285F4;
+  --color-cyan-rgb: 66, 103, 210;
+  --color-indigo: #EA4335;
+  --color-indigo-rgb: 234, 67, 53;
+  --color-violet: #FBBC04;
+  --color-violet-rgb: 251, 188, 4;
+  --color-rose: #34A853;
+  --color-rose-rgb: 52, 168, 83;
+  --color-success: #34A853;
+  --color-success-rgb: 52, 168, 83;
+  --color-error: #EA4335;
+  --color-error-rgb: 234, 67, 53;
 
-  --bg-canvas: #f0f2f5;
-  --bg-card: rgba(255, 255, 255, 0.6);
-  --bg-card-hover: rgba(255, 255, 255, 0.8);
-  --bg-navbar: rgba(255, 255, 255, 0.8);
+  --color-blue-light: #D2E3FC;
+  --color-red-light: #FAD2CF;
+  --color-yellow-light: #FEEFC3;
+  --color-green-light: #CEEAD6;
+
+  --bg-canvas: #F1F3F4;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.9);
+  --bg-navbar: rgba(255, 255, 255, 0.85);
   --bg-input: rgba(255, 255, 255, 0.7);
-  --bg-code: rgba(99, 102, 241, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.6);
+  --bg-code: rgba(66, 103, 210, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.7);
   --border-subtle: rgba(0, 0, 0, 0.08);
 
-  --orb-cyan: rgba(6, 182, 212, 0.12);
-  --orb-indigo: rgba(99, 102, 241, 0.1);
-  --orb-violet: rgba(139, 92, 246, 0.08);
-  --orb-rose: rgba(244, 63, 94, 0.08);
+  --orb-cyan: rgba(66, 103, 210, 0.1);
+  --orb-indigo: rgba(234, 67, 53, 0.08);
+  --orb-violet: rgba(251, 188, 4, 0.08);
+  --orb-rose: rgba(52, 168, 83, 0.08);
 }
 
 /* --------------------------------------------------------------------------
    3. CSS VARIABLES — DARK THEME
+   Google Brand Colors (Dark)
    -------------------------------------------------------------------------- */
 
 .dark {
-  --color-cyan: #22d3ee;
-  --color-cyan-rgb: 34, 211, 238;
-  --color-indigo: #818cf8;
-  --color-indigo-rgb: 129, 140, 248;
-  --color-violet: #a78bfa;
-  --color-violet-rgb: 167, 139, 250;
-  --color-rose: #fb7185;
-  --color-rose-rgb: 251, 113, 133;
-  --color-success: #34d399;
-  --color-error: #f87171;
+  --color-cyan: #D2E3FC;
+  --color-cyan-rgb: 210, 227, 252;
+  --color-indigo: #FAD2CF;
+  --color-indigo-rgb: 250, 210, 207;
+  --color-violet: #FEEFC3;
+  --color-violet-rgb: 254, 239, 195;
+  --color-rose: #CEEAD6;
+  --color-rose-rgb: 206, 234, 214;
+  --color-success: #CEEAD6;
+  --color-success-rgb: 206, 234, 214;
+  --color-error: #FAD2CF;
+  --color-error-rgb: 250, 210, 207;
 
-  --bg-canvas: #050711;
-  --bg-card: rgba(15, 23, 42, 0.55);
-  --bg-card-hover: rgba(15, 23, 42, 0.75);
-  --bg-navbar: rgba(5, 7, 17, 0.85);
-  --bg-input: rgba(15, 23, 42, 0.6);
-  --bg-code: rgba(129, 140, 248, 0.1);
+  --color-blue-dark: #174EA6;
+  --color-red-dark: #A50E0E;
+  --color-yellow-dark: #E37400;
+  --color-green-dark: #0D652D;
+
+  --bg-canvas: #202124;
+  --bg-card: rgba(32, 33, 36, 0.7);
+  --bg-card-hover: rgba(41, 42, 45, 0.9);
+  --bg-navbar: rgba(32, 33, 36, 0.9);
+  --bg-input: rgba(32, 33, 36, 0.7);
+  --bg-code: rgba(210, 227, 252, 0.1);
   --border-glass: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-subtle: rgba(255, 255, 255, 0.08);
 
-  --orb-cyan: rgba(34, 211, 238, 0.07);
-  --orb-indigo: rgba(129, 140, 248, 0.06);
-  --orb-violet: rgba(167, 139, 250, 0.05);
-  --orb-rose: rgba(251, 113, 133, 0.05);
+  --orb-cyan: rgba(210, 227, 252, 0.07);
+  --orb-indigo: rgba(250, 210, 207, 0.06);
+  --orb-violet: rgba(254, 239, 195, 0.05);
+  --orb-rose: rgba(206, 234, 214, 0.05);
 }
 
 /* --------------------------------------------------------------------------
@@ -164,14 +180,14 @@ h1, h2, h3, h4, h5, h6,
    -------------------------------------------------------------------------- */
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-violet {
-  background: linear-gradient(135deg, var(--color-violet), #a78bfa);
+  background: linear-gradient(135deg, var(--color-violet), var(--color-violet));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -392,9 +408,9 @@ h1, h2, h3, h4, h5, h6,
 
 /* Success badge */
 .badge-success {
-  background: rgba(16, 185, 129, 0.06);
+  background: rgba(var(--color-success-rgb), 0.06);
   color: var(--color-success);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(var(--color-success-rgb), 0.2);
   font-size: 0.75rem;
 }
 
@@ -437,7 +453,7 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
   flex-shrink: 0;
 }
 
@@ -449,7 +465,7 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
   flex-shrink: 0;
 }
 
@@ -488,13 +504,13 @@ h1, h2, h3, h4, h5, h6,
 
 /* Primary gradient button */
 .btn-primary-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
   box-shadow: 0 2px 12px rgba(var(--color-cyan-rgb), 0.3);
 }
 
 /* Gradient button (used for download CTAs) */
 .btn-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
   font-size: 0.875rem;
 }
 
@@ -506,22 +522,22 @@ h1, h2, h3, h4, h5, h6,
 
 /* Profile avatar gradient */
 .avatar-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
   font-size: 1.25rem;
 }
 
 /* Alert success */
 .alert-success {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(var(--color-success-rgb), 0.1);
   color: var(--color-success);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(var(--color-success-rgb), 0.2);
 }
 
 /* Alert error */
 .alert-error {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(var(--color-error-rgb), 0.1);
   color: var(--color-error);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(var(--color-error-rgb), 0.2);
 }
 
 /* Textarea resize */
@@ -715,8 +731,8 @@ h1, h2, h3, h4, h5, h6,
 
   /* Badge success */
   .badge-success:hover {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.35);
+    background: rgba(var(--color-success-rgb), 0.12);
+    border-color: rgba(var(--color-success-rgb), 0.35);
   }
 
   /* Cyan links */
@@ -799,11 +815,11 @@ h1, h2, h3, h4, h5, h6,
 
   /* Alert boxes */
   .alert-success:hover {
-    background: rgba(16, 185, 129, 0.15);
+    background: rgba(var(--color-success-rgb), 0.15);
   }
 
   .alert-error:hover {
-    background: rgba(239, 68, 68, 0.15);
+    background: rgba(var(--color-error-rgb), 0.15);
   }
 
 }

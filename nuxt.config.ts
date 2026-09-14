@@ -65,7 +65,6 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, Rust, AWS, and Cloud Architecture.'
         },
-        { name: 'theme-color', content: '#f0f2f5' },
         { property: 'og:title', content: 'Chirag Gajjar | Software Engineer' },
         {
           property: 'og:description',
