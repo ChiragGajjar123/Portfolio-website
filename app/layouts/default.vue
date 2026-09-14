@@ -1,17 +1,10 @@
 <template>
   <div class="app-layout">
-    <!-- Ambient Liquid Glass Background -->
     <AsyncLiquidBlobBg />
-
-    <!-- Frosted Glass Navbar -->
     <AsyncGlassNavbar />
-
-    <!-- Dynamic Router Page Outlet -->
     <main class="main-content">
       <slot />
     </main>
-
-    <!-- Liquid Glass Footer -->
     <AsyncGlassFooter />
   </div>
 </template>
@@ -25,5 +18,3 @@ const AsyncLiquidBlobBg = asyncOptions(() => import('~/components/LiquidBlobBg.v
 const AsyncGlassNavbar = asyncOptions(() => import('~/components/GlassNavbar.vue'))
 const AsyncGlassFooter = asyncOptions(() => import('~/components/GlassFooter.vue'))
 </script>
-
-

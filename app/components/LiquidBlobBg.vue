@@ -1,12 +1,9 @@
 <template>
-  <div class="liquid-bg-canvas" aria-hidden="true">
-    <!-- Grid overlay pattern -->
-    <div class="grid-mesh-overlay"></div>
-
-    <!-- Animated fluid orbs -->
-    <div class="liquid-orb orb-cyan"></div>
-    <div class="liquid-orb orb-indigo"></div>
-    <div class="liquid-orb orb-violet"></div>
-    <div class="liquid-orb orb-rose"></div>
+  <div class="position-fixed top-0 start-0 w-100 h-100 overflow-hidden bg-fixed" aria-hidden="true">
+    <div class="position-absolute top-0 start-0 w-100 h-100 grid-mesh"></div>
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-indigo"></div>
+    <div class="orb orb-violet"></div>
+    <div class="orb orb-rose"></div>
   </div>
 </template>

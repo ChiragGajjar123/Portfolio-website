@@ -1,3 +1,13 @@
+/* ==========================================================================
+   PORTFOLIO — Minimal Custom CSS
+   Only CSS variables (light/dark), font faces, and background animations.
+   ALL layout/typography/components use Bootstrap 5 utility classes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FONT FACES
+   -------------------------------------------------------------------------- */
+
 @font-face {
   font-family: 'Poppins';
   src: url('/fonts/Poppins-Light.ttf') format('truetype');
@@ -45,3 +55,757 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* --------------------------------------------------------------------------
+   2. CSS VARIABLES — LIGHT THEME (default)
+   -------------------------------------------------------------------------- */
+
+:root,
+.light {
+  --color-cyan: #06b6d4;
+  --color-cyan-rgb: 6, 182, 212;
+  --color-indigo: #6366f1;
+  --color-indigo-rgb: 99, 102, 241;
+  --color-violet: #8b5cf6;
+  --color-violet-rgb: 139, 92, 246;
+  --color-rose: #f43f5e;
+  --color-rose-rgb: 244, 63, 94;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+
+  --bg-canvas: #f0f2f5;
+  --bg-card: rgba(255, 255, 255, 0.6);
+  --bg-card-hover: rgba(255, 255, 255, 0.8);
+  --bg-navbar: rgba(255, 255, 255, 0.8);
+  --bg-input: rgba(255, 255, 255, 0.7);
+  --bg-code: rgba(99, 102, 241, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.6);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+
+  --orb-cyan: rgba(6, 182, 212, 0.12);
+  --orb-indigo: rgba(99, 102, 241, 0.1);
+  --orb-violet: rgba(139, 92, 246, 0.08);
+  --orb-rose: rgba(244, 63, 94, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   3. CSS VARIABLES — DARK THEME
+   -------------------------------------------------------------------------- */
+
+.dark {
+  --color-cyan: #22d3ee;
+  --color-cyan-rgb: 34, 211, 238;
+  --color-indigo: #818cf8;
+  --color-indigo-rgb: 129, 140, 248;
+  --color-violet: #a78bfa;
+  --color-violet-rgb: 167, 139, 250;
+  --color-rose: #fb7185;
+  --color-rose-rgb: 251, 113, 133;
+  --color-success: #34d399;
+  --color-error: #f87171;
+
+  --bg-canvas: #050711;
+  --bg-card: rgba(15, 23, 42, 0.55);
+  --bg-card-hover: rgba(15, 23, 42, 0.75);
+  --bg-navbar: rgba(5, 7, 17, 0.85);
+  --bg-input: rgba(15, 23, 42, 0.6);
+  --bg-code: rgba(129, 140, 248, 0.1);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+
+  --orb-cyan: rgba(34, 211, 238, 0.07);
+  --orb-indigo: rgba(129, 140, 248, 0.06);
+  --orb-violet: rgba(167, 139, 250, 0.05);
+  --orb-rose: rgba(251, 113, 133, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   4. BODY THEME TRANSITION
+   -------------------------------------------------------------------------- */
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--bs-body-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6,
+.btn, .badge, .form-control, .form-label, .nav-link {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   5. GLASSMORPHISM (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.glass:hover {
+  background: var(--bg-card-hover);
+}
+
+.glass-elevated {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   6. GRADIENT TEXT (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, var(--color-violet), #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --------------------------------------------------------------------------
+   7. ANIMATED BACKGROUND ORBS (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: orb-float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orb-cyan    { width: 400px; height: 400px; background: var(--orb-cyan); top: 10%; left: 10%; }
+.orb-indigo  { width: 350px; height: 350px; background: var(--orb-indigo); top: 50%; right: 10%; animation-delay: -5s; }
+.orb-violet  { width: 300px; height: 300px; background: var(--orb-violet); bottom: 10%; left: 30%; animation-delay: -10s; }
+.orb-rose    { width: 250px; height: 250px; background: var(--orb-rose); top: 30%; left: 60%; animation-delay: -15s; }
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(30px, -30px) scale(1.05); }
+  50%      { transform: translate(-20px, 20px) scale(0.95); }
+  75%      { transform: translate(20px, 10px) scale(1.02); }
+}
+
+@media (max-width: 767.98px) {
+  .orb-cyan   { width: 250px; height: 250px; }
+  .orb-indigo { width: 200px; height: 200px; }
+  .orb-violet { width: 180px; height: 180px; }
+  .orb-rose   { width: 150px; height: 150px; }
+}
+
+/* --------------------------------------------------------------------------
+   8. GRID MESH OVERLAY (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.grid-mesh {
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
+
+/* --------------------------------------------------------------------------
+   9. PULSE DOT ANIMATION (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.pulse-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: pulse-dot-anim 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot-anim {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* --------------------------------------------------------------------------
+   10. SKILL BAR FILL (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   11. TIMELINE MARKERS (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.timeline-marker-dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  border: 3px solid var(--bg-canvas);
+  flex-shrink: 0;
+}
+
+.timeline-marker-line {
+  width: 2px;
+  flex: 1;
+  background: var(--border-subtle);
+  min-height: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. LOADING SPINNER (no Bootstrap equivalent)
+   -------------------------------------------------------------------------- */
+
+.loader-ring {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--color-cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --------------------------------------------------------------------------
+   13. FORM INPUT GLASS STYLE (Bootstrap override)
+   -------------------------------------------------------------------------- */
+
+.form-control-glass {
+  background: var(--bg-input);
+  border-color: var(--border-subtle);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control-glass:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 3px rgba(var(--color-cyan-rgb), 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   14. SCROLLBAR
+   -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-canvas); }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.5); }
+
+::selection {
+  background: rgba(var(--color-cyan-rgb), 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   15. REUSABLE COMPONENT CLASSES
+   Replaces repeated inline styles across all pages.
+   -------------------------------------------------------------------------- */
+
+/* Hero section */
+.hero-section { max-width: 900px; padding-top: 2rem; padding-bottom: 2rem; }
+
+/* Page section header (used on every page) */
+.section-header { max-width: 720px; }
+.section-header p { line-height: 1.7; }
+
+/* Cyan badge label (large, used in hero) */
+.badge-cyan-lg {
+  background: rgba(var(--color-cyan-rgb), 0.1);
+  color: var(--color-cyan);
+  border: 1px solid rgba(var(--color-cyan-rgb), 0.2);
+  font-size: 0.875rem;
+  white-space: normal;
+  text-align: center;
+}
+
+/* Cyan badge label (standard, used above headings) */
+.badge-cyan {
+  background: rgba(var(--color-cyan-rgb), 0.1);
+  color: var(--color-cyan);
+  border: 1px solid rgba(var(--color-cyan-rgb), 0.2);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Section spacing */
+.section-gap { margin-top: 4rem; }
+
+/* Body text */
+.body-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.body-text-sm {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Small/meta text */
+.text-xs {
+  font-size: 0.75rem;
+}
+
+/* Tech badge / chip */
+.badge-chip {
+  background: var(--bg-code);
+  color: var(--bs-body-color);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+}
+
+/* Code / info block */
+.block-code {
+  background: var(--bg-code);
+  border: 1px solid var(--border-subtle);
+}
+
+/* List item with cyan border accent */
+.list-accent {
+  border-color: var(--color-cyan);
+  font-size: 0.875rem;
+  color: var(--bs-body-color);
+  line-height: 1.6;
+}
+
+/* Skill progress track */
+.progress-track {
+  height: 3px;
+  background: var(--border-subtle);
+}
+
+/* Link color cyan */
+.link-cyan {
+  color: var(--color-cyan);
+}
+
+/* Success badge */
+.badge-success {
+  background: rgba(16, 185, 129, 0.06);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  font-size: 0.75rem;
+}
+
+/* Icon containers */
+.icon-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.icon-box-lg {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.icon-box-xl {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+/* Brand logo box (nav/footer) */
+.brand-box {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  flex-shrink: 0;
+}
+
+/* Brand logo box large (about page profile) */
+.brand-box-lg {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  flex-shrink: 0;
+}
+
+/* Navbar / theme button sizing */
+.btn-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: var(--bg-card);
+  color: var(--bs-body-color);
+  border-color: var(--border-subtle);
+}
+
+/* Navbar border */
+.navbar-border {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Drawer border */
+.drawer-border {
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Footer uppercase heading */
+.footer-heading {
+  letter-spacing: 0.05em;
+}
+
+/* Footer text truncation */
+.footer-link-truncate {
+  max-width: 180px;
+}
+
+/* Primary gradient button */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  box-shadow: 0 2px 12px rgba(var(--color-cyan-rgb), 0.3);
+}
+
+/* Gradient button (used for download CTAs) */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  font-size: 0.875rem;
+}
+
+/* Glass button with border */
+.btn-glass {
+  color: var(--bs-body-color);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Profile avatar gradient */
+.avatar-gradient {
+  background: linear-gradient(135deg, var(--color-cyan), #22d3ee);
+  font-size: 1.25rem;
+}
+
+/* Alert success */
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Alert error */
+.alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Textarea resize */
+.textarea-resize {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Border subtle utility */
+.border-subtle {
+  border-color: var(--border-subtle) !important;
+}
+
+/* Search form input */
+.form-search {
+  box-shadow: none;
+  min-width: 0;
+  background: transparent;
+  outline: none;
+}
+
+.form-search:focus {
+  box-shadow: none;
+  border-color: transparent;
+  outline: none;
+}
+
+/* Bullet dot for list items */
+.bullet-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-cyan);
+  left: 0;
+  top: 0.5em;
+}
+
+/* Icon secondary color */
+.icon-secondary {
+  color: var(--color-cyan);
+  flex-shrink: 0;
+}
+
+/* Clear button */
+.btn-clear {
+  color: var(--bs-body-secondary);
+  line-height: 1;
+}
+
+/* Search container */
+.search-container {
+  min-width: 0;
+  max-width: 320px;
+  width: 100%;
+  border: 1px solid rgba(var(--color-cyan-rgb), 0.25);
+  background: transparent;
+}
+
+/* Indigo badge */
+.badge-indigo {
+  background: rgba(var(--color-indigo-rgb), 0.08);
+  color: var(--color-indigo);
+  border: 1px solid rgba(var(--color-indigo-rgb), 0.15);
+}
+
+/* List item line height */
+.list-line-height {
+  line-height: 1.6;
+}
+
+/* Project card hover */
+.project-card {
+  transition: box-shadow 0.25s ease;
+}
+.project-card-hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Timeline content min-width */
+.timeline-content {
+  min-width: 0;
+}
+
+/* Brand text size */
+.text-brand {
+  font-size: 0.8125rem;
+}
+
+/* Brand subtitle text */
+.text-brand-sub {
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+/* Loader container min-height */
+.loader-container {
+  min-height: 200px;
+}
+
+/* Background fixed layer */
+.bg-fixed {
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Sticky header layer */
+.header-sticky {
+  z-index: 1050;
+  position: sticky;
+}
+
+/* Footer stacking */
+.footer-layer {
+  z-index: 1;
+}
+
+/* Active nav link */
+.nav-active {
+  color: var(--color-cyan);
+  background: rgba(var(--color-cyan-rgb), 0.08);
+}
+
+/* Active mobile nav link */
+.nav-active-mobile {
+  color: var(--color-cyan);
+  background: rgba(var(--color-cyan-rgb), 0.06);
+}
+
+/* Text utility: muted */
+.text-muted { color: var(--bs-body-secondary) !important; }
+
+/* Text utility: success */
+.text-success { color: var(--color-success) !important; }
+
+/* Text utility: rose */
+.text-rose { color: var(--color-rose) !important; }
+
+/* Text utility: canvas bg color */
+.text-canvas { color: var(--bg-canvas) !important; }
+
+/* Border utility: canvas bg color */
+.border-canvas { border-color: var(--bg-canvas) !important; }
+
+/* --------------------------------------------------------------------------
+   16. DESKTOP-ONLY HOVER EFFECTS
+   Only apply on screens >= 992px (desktop). No hover on tablet/mobile.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 992px) {
+
+  /* Glass cards */
+  .glass:hover {
+    background: var(--bg-card-hover);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Primary gradient button */
+  .btn-primary-gradient:hover {
+    box-shadow: 0 6px 24px rgba(var(--color-cyan-rgb), 0.4);
+  }
+
+  /* Gradient download button */
+  .btn-gradient:hover {
+    box-shadow: 0 6px 24px rgba(var(--color-cyan-rgb), 0.4);
+  }
+
+  /* Glass button */
+  .btn-glass:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+  }
+
+  /* Icon buttons (nav, theme, etc.) */
+  .btn-icon:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+  }
+
+  /* Badge chips */
+  .badge-chip:hover {
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+  }
+
+  /* Badge cyan */
+  .badge-cyan:hover {
+    background: rgba(var(--color-cyan-rgb), 0.15);
+  }
+
+  /* Badge success */
+  .badge-success:hover {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+
+  /* Cyan links */
+  .link-cyan:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  /* Nav links */
+  .nav-link:hover {
+    color: var(--color-cyan);
+    background: rgba(var(--color-cyan-rgb), 0.06);
+  }
+
+  /* Icon boxes */
+  .icon-box:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon-box-lg:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon-box-xl:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Search container */
+  .search-container:hover {
+    border-color: rgba(var(--color-cyan-rgb), 0.5);
+  }
+
+  /* Block code */
+  .block-code:hover {
+    border-color: rgba(var(--color-cyan-rgb), 0.3);
+  }
+
+  /* List accent items */
+  .list-accent:hover {
+    background: var(--bg-code);
+  }
+
+  /* Footer links */
+  footer a:hover {
+    color: var(--color-cyan) !important;
+  }
+
+  /* Project cards */
+  .project-card:hover {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Quick nav links (about page) */
+  .quick-nav-link:hover {
+    background: rgba(var(--color-cyan-rgb), 0.08);
+    color: var(--color-cyan);
+  }
+
+  /* Social links (contact page) */
+  .social-link:hover {
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+  }
+
+  /* Timeline cards */
+  .glass-elevated:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Filter buttons (skills/projects) */
+  .btn-filter:hover {
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+  }
+
+  /* Education timeline dot */
+  .timeline-dot:hover {
+    transform: scale(1.3);
+  }
+
+  /* Alert boxes */
+  .alert-success:hover {
+    background: rgba(16, 185, 129, 0.15);
+  }
+
+  .alert-error:hover {
+    background: rgba(239, 68, 68, 0.15);
+  }
+
+}
+
+/* -------------------------------------------------------------------------- */

@@ -50,6 +50,8 @@ export default defineNuxtConfig({
     }
   },
 
+  css: ['bootstrap/dist/css/bootstrap.min.css', '~/assets/css/main.css'],
+
   app: {
     head: {
       title: 'Chirag Gajjar | Software Engineer',
@@ -63,7 +65,7 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, Rust, AWS, and Cloud Architecture.'
         },
-        { name: 'theme-color', content: '#050711' },
+        { name: 'theme-color', content: '#f0f2f5' },
         { property: 'og:title', content: 'Chirag Gajjar | Software Engineer' },
         {
           property: 'og:description',
@@ -73,6 +75,11 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }
+      ],
+      script: [
+        {
+          innerHTML: `(function(){try{var t=document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);var v=t?decodeURIComponent(t[1]):'light';document.documentElement.className=v==='dark'?'dark':'light';}catch(e){document.documentElement.className='light';}})();`
+        }
       ]
     }
   },

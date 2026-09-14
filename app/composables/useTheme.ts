@@ -17,11 +17,11 @@ export function useTheme() {
       lang: 'en',
       class: htmlClass
     },
-    meta: [
+      meta: [
       {
         key: 'theme-color',
         name: 'theme-color',
-        content: computed(() => (isDark.value ? '' : ''))
+        content: computed(() => (isDark.value ? '#050711' : '#f0f2f5'))
       }
     ]
   })
