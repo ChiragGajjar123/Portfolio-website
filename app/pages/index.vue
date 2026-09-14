@@ -130,23 +130,17 @@
       <!-- Resume CTA -->
       <section class="mb-5 section-gap">
         <div class="glass-elevated rounded-4 p-4 p-md-5">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-md-8">
-              <span class="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">Official Curriculum Vitae</span>
-              <h2 class="fs-3 fw-bold mb-2">Ready to Review the Full Resume?</h2>
-              <p class="text-body-secondary body-text-sm">Contains complete documentation of 7+ years of commercial development at 1center (Salesmate CRM), Lucent Innovation, Infibeam, academic background from Ganpat University, and benchmarks.</p>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="d-flex flex-wrap gap-3">
-                <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-gradient">
-                  <svg class="me-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Resume
-                </a>
-                <a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">
-                  Preview PDF Online
-                </a>
-              </div>
-            </div>
+          <span class="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">Official Curriculum Vitae</span>
+          <h2 class="fs-3 fw-bold mb-2">Ready to Review the Full Resume?</h2>
+          <p class="text-body-secondary body-text-sm mb-4">Contains complete documentation of 7+ years of commercial development at 1center (Salesmate CRM), Lucent Innovation, Infibeam, academic background from Ganpat University, and benchmarks.</p>
+          <div class="d-flex flex-column flex-sm-row flex-wrap gap-2">
+            <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-gradient">
+              <svg class="me-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume
+            </a>
+            <a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">
+              Preview
+            </a>
           </div>
         </div>
       </section>
