@@ -18,7 +18,7 @@
           <li v-for="link in navLinks" :key="link.path">
             <NuxtLink
               :to="link.path"
-              class="nav-link px-2 py-1 rounded-3 text-body-secondary text-decoration-none"
+              class="nav-link px-2 py-1 rounded-3 cg-link text-decoration-none"
               :class="isActive(link.path) ? 'nav-active' : ''"
             >
               {{ link.label }}
@@ -57,7 +57,7 @@
           <li v-for="link in navLinks" :key="link.path">
             <NuxtLink
               :to="link.path"
-              class="d-block px-3 py-2 rounded-3 text-body-secondary text-decoration-none"
+              class="d-block px-3 py-2 rounded-3 cg-link text-decoration-none"
               :class="isActive(link.path) ? 'nav-active-mobile' : ''"
               @click="isMobileOpen = false"
             >

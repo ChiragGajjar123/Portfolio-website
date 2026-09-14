@@ -51,20 +51,14 @@
 
       <!-- CTA -->
       <div class="glass rounded-4 p-4 p-md-5 mt-5">
-        <div class="row align-items-center g-4">
-          <div class="col-12 col-md-8">
-            <h3 class="fs-5 fw-semibold mb-2">Download Complete Chronological Resume</h3>
-            <p class="text-body-secondary body-text">All dates, milestones, technical stacks, and references are detailed in the official PDF document.</p>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="d-flex flex-wrap gap-3">
-              <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-gradient">
-                <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Resume
-              </a>
-              <NuxtLink to="/contact" class="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">Contact Chirag</NuxtLink>
-            </div>
-          </div>
+        <h3 class="fs-5 fw-semibold mb-2">Download Complete Chronological Resume</h3>
+        <p class="text-body-secondary body-text mb-4">All dates, milestones, technical stacks, and references are detailed in the official PDF document.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-gradient">
+            <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Resume
+          </a>
+          <NuxtLink to="/contact" class="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">Contact Chirag</NuxtLink>
         </div>
       </div>
     </div>

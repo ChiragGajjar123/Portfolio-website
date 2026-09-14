@@ -88,7 +88,7 @@
               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-3 border-top border-subtle">
                 <a :href="proj.liveUrl" target="_blank" rel="noopener noreferrer" class="fw-semibold small text-decoration-none link-cyan">Live App &rarr;</a>
                 <div class="d-flex gap-3">
-                  <a v-for="repo in proj.repos" :key="repo.url" :href="repo.url" target="_blank" rel="noopener noreferrer" class="small text-body-secondary text-decoration-none">{{ repo.label }}</a>
+                  <a v-for="repo in proj.repos" :key="repo.url" :href="repo.url" target="_blank" rel="noopener noreferrer" class="small cg-link text-decoration-none">{{ repo.label }}</a>
                 </div>
               </div>
             </div>

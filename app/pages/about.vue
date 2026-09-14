@@ -123,10 +123,10 @@
           <div class="glass rounded-4 p-4">
             <h4 class="fs-6 fw-semibold mb-3">Explore More</h4>
             <div class="d-flex flex-column gap-2">
-              <NuxtLink to="/skills" class="d-flex justify-content-between align-items-center p-2 rounded-3 text-body-secondary text-decoration-none small block-code quick-nav-link">View Technical Skills Matrix <span>&rarr;</span></NuxtLink>
-              <NuxtLink to="/experience" class="d-flex justify-content-between align-items-center p-2 rounded-3 text-body-secondary text-decoration-none small block-code quick-nav-link">View Work Experience Timeline <span>&rarr;</span></NuxtLink>
-              <NuxtLink to="/projects" class="d-flex justify-content-between align-items-center p-2 rounded-3 text-body-secondary text-decoration-none small block-code quick-nav-link">View Projects <span>&rarr;</span></NuxtLink>
-              <NuxtLink to="/contact" class="d-flex justify-content-between align-items-center p-2 rounded-3 text-body-secondary text-decoration-none small block-code quick-nav-link">Send a Message <span>&rarr;</span></NuxtLink>
+              <NuxtLink to="/skills" class="d-flex justify-content-between align-items-center p-2 rounded-3 cg-link text-decoration-none small block-code quick-nav-link">View Technical Skills Matrix <span>&rarr;</span></NuxtLink>
+              <NuxtLink to="/experience" class="d-flex justify-content-between align-items-center p-2 rounded-3 cg-link text-decoration-none small block-code quick-nav-link">View Work Experience Timeline <span>&rarr;</span></NuxtLink>
+              <NuxtLink to="/projects" class="d-flex justify-content-between align-items-center p-2 rounded-3 cg-link text-decoration-none small block-code quick-nav-link">View Projects <span>&rarr;</span></NuxtLink>
+              <NuxtLink to="/contact" class="d-flex justify-content-between align-items-center p-2 rounded-3 cg-link text-decoration-none small block-code quick-nav-link">Send a Message <span>&rarr;</span></NuxtLink>
             </div>
           </div>
         </div>
