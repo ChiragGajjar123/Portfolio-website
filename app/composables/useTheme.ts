@@ -21,7 +21,7 @@ export function useTheme() {
       {
         key: 'theme-color',
         name: 'theme-color',
-        content: computed(() => (isDark.value ? '#0a0e27' : '#f8f9fa'))
+        content: computed(() => (isDark.value ? '' : ''))
       }
     ]
   })
