@@ -72,7 +72,58 @@
 </template>
 
 <script setup>
-useHead({ title: 'Professional Experience & Career Timeline | Chirag Gajjar' })
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+
+useSeoMeta({
+  title: 'Professional Experience & Career Timeline | Chirag Gajjar',
+  ogTitle: 'Experience — Chirag Gajjar | Software Engineer',
+  description: 'Professional career timeline of Chirag Gajjar: 7+ years as Software Engineer at 1center (Salesmate CRM), Lucent Innovation, and Infibeam Avenues. Angular, React, Shopify, BigCommerce.',
+  ogDescription: '7+ years career at 1center, Lucent Innovation, Infibeam. Angular, React, Shopify, e-commerce, enterprise SaaS.',
+  ogUrl: `${siteUrl}/experience`,
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: `${siteUrl}/experience` }]
+})
+
+useJsonld({
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'Experience — Chirag Gajjar',
+  url: `${siteUrl}/experience`,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Chirag Gajjar',
+    jobTitle: 'Software Engineer',
+    hasOccupation: [
+      {
+        '@type': 'Occupation',
+        name: 'UI Developer',
+        occupationalCategory: 'Software Engineer',
+        employer: { '@type': 'Organization', name: '1center (Salesmate CRM)' },
+        startDate: '2021-04-21',
+        endDate: '2025-08-29'
+      },
+      {
+        '@type': 'Occupation',
+        name: 'Front End Developer',
+        occupationalCategory: 'Software Engineer',
+        employer: { '@type': 'Organization', name: 'Lucent Innovation' },
+        startDate: '2020-07-06',
+        endDate: '2021-04-20'
+      },
+      {
+        '@type': 'Occupation',
+        name: 'Web Designer',
+        occupationalCategory: 'UI/UX Designer',
+        employer: { '@type': 'Organization', name: 'Infibeam Avenues' },
+        startDate: '2018-02-05',
+        endDate: '2020-07-03'
+      }
+    ]
+  }
+})
 
 const roles = [
   {

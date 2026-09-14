@@ -84,19 +84,23 @@
 
           <!-- Resume Box -->
           <div class="glass rounded-4 p-4">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <div class="icon-box fw-bold" :style="{background:'rgba(var(--color-rose-rgb),0.1)',color:'var(--color-rose)',fontSize:'0.7rem'}">PDF</div>
-              <div>
-                <h4 class="fs-6 fw-semibold mb-0 text-break">Chirag_Software_Engineer.pdf</h4>
-                <p class="text-body-secondary mb-0 text-xs">153 KB &bull; Complete Resume</p>
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" :style="{width:'2.75rem',height:'2.75rem',background:'rgba(var(--color-rose-rgb),0.1)',color:'var(--color-rose)'}">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="d-grid min-w-0">
+                <h4 class="fs-6 fw-semibold mb-0 text-truncate">Chirag_Software_Engineer.pdf</h4>
+                <p class="text-body-secondary mb-0 text-xs">Official Curriculum Vitae &bull; 4-Page PDF</p>
               </div>
             </div>
-            <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2 gap-sm-3">
-              <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold text-white rounded-3 btn-gradient">
+            <div class="d-flex gap-2">
+              <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn flex-grow-1 fw-semibold text-white rounded-3 btn-gradient">
                 <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Resume
               </a>
-              <a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="small fw-medium text-decoration-none link-cyan">Preview in browser &rarr;</a>
+              <a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn flex-grow-1 fw-semibold rounded-3 glass btn-glass">
+                Preview
+              </a>
             </div>
           </div>
         </div>
@@ -163,7 +167,40 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-useHead({ title: 'Contact Chirag Gajjar | Software Engineer' })
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+
+useSeoMeta({
+  title: 'Contact Chirag Gajjar | Software Engineer',
+  ogTitle: 'Contact — Chirag Gajjar | Software Engineer',
+  description: 'Get in touch with Chirag Gajjar, a Software Engineer with 7+ years of experience in Angular, React, Go, Rust, and AWS. Available for software engineering opportunities.',
+  ogDescription: 'Contact Chirag Gajjar for software engineering roles. Available for Angular, React, Node.js, Go, Rust positions.',
+  ogUrl: `${siteUrl}/contact`,
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: `${siteUrl}/contact` }]
+})
+
+useJsonld({
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact — Chirag Gajjar',
+  url: `${siteUrl}/contact`,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Chirag Gajjar',
+    jobTitle: 'Software Engineer',
+    email: 'chiraggajjar421@gmail.com',
+    telephone: '+918401091573',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Gandhinagar',
+      addressRegion: 'Gujarat',
+      addressCountry: 'IN'
+    }
+  }
+})
 
 const email = 'chiraggajjar421@gmail.com'
 const phone = '8401091573'

@@ -78,7 +78,37 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-useHead({ title: 'Technical Skills Matrix | Chirag Gajjar (7+ Years Software Engineer)' })
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+
+useSeoMeta({
+  title: 'Technical Skills Matrix | Chirag Gajjar (7+ Years Software Engineer)',
+  ogTitle: 'Skills — Chirag Gajjar | Software Engineer',
+  description: 'Complete skills matrix of Chirag Gajjar: Angular, React, Vue, Next.js, Nuxt, TypeScript, Node.js, Express, Go, Rust, AWS, Docker, PostgreSQL, MongoDB, Redis, and AI tooling.',
+  ogDescription: 'Full-stack engineering skills: Angular, React, Go, Rust, Node.js, AWS, databases, and AI acceleration.',
+  ogUrl: `${siteUrl}/skills`,
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: `${siteUrl}/skills` }]
+})
+
+useJsonld({
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'Skills — Chirag Gajjar',
+  url: `${siteUrl}/skills`,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Chirag Gajjar',
+    jobTitle: 'Software Engineer',
+    knowsAbout: [
+      'Angular', 'React', 'Vue', 'Next.js', 'Nuxt', 'TypeScript', 'JavaScript',
+      'Node.js', 'Express', 'Go', 'Rust', 'AWS', 'Docker', 'PostgreSQL',
+      'MongoDB', 'Redis', 'Shopify', 'BigCommerce', 'Cursor IDE', 'Augment AI'
+    ]
+  }
+})
 
 const selectedCategory = ref('all')
 

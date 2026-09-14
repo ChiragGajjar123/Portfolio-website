@@ -61,19 +61,21 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          name: 'description',
-          content: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, Rust, AWS, and Cloud Architecture.'
-        },
+        { name: 'description', content: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, Rust, AWS, and Cloud Architecture.' },
+        { name: 'author', content: 'Chirag Gajjar' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'Chirag Gajjar — Software Engineer' },
         { property: 'og:title', content: 'Chirag Gajjar | Software Engineer' },
-        {
-          property: 'og:description',
-          content: 'Explore the portfolio of Chirag Gajjar: 7+ years delivering scalable web platforms, high-concurrency Rust/Go microservices, and modern Liquid Glass interfaces.'
-        },
-        { property: 'og:type', content: 'website' }
+        { property: 'og:description', content: 'Portfolio of Chirag Gajjar: 7+ years delivering scalable web platforms, high-concurrency Rust/Go microservices, and modern interfaces.' },
+        { property: 'og:url', content: 'https://chirag-gajjar-software-engineer.vercel.app' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Chirag Gajjar | Software Engineer' },
+        { name: 'twitter:description', content: 'Portfolio of Chirag Gajjar: 7+ years delivering scalable web platforms, high-concurrency Rust/Go microservices.' }
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'canonical', href: 'https://chirag-gajjar-software-engineer.vercel.app' }
       ],
       script: [
         {

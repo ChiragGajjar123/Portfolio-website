@@ -70,7 +70,51 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-useHead({ title: 'Production Projects Portfolio | Chirag Gajjar' })
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+
+useSeoMeta({
+  title: 'Production Projects Portfolio | Chirag Gajjar',
+  ogTitle: 'Projects — Chirag Gajjar | Software Engineer',
+  description: 'Production projects by Chirag Gajjar: CM Notes (Rust & Angular), CM Notes (Go & Next.js), CM Expense Tracker (React & Express), Salesmate CRM, Cook & Boardman, Subliblanks.',
+  ogDescription: 'Production-grade projects: Rust/Angular notes app, Go microservice with 512K concurrency, React expense tracker, enterprise CRM.',
+  ogUrl: `${siteUrl}/projects`,
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: `${siteUrl}/projects` }]
+})
+
+useJsonld({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Projects — Chirag Gajjar',
+  url: `${siteUrl}/projects`,
+  description: 'Production projects and engineering portfolio of Chirag Gajjar.',
+  hasPart: [
+    {
+      '@type': 'SoftwareSourceCode',
+      name: 'CM Notes — Rust & Angular 22',
+      codeRepository: 'https://github.com/ChiragGajjar123/Rust-Backend-Notes-App',
+      programmingLanguage: ['Rust', 'TypeScript'],
+      runtimePlatform: ['AWS Lambda', 'Amplify']
+    },
+    {
+      '@type': 'SoftwareSourceCode',
+      name: 'CM Notes — Go & Next.js',
+      codeRepository: 'https://github.com/ChiragGajjar123/Notes-App-Go-Backend',
+      programmingLanguage: ['Go', 'TypeScript'],
+      runtimePlatform: ['Vercel']
+    },
+    {
+      '@type': 'SoftwareSourceCode',
+      name: 'CM Expense Tracker — React & Express',
+      codeRepository: 'https://github.com/ChiragGajjar123/Expense-Tracker-Node-Express-Backend',
+      programmingLanguage: ['TypeScript', 'JavaScript'],
+      runtimePlatform: ['Vercel']
+    }
+  ]
+})
 
 const selectedCategory = ref('all')
 const searchQuery = ref('')

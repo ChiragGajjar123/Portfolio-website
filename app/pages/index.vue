@@ -155,7 +155,39 @@
 </template>
 
 <script setup>
-useHead({ title: 'Chirag Gajjar | Software Engineer' })
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+
+useSeoMeta({
+  title: 'Chirag Gajjar | Software Engineer — Angular, React, Go, Rust',
+  ogTitle: 'Chirag Gajjar | Software Engineer',
+  description: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, Rust, AWS, and Cloud Architecture.',
+  ogDescription: '7+ years delivering scalable web platforms, high-concurrency Rust/Go microservices, and modern interfaces.',
+  ogUrl: siteUrl,
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: siteUrl }]
+})
+
+useJsonld({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Chirag Gajjar',
+  jobTitle: 'Software Engineer',
+  url: siteUrl,
+  sameAs: [
+    'https://www.linkedin.com/in/chirag-gajjar-0ba075101',
+    'https://github.com/ChiragGajjar123'
+  ],
+  knowsAbout: ['Angular', 'React', 'Vue', 'Next.js', 'Nuxt', 'Node.js', 'Go', 'Rust', 'AWS', 'Cloud Architecture'],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Gandhinagar',
+    addressRegion: 'Gujarat',
+    addressCountry: 'IN'
+  }
+})
 
 const metrics = [
   { value: '7+', label: 'Years of Commercial Experience', sub: 'Enterprise & SaaS Products', gradient: 'text-gradient-cyan' },

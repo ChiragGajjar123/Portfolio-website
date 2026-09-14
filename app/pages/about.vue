@@ -71,19 +71,25 @@
         <!-- Sidebar -->
         <div class="col-12 col-lg-4">
           <!-- Resume Widget -->
-          <div class="glass rounded-4 p-4 mb-4 text-center">
-            <div class="icon-box-xl mx-auto mb-3" :style="{ background: 'rgba(var(--color-cyan-rgb),0.1)', color: 'var(--color-cyan)' }">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <div class="glass rounded-4 p-4 mb-4">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" :style="{width:'2.75rem',height:'2.75rem',background:'rgba(var(--color-cyan-rgb),0.1)',color:'var(--color-cyan)'}">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="d-grid min-w-0">
+                <h4 class="fs-6 fw-semibold mb-0 text-truncate">Chirag_Software_Engineer.pdf</h4>
+                <p class="text-body-secondary mb-0 text-xs">Official Curriculum Vitae &bull; 4-Page PDF</p>
+              </div>
             </div>
-            <h4 class="fs-6 fw-semibold mb-1 text-break">Chirag_Software_Engineer.pdf</h4>
-            <p class="text-body-secondary mb-3 text-xs">Official Curriculum Vitae &bull; Verified 4-Page PDF</p>
-            <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn w-100 fw-semibold text-white rounded-3 mb-2 btn-gradient">
-              <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Resume
-            </a>
-            <a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn w-100 fw-semibold rounded-3 glass btn-glass">
-              Open in Browser
-            </a>
+            <div class="d-flex gap-2">
+              <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn flex-grow-1 fw-semibold text-white rounded-3 btn-gradient">
+                <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Resume
+              </a>
+              <a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn flex-grow-1 fw-semibold rounded-3 glass btn-glass">
+                Preview
+              </a>
+            </div>
           </div>
 
           <!-- Additional Info -->
@@ -130,7 +136,42 @@
 </template>
 
 <script setup>
-useHead({ title: 'About Chirag Gajjar | Software Engineer (7+ Years)' })
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+
+useSeoMeta({
+  title: 'About Chirag Gajjar | Software Engineer (7+ Years)',
+  ogTitle: 'About Chirag Gajjar — Software Engineer',
+  description: 'Learn about Chirag Gajjar: 7+ years of commercial software engineering with Angular, React, CSS, Node.js, Go, and Rust. Education at Ganpat University, career at 1center, Lucent Innovation, Infibeam.',
+  ogDescription: '7+ years of software engineering experience across enterprise SaaS, e-commerce, and high-concurrency systems.',
+  ogUrl: `${siteUrl}/about`,
+  robots: 'index, follow'
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: `${siteUrl}/about` }]
+})
+
+useJsonld({
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Chirag Gajjar',
+  url: `${siteUrl}/about`,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Chirag Gajjar',
+    jobTitle: 'Software Engineer',
+    description: 'Software Engineer with 7+ years of experience delivering enterprise-grade web applications.',
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Ganpat University'
+    },
+    worksFor: [
+      { '@type': 'Organization', name: '1center (Salesmate CRM)' },
+      { '@type': 'Organization', name: 'Lucent Innovation' },
+      { '@type': 'Organization', name: 'Infibeam Avenues' }
+    ]
+  }
+})
 
 const education = [
   { year: '2014 – 2018', degree: 'Bachelor of Technology (B.Tech) in Information Technology', inst: 'U.V. Patel College of Engineering, Ganpat University', score: '6.47 CGPA' },
