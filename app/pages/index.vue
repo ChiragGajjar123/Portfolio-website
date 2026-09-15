@@ -24,7 +24,7 @@
 
         <!-- CTA Buttons -->
         <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
-          <NuxtLink to="/projects" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-primary-gradient">
+          <NuxtLink to="/projects" class="btn fw-semibold px-4 py-2 rounded-3 btn-primary-gradient">
             Explore Projects
             <svg class="ms-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </NuxtLink>
@@ -61,12 +61,12 @@
           <div v-for="proj in featuredProjects" :key="proj.title" class="col-12 col-lg-6">
             <div class="glass rounded-4 p-4 h-100 position-relative overflow-hidden project-card" @mouseenter="$event.currentTarget.classList.add('project-card-hover')" @mouseleave="$event.currentTarget.classList.remove('project-card-hover')">
               <!-- Glow Orb -->
-              <div class="position-absolute rounded-circle" :style="{width:'200px',height:'200px',filter:'blur(80px)',opacity:'0.15',top:'-50px',right:'-50px',background:proj.orbColor,pointerEvents:'none'}"></div>
+              <div class="position-absolute rounded-circle" :style="{width:'200px',height:'200px',filter:'blur(80px)',opacity:'0.14',top:'-50px',right:'-50px',background:proj.orbColor,pointerEvents:'none'}"></div>
 
               <!-- Header -->
               <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
                 <div class="d-flex flex-wrap gap-2">
-                  <span v-for="badge in proj.badges" :key="badge.text" class="badge rounded-pill fw-medium" :style="{ background: `rgba(${badge.rgb},0.08)`, color: `rgb(${badge.rgb})`, border: `1px solid rgba(${badge.rgb},0.15)`, fontSize: '0.75rem' }">
+                  <span v-for="badge in proj.badges" :key="badge.text" class="badge rounded-pill fw-medium" :style="{ background: `rgba(${badge.rgb},0.1)`, color: `rgb(${badge.rgb})`, border: `1px solid rgba(${badge.rgb},0.25)`, fontSize: '0.75rem' }">
                     {{ badge.text }}
                   </span>
                 </div>
@@ -114,7 +114,7 @@
         <div class="row g-4">
           <div v-for="d in domains" :key="d.title" class="col-12 col-sm-6 col-lg-4">
             <div class="glass rounded-4 p-4 h-100">
-              <div class="icon-box-lg mb-3" :style="{background:`rgba(${d.rgb},0.1)`,color:`rgb(${d.rgb})`,border:`1px solid rgba(${d.rgb},0.15)`}">
+              <div class="icon-box-lg mb-3" :style="{background:`rgba(${d.rgb},0.12)`,color:`rgb(${d.rgb})`,border:`1px solid rgba(${d.rgb},0.25)`}">
                 <span v-html="d.icon"></span>
               </div>
               <h3 class="fs-5 fw-semibold mb-2">{{ d.title }}</h3>
@@ -134,7 +134,7 @@
           <h2 class="fs-3 fw-bold mb-2">Ready to Review the Full Resume?</h2>
           <p class="text-body-secondary body-text-sm mb-4">Contains complete documentation of 7+ years of commercial development at 1center (Salesmate CRM), Lucent Innovation, Infibeam, academic background from Ganpat University, and benchmarks.</p>
           <div class="d-flex flex-column flex-sm-row flex-wrap gap-2">
-            <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-gradient">
+            <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 rounded-3 btn-gradient">
               <svg class="me-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Resume
             </a>
@@ -184,10 +184,10 @@ useJsonld({
 })
 
 const metrics = [
-  { value: '7+', label: 'Years of Commercial Experience', sub: 'Enterprise & SaaS Products', gradient: 'text-gradient-cyan' },
-  { value: 'Node', label: 'Express 5 API', sub: 'Cluster Mode Process Scaling', gradient: 'text-gradient-violet' },
-  { value: '512K', label: 'Concurrent Connections', sub: 'Go / fasthttp Microservice', gradient: 'text-gradient-cyan' },
-  { value: '< 1ms', label: 'Sub-millisecond Latency', sub: 'Rust Axum & Zero-Cost Tokio', gradient: 'text-gradient-violet' }
+  { value: '7+', label: 'Years of Commercial Experience', sub: 'Enterprise & SaaS Products', gradient: 'cg-text-gradient-blue' },
+  { value: 'Node', label: 'Express 5 API', sub: 'Cluster Mode Process Scaling', gradient: 'cg-text-gradient-green' },
+  { value: '512K', label: 'Concurrent Connections', sub: 'Go / fasthttp Microservice', gradient: 'cg-text-gradient-blue' },
+  { value: '< 1ms', label: 'Sub-millisecond Latency', sub: 'Rust Axum & Zero-Cost Tokio', gradient: 'cg-text-gradient-yellow' }
 ]
 
 const featuredProjects = [
@@ -195,59 +195,59 @@ const featuredProjects = [
     title: 'CM Notes — Notes Application',
     stack: 'Rust (Axum 0.7 & Tokio) • Angular 22 SPA • AWS SES • PostgreSQL SQLx',
     desc: 'Engineered a high-performance notes platform with Angular Signals state management, custom Glassmorphism UI, 4-step Forgot Password with 60s cooldown timer, and sub-millisecond Rust RESTful API backed by AWS RDS PostgreSQL and AWS SAM Lambda deployment.',
-    badges: [{ text: 'Rust + Angular 22', rgb: '6,182,212' }, { text: 'AWS SAM Serverless', rgb: '99,102,241' }],
+    badges: [{ text: 'Rust + Angular 22', rgb: 'var(--cg-google-blue-rgb)' }, { text: 'AWS SAM Serverless', rgb: 'var(--cg-google-red-rgb)' }],
     techs: ['Angular 22', 'Rust Axum', 'Tokio', 'AWS SES', 'PostgreSQL', 'AWS Amplify'],
     liveUrl: 'https://main.d3jqv6bft0m3qf.amplifyapp.com',
     repos: [
       { label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Angular-Frontend-for-rust-backend-Notes-App' },
       { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Rust-Backend-Notes-App' }
     ],
-    orbColor: 'var(--color-cyan)'
+    orbColor: 'var(--cg-google-blue)'
   },
   {
     title: 'CM Notes — High-Concurrency Microservice',
     stack: 'Next.js 16 (App Router) • Go 1.26 fasthttp • MongoDB Atlas • Resend API',
     desc: 'Tuned to process 512K concurrent connections with sub-millisecond response times. Built with custom 64-shard in-memory rate limiter using FNV-1a hashing & atomic counters to eliminate lock contention, Tiptap Rich-Text Editor, and Resend transactional email.',
-    badges: [{ text: 'Go 1.26 fasthttp', rgb: '6,182,212' }, { text: '512K Concurrency', rgb: '244,63,94' }],
+    badges: [{ text: 'Go 1.26 fasthttp', rgb: 'var(--cg-google-blue-rgb)' }, { text: '512K Concurrency', rgb: 'var(--cg-google-green-rgb)' }],
     techs: ['Next.js 16', 'React 19', 'Go fasthttp', '64-Shard Limiter', 'Resend API', 'MongoDB Atlas'],
     liveUrl: 'https://notes-next-js-mongo-db.vercel.app',
     repos: [
       { label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Notes---Next.js-MongoDB' },
       { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Notes-App-Go-Backend' }
     ],
-    orbColor: 'var(--color-indigo)'
+    orbColor: 'var(--cg-google-green)'
   },
   {
     title: 'CM Expense Tracker — Financial Analytics',
     stack: 'React 19 • TypeScript • Vite 8 • Zustand • Recharts • Node Express 5 Cluster',
     desc: 'Real-time budget tracking with category analytics. RESTful API scaled with Node.js Cluster mode multi-core process scaling, Pino structured logging, Helmet security, HTTP-only cookie JWTs, Redis rate limiting, and Resend email alerts.',
-    badges: [{ text: 'React 19 + Express 5', rgb: '99,102,241' }, { text: 'Redis Caching', rgb: '6,182,212' }],
+    badges: [{ text: 'React 19 + Express 5', rgb: 'var(--cg-google-yellow-rgb)' }, { text: 'Redis Caching', rgb: 'var(--cg-google-blue-rgb)' }],
     techs: ['React 19', 'Vite 8', 'Zustand', 'Express 5 Cluster', 'Redis', 'Recharts'],
     liveUrl: 'https://expense-tracker-app-react-node-expr.vercel.app',
     repos: [
       { label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Expense-Tracker-App---React---Node---Express---mongoDB' },
       { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Expense-Tracker-Node-Express-Backend' }
     ],
-    orbColor: 'var(--color-cyan)'
+    orbColor: 'var(--cg-google-yellow)'
   },
   {
     title: 'Salesmate CRM Product',
     stack: 'Angular • JavaScript • SCSS • Enterprise Sales Automation',
     desc: 'SaaS product used by businesses worldwide for sales automation and customer lifecycle management. Built responsive UI modules, complex dashboards, reporting features, lazy loading, and fine-tuned change detection strategies.',
-    badges: [{ text: 'Enterprise SaaS', rgb: '6,182,212' }, { text: 'Angular Core', rgb: '99,102,241' }],
+    badges: [{ text: 'Enterprise SaaS', rgb: 'var(--cg-google-blue-rgb)' }, { text: 'Angular Core', rgb: 'var(--cg-google-red-rgb)' }],
     techs: ['Angular', 'Sales Automation', 'Lazy Loading', 'UI/UX Reviews', 'Dashboards'],
     liveUrl: 'https://www.salesmate.io',
     repos: [],
-    orbColor: 'var(--color-indigo)'
+    orbColor: 'var(--cg-google-red)'
   }
 ]
 
 const domains = [
-  { title: 'Frontend & Frameworks', desc: 'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue, Next.js, Nuxt.', pills: ['Angular', 'React', 'Vue / Nuxt', 'Next.js', 'TypeScript', 'SCSS'], rgb: '6,182,212', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>' },
-  { title: 'Backend & Protocols', desc: 'Node.js, Express, Docker, Go (Golang 1.26, fasthttp), Rust (Axum, Tokio), WebSockets, REST APIs, multi-core cluster scaling.', pills: ['Rust (Axum)', 'Go (fasthttp)', 'Node Express', 'WebSockets', 'REST APIs', 'Docker'], rgb: '99,102,241', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>' },
-  { title: 'Cloud & DevOps', desc: 'AWS (EC2, RDS, Lambda, SES, API Gateway, CloudFormation SAM, Amplify), GitHub Actions (CI/CD), Vercel, Netlify, Render.', pills: ['AWS SAM', 'AWS Lambda', 'AWS SES', 'GitHub Actions', 'Vercel', 'Render'], rgb: '244,63,94', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>' },
-  { title: 'Databases & Caching', desc: 'MongoDB Atlas, PostgreSQL (SQLx), Redis (caching & distributed rate limiting), Supabase, Neon Postgres.', pills: ['PostgreSQL', 'MongoDB Atlas', 'Redis Caching', 'SQLx', 'Supabase', 'Neon'], rgb: '6,182,212', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>' },
-  { title: 'AI Tooling Acceleration', desc: 'Integrated modern AI tools (Cursor, Augment, ChatGPT, CLI & APIs) across daily engineering workflows to boost velocity.', pills: ['Cursor IDE', 'Augment AI', 'ChatGPT', 'Rapid Refactoring', 'Test Generation'], rgb: '99,102,241', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
-  { title: 'E-Commerce Platforms', desc: 'Shopify custom theme development with Liquid, HTML5, SCSS, JS, SEO optimization, BigCommerce enterprise storefronts.', pills: ['Shopify Liquid', 'BigCommerce', 'Conversion SEO', 'Theme Dev'], rgb: '244,63,94', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' }
+  { title: 'Frontend & Frameworks', desc: 'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue, Next.js, Nuxt.', pills: ['Angular', 'React', 'Vue / Nuxt', 'Next.js', 'TypeScript', 'SCSS'], rgb: 'var(--cg-google-blue-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>' },
+  { title: 'Backend & Protocols', desc: 'Node.js, Express, Docker, Go (Golang 1.26, fasthttp), Rust (Axum, Tokio), WebSockets, REST APIs, multi-core cluster scaling.', pills: ['Rust (Axum)', 'Go (fasthttp)', 'Node Express', 'WebSockets', 'REST APIs', 'Docker'], rgb: 'var(--cg-google-green-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>' },
+  { title: 'Cloud & DevOps', desc: 'AWS (EC2, RDS, Lambda, SES, API Gateway, CloudFormation SAM, Amplify), GitHub Actions (CI/CD), Vercel, Netlify, Render.', pills: ['AWS SAM', 'AWS Lambda', 'AWS SES', 'GitHub Actions', 'Vercel', 'Render'], rgb: 'var(--cg-google-red-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>' },
+  { title: 'Databases & Caching', desc: 'MongoDB Atlas, PostgreSQL (SQLx), Redis (caching & distributed rate limiting), Supabase, Neon Postgres.', pills: ['PostgreSQL', 'MongoDB Atlas', 'Redis Caching', 'SQLx', 'Supabase', 'Neon'], rgb: 'var(--cg-google-yellow-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>' },
+  { title: 'AI Tooling Acceleration', desc: 'Integrated modern AI tools (Cursor, Augment, ChatGPT, CLI & APIs) across daily engineering workflows to boost velocity.', pills: ['Cursor IDE', 'Augment AI', 'ChatGPT', 'Rapid Refactoring', 'Test Generation'], rgb: 'var(--cg-google-blue-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+  { title: 'E-Commerce Platforms', desc: 'Shopify custom theme development with Liquid, HTML5, SCSS, JS, SEO optimization, BigCommerce enterprise storefronts.', pills: ['Shopify Liquid', 'BigCommerce', 'Conversion SEO', 'Theme Dev'], rgb: 'var(--cg-google-red-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' }
 ]
 </script>

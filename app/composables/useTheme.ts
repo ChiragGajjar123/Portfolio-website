@@ -15,7 +15,8 @@ export function useTheme() {
   useHead({
     htmlAttrs: {
       lang: 'en',
-      class: htmlClass
+      class: htmlClass,
+      'data-bs-theme': htmlClass
     }
   })
 

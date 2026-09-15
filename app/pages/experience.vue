@@ -13,7 +13,7 @@
         <div v-for="(role, idx) in roles" :key="role.company" class="d-flex gap-3 gap-sm-4 mb-4">
           <!-- Marker -->
           <div class="d-none d-sm-flex flex-column align-items-center pt-4 flex-shrink-0">
-            <div class="timeline-marker-dot" :style="{background:`var(--color-${role.color})`}"></div>
+            <div class="timeline-marker-dot" :style="{background: role.colorVar}"></div>
             <div v-if="idx < roles.length - 1" class="timeline-marker-line mt-2"></div>
           </div>
 
@@ -22,7 +22,7 @@
             <div class="glass rounded-4 p-4">
               <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-3">
                 <div>
-                  <span class="badge rounded-pill fw-medium mb-2" :style="{background:`rgba(${role.badgeRgb},0.08)`,color:`rgb(${role.badgeRgb})`,border:`1px solid rgba(${role.badgeRgb},0.15)`,fontSize:'0.75rem'}">{{ role.badge }}</span>
+                  <span class="badge rounded-pill fw-medium mb-2" :style="{background:`rgba(${role.badgeRgb},0.12)`,color:`rgb(${role.badgeRgb})`,border:`1px solid rgba(${role.badgeRgb},0.25)`,fontSize:'0.75rem'}">{{ role.badge }}</span>
                   <h2 class="fs-4 fw-bold mb-0">{{ role.title }}</h2>
                   <h3 class="fs-5 fw-medium text-body-secondary mb-0">{{ role.company }}</h3>
                 </div>
@@ -54,7 +54,7 @@
         <h3 class="fs-5 fw-semibold mb-2">Download Complete Chronological Resume</h3>
         <p class="text-body-secondary body-text mb-4">All dates, milestones, technical stacks, and references are detailed in the official PDF document.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 text-white rounded-3 btn-gradient">
+          <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn fw-semibold px-4 py-2 rounded-3 btn-gradient">
             <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Resume
           </a>
@@ -121,7 +121,7 @@ useJsonld({
 
 const roles = [
   {
-    company: '1center', title: 'UI Developer', badge: 'Enterprise SaaS (Salesmate CRM)', badgeRgb: '6,182,212', color: 'cyan', dates: '21 April 2021 – 29 August 2025',
+    company: '1center', title: 'UI Developer', badge: 'Enterprise SaaS (Salesmate CRM)', badgeRgb: 'var(--cg-google-blue-rgb)', colorVar: 'var(--cg-google-blue)', dates: '21 April 2021 – 29 August 2025',
     summary: 'Primary UI engineer contributing to <strong>Salesmate CRM</strong>, a global SaaS-based sales automation and customer lifecycle management platform.',
     achievements: [
       '<strong>Front-End Development:</strong> Built responsive, accessible UI components for Salesmate CRM using Angular, JavaScript, and SCSS.',
@@ -132,7 +132,7 @@ const roles = [
     tags: ['Angular', 'JavaScript', 'SCSS', 'Cursor IDE', 'Augment AI', 'ChatGPT', 'Lazy Loading', 'CRM Workflows', 'UI/UX Reviews']
   },
   {
-    company: 'Lucent Innovation', title: 'Front End Developer', badge: 'E-Commerce & High Conversion', badgeRgb: '99,102,241', color: 'indigo', dates: '6 July 2020 – 20 April 2021',
+    company: 'Lucent Innovation', title: 'Front End Developer', badge: 'E-Commerce & High Conversion', badgeRgb: 'var(--cg-google-green-rgb)', colorVar: 'var(--cg-google-green)', dates: '6 July 2020 – 20 April 2021',
     summary: 'Specialized in custom theme development, third-party integrations, and performance engineering for enterprise Shopify storefronts.',
     achievements: [
       '<strong>Custom Theme Development:</strong> Built and customized responsive, mobile-friendly Shopify themes using Liquid, HTML5, SCSS, and JavaScript to boost storefront conversions.',
@@ -143,7 +143,7 @@ const roles = [
     tags: ['Shopify', 'Liquid', 'HTML5', 'SCSS', 'JavaScript', 'SEO', 'Asset Compression', 'App Integrations']
   },
   {
-    company: 'Infibeam Avenues', title: 'Web Designer', badge: 'UI/UX Design & Web Development', badgeRgb: '244,63,94', color: 'rose', dates: '5 February 2018 – 3 July 2020',
+    company: 'Infibeam Avenues', title: 'Web Designer', badge: 'UI/UX Design & Web Development', badgeRgb: 'var(--cg-google-red-rgb)', colorVar: 'var(--cg-google-red)', dates: '5 February 2018 – 3 July 2020',
     summary: 'Executed client-aligned wireframing, high-fidelity UI design, and responsive web implementation, delivering tangible engagement increases.',
     achievements: [
       '<strong>UI/UX Design & Prototyping:</strong> Designed client-aligned, visually engaging layouts and wireframes using Figma, Adobe XD, and Photoshop.',

@@ -11,7 +11,7 @@
       <!-- Controls -->
       <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 mb-5">
         <div class="d-flex flex-wrap gap-2">
-          <button v-for="cat in categories" :key="cat.id" class="btn btn-sm rounded-pill fw-medium px-3 btn-filter" :style="selectedCategory === cat.id ? { background: 'rgba(var(--color-cyan-rgb),0.1)', color: 'var(--color-cyan)', border: '1px solid rgba(var(--color-cyan-rgb),0.25)' } : { background: 'var(--bg-card)', color: 'var(--bs-body-color)', border: '1px solid var(--border-subtle)' }" @click="selectedCategory = cat.id">
+          <button v-for="cat in categories" :key="cat.id" class="btn btn-sm rounded-pill fw-medium px-3 btn-filter" :style="selectedCategory === cat.id ? { background: 'var(--cg-google-blue-container)', color: 'var(--cg-google-blue)', border: '1px solid rgba(var(--cg-google-blue-rgb),0.3)' } : { background: 'var(--bg-card)', color: 'var(--bs-body-color)', border: '1px solid var(--border-subtle)' }" @click="selectedCategory = cat.id">
             {{ cat.name }}
           </button>
         </div>
@@ -24,11 +24,11 @@
 
       <!-- Projects List -->
       <div class="d-flex flex-column gap-4">
-        <div v-for="project in filteredProjects" :key="project.id" class="glass rounded-4 p-4">
+        <div v-for="project in filteredProjects" :key="project.id" class="glass rounded-4 p-4 project-card">
           <!-- Top Row -->
           <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
             <div class="d-flex flex-wrap gap-2">
-              <span class="badge rounded-pill fw-medium" :style="{background:`rgba(${project.badgeRgb},0.08)`,color:`rgb(${project.badgeRgb})`,border:`1px solid rgba(${project.badgeRgb},0.15)`,fontSize:'0.75rem'}">{{ project.categoryTag }}</span>
+              <span class="badge rounded-pill fw-medium" :style="{background:`rgba(${project.badgeRgb},0.12)`,color:`rgb(${project.badgeRgb})`,border:`1px solid rgba(${project.badgeRgb},0.25)`,fontSize:'0.75rem'}">{{ project.categoryTag }}</span>
               <span v-if="project.type" class="badge rounded-pill fw-medium text-xs badge-indigo">{{ project.type }}</span>
             </div>
             <div class="d-flex flex-wrap gap-2">
@@ -128,7 +128,7 @@ const categories = [
 
 const projects = [
   {
-    id: 'cm-notes-rust', title: 'CM Notes — Notes Application (Rust & Angular 22)', category: 'systems', categoryTag: 'Rust + Angular 22', badgeRgb: '6,182,212', type: 'Serverless AWS',
+    id: 'cm-notes-rust', title: 'CM Notes — Notes Application (Rust & Angular 22)', category: 'systems', categoryTag: 'Rust + Angular 22', badgeRgb: 'var(--cg-google-blue-rgb)', type: 'Serverless AWS',
     liveUrl: 'https://main.d3jqv6bft0m3qf.amplifyapp.com',
     repos: [{ label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Angular-Frontend-for-rust-backend-Notes-App' }, { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Rust-Backend-Notes-App' }],
     stack: 'Angular 22 SPA • Rust (Axum 0.7 & Tokio) • AWS SES • PostgreSQL SQLx • AWS SAM',
@@ -137,7 +137,7 @@ const projects = [
     tags: ['Angular 22', 'Angular Signals', 'Rust', 'Axum 0.7', 'Tokio', 'AWS SES', 'AWS RDS', 'PostgreSQL', 'SQLx', 'AWS SAM', 'Lambda', 'Amplify']
   },
   {
-    id: 'cm-notes-go', title: 'CM Notes — High-Concurrency Microservice (Go & Next.js 16)', category: 'systems', categoryTag: 'Go 1.26 + Next.js 16', badgeRgb: '244,63,94', type: '512K Concurrency',
+    id: 'cm-notes-go', title: 'CM Notes — High-Concurrency Microservice (Go & Next.js 16)', category: 'systems', categoryTag: 'Go 1.26 + Next.js 16', badgeRgb: 'var(--cg-google-green-rgb)', type: '512K Concurrency',
     liveUrl: 'https://notes-next-js-mongo-db.vercel.app',
     repos: [{ label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Notes---Next.js-MongoDB' }, { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Notes-App-Go-Backend' }],
     stack: 'Next.js 16 App Router • React 19 • Go 1.26 (fasthttp) • MongoDB Atlas • Resend API',
@@ -146,7 +146,7 @@ const projects = [
     tags: ['Go (Golang 1.26)', 'fasthttp', '64-Shard Limiter', 'FNV-1a', 'Next.js 16', 'React 19', 'MongoDB Atlas', 'Resend API', 'Tiptap Editor', 'Tailwind CSS v4', 'Vercel']
   },
   {
-    id: 'cm-expense-tracker', title: 'CM Expense Tracker — Financial Management Platform', category: 'systems', categoryTag: 'React 19 + Express 5', badgeRgb: '99,102,241', type: 'Multi-Core Cluster',
+    id: 'cm-expense-tracker', title: 'CM Expense Tracker — Financial Management Platform', category: 'systems', categoryTag: 'React 19 + Express 5', badgeRgb: 'var(--cg-google-yellow-rgb)', type: 'Multi-Core Cluster',
     liveUrl: 'https://expense-tracker-app-react-node-expr.vercel.app',
     repos: [{ label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Expense-Tracker-App---React---Node---Express---mongoDB' }, { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Expense-Tracker-Node-Express-Backend' }],
     stack: 'React 19 • TypeScript • Vite 8 • Zustand • Recharts • Node.js Express 5 • Redis • MongoDB',
@@ -155,7 +155,7 @@ const projects = [
     tags: ['React 19', 'Vite 8', 'TypeScript', 'Zustand', 'Recharts', 'Express 5', 'Cluster Mode', 'Redis', 'MongoDB', 'Mongoose', 'Resend API', 'Vercel']
   },
   {
-    id: 'salesmate-crm', title: 'Salesmate CRM — Enterprise Sales Automation SaaS', category: 'saas', categoryTag: 'Enterprise CRM', badgeRgb: '6,182,212', type: 'Global SaaS',
+    id: 'salesmate-crm', title: 'Salesmate CRM — Enterprise Sales Automation SaaS', category: 'saas', categoryTag: 'Enterprise CRM', badgeRgb: 'var(--cg-google-blue-rgb)', type: 'Global SaaS',
     liveUrl: 'https://www.salesmate.io', repos: [],
     stack: 'Angular • JavaScript • SCSS • Enterprise Workflows • Reporting Dashboards',
     overview: 'SaaS-based sales automation and CRM product used by global businesses. Contributed 4+ years as UI Developer improving core modules, dashboards, change detection, and responsive components.',
@@ -163,7 +163,7 @@ const projects = [
     tags: ['Angular', 'JavaScript', 'SCSS', 'Enterprise SaaS', 'Lazy Loading', 'Change Detection', 'CRM Dashboards', 'UI/UX Optimization']
   },
   {
-    id: 'cook-and-boardman', title: 'Cook & Boardman — Enterprise E-Commerce Storefront', category: 'ecommerce', categoryTag: 'BigCommerce', badgeRgb: '244,63,94', type: 'Commercial Storefront',
+    id: 'cook-and-boardman', title: 'Cook & Boardman — Enterprise E-Commerce Storefront', category: 'ecommerce', categoryTag: 'BigCommerce', badgeRgb: 'var(--cg-google-red-rgb)', type: 'Commercial Storefront',
     liveUrl: 'https://www.cookandboardman.com', repos: [],
     stack: 'BigCommerce • HTML5 • CSS3 • JavaScript • Responsive Architecture',
     overview: 'Designed and built the Cook & Boardman e-commerce storefront on BigCommerce, delivering a modernized, user-centric interface supporting enterprise digital transformation goals.',
@@ -171,7 +171,7 @@ const projects = [
     tags: ['BigCommerce', 'HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'E-Commerce UX']
   },
   {
-    id: 'subliblanks', title: 'Subliblanks — Custom Shopify Storefront & Theme', category: 'ecommerce', categoryTag: 'Shopify Liquid', badgeRgb: '99,102,241', type: 'Custom Theme',
+    id: 'subliblanks', title: 'Subliblanks — Custom Shopify Storefront & Theme', category: 'ecommerce', categoryTag: 'Shopify Liquid', badgeRgb: 'var(--cg-google-green-rgb)', type: 'Custom Theme',
     liveUrl: 'https://subliblanks.com', repos: [],
     stack: 'Shopify • Liquid • JavaScript • HTML5 • SCSS • Conversion SEO',
     overview: 'Custom Shopify storefront development with tailored product catalogs, promotional banner systems, performance tuning, and cross-device responsiveness.',

@@ -1,8 +1,8 @@
 <template>
-  <Html :class="htmlClass">
+  <Html :class="htmlClass" :data-bs-theme="htmlClass">
     <Body>
       <div>
-        <NuxtLoadingIndicator color="var(--color-cyan)" :height="3" />
+        <NuxtLoadingIndicator color="var(--cg-google-blue)" :height="3" />
         <NuxtRouteAnnouncer />
         <NuxtLayout>
           <NuxtPage />

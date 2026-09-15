@@ -79,7 +79,7 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          innerHTML: `(function(){try{var t=document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);var v=t?decodeURIComponent(t[1]):'light';document.documentElement.className=v==='dark'?'dark':'light';}catch(e){document.documentElement.className='light';}})();`
+          innerHTML: `(function(){try{var t=document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);var v=t?decodeURIComponent(t[1]):'light';var c=v==='dark'?'dark':'light';document.documentElement.className=c;document.documentElement.setAttribute('data-bs-theme',c);}catch(e){document.documentElement.className='light';document.documentElement.setAttribute('data-bs-theme','light');}})();`
         }
       ]
     }

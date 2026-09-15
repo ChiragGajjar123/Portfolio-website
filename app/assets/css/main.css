@@ -1,7 +1,7 @@
 /* ==========================================================================
-   PORTFOLIO — Minimal Custom CSS
-   Only CSS variables (light/dark), font faces, and background animations.
-   ALL layout/typography/components use Bootstrap 5 utility classes.
+   PORTFOLIO — Pure Google Color Palette System
+   Google Brand & Material Design 3 Colors for Light and Dark Modes.
+   Rules: No !important, scoped with .light / .dark, unique cg-* classes.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -57,172 +57,248 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. CSS VARIABLES — LIGHT THEME (default)
-   Google Brand Colors — overrides Bootstrap _root.scss
+   2. CSS VARIABLES — LIGHT THEME (Google Workspace / Material Design 3)
    -------------------------------------------------------------------------- */
 
 :root,
+.light,
 [data-bs-theme="light"] {
-  /* Bootstrap color overrides */
-  --bs-blue: #4285F4;
-  --bs-indigo: #EA4335;
-  --bs-purple: #FBBC04;
-  --bs-pink: #EA4335;
-  --bs-red: #EA4335;
-  --bs-orange: #FBBC04;
-  --bs-yellow: #FBBC04;
-  --bs-green: #34A853;
-  --bs-teal: #34A853;
-  --bs-cyan: #4285F4;
-  --bs-primary: #4285F4;
-  --bs-secondary: #9AA0A6;
-  --bs-success: #34A853;
-  --bs-info: #4285F4;
-  --bs-warning: #FBBC04;
-  --bs-danger: #EA4335;
-  --bs-light: #F1F3F4;
-  --bs-dark: #202124;
-  --bs-primary-rgb: 66, 103, 210;
-  --bs-secondary-rgb: 154, 160, 166;
-  --bs-success-rgb: 52, 168, 83;
-  --bs-info-rgb: 66, 103, 210;
-  --bs-warning-rgb: 251, 188, 4;
-  --bs-danger-rgb: 234, 67, 53;
+  /* Google Authentic Primary Palette (Light) */
+  --cg-google-blue: #1A73E8;
+  --cg-google-blue-brand: #4285F4;
+  --cg-google-blue-rgb: 26, 115, 232;
+  --cg-google-blue-container: #E8F0FE;
+
+  --cg-google-red: #D93025;
+  --cg-google-red-brand: #EA4335;
+  --cg-google-red-rgb: 217, 48, 37;
+  --cg-google-red-container: #FCE8E6;
+
+  --cg-google-yellow: #EA8600;
+  --cg-google-yellow-brand: #FBBC04;
+  --cg-google-yellow-rgb: 234, 134, 0;
+  --cg-google-yellow-container: #FEF7E0;
+
+  --cg-google-green: #1E8E3E;
+  --cg-google-green-brand: #34A853;
+  --cg-google-green-rgb: 30, 142, 62;
+  --cg-google-green-container: #E6F4EA;
+
+  /* Google Material Neutrals (Light) */
+  --cg-google-gray-900: #202124;
+  --cg-google-gray-800: #3C4043;
+  --cg-google-gray-700: #5F6368;
+  --cg-google-gray-600: #80868B;
+  --cg-google-gray-300: #DADCE0;
+  --cg-google-gray-100: #F1F3F4;
+  --cg-google-gray-50: #F8F9FA;
+
+  /* Bootstrap Variable Overrides */
+  --bs-blue: var(--cg-google-blue);
+  --bs-indigo: var(--cg-google-blue);
+  --bs-purple: var(--cg-google-blue);
+  --bs-pink: var(--cg-google-red);
+  --bs-red: var(--cg-google-red);
+  --bs-orange: var(--cg-google-yellow);
+  --bs-yellow: var(--cg-google-yellow-brand);
+  --bs-green: var(--cg-google-green);
+  --bs-teal: var(--cg-google-green);
+  --bs-cyan: var(--cg-google-blue);
+  --bs-primary: var(--cg-google-blue);
+  --bs-secondary: var(--cg-google-gray-700);
+  --bs-success: var(--cg-google-green);
+  --bs-info: var(--cg-google-blue);
+  --bs-warning: var(--cg-google-yellow);
+  --bs-danger: var(--cg-google-red);
+  --bs-light: var(--cg-google-gray-100);
+  --bs-dark: var(--cg-google-gray-900);
+
+  --bs-primary-rgb: var(--cg-google-blue-rgb);
+  --bs-secondary-rgb: 95, 99, 104;
+  --bs-success-rgb: var(--cg-google-green-rgb);
+  --bs-info-rgb: var(--cg-google-blue-rgb);
+  --bs-warning-rgb: var(--cg-google-yellow-rgb);
+  --bs-danger-rgb: var(--cg-google-red-rgb);
   --bs-light-rgb: 241, 243, 244;
   --bs-dark-rgb: 32, 33, 36;
-  --bs-body-color: #202124;
+
+  --bs-body-color: var(--cg-google-gray-900);
   --bs-body-color-rgb: 32, 33, 36;
-  --bs-body-bg: #FFFFFF;
-  --bs-body-secondary: #9AA0A6;
-  --bs-emphasis-color: #202124;
-  --bs-secondary-color: #5F6368;
-  --bs-link-color: #4285F4;
-  --bs-link-hover-color: #1A73E8;
+  --bs-body-bg: var(--cg-google-gray-50);
+  --bs-body-secondary: var(--cg-google-gray-700);
+  --bs-emphasis-color: var(--cg-google-gray-900);
+  --bs-secondary-color: var(--cg-google-gray-700);
+  --bs-link-color: var(--cg-google-blue);
+  --bs-link-hover-color: #174EA6;
 
-  /* Custom palette */
-  --color-cyan: #4285F4;
-  --color-cyan-rgb: 66, 103, 210;
-  --color-indigo: #EA4335;
-  --color-indigo-rgb: 234, 67, 53;
-  --color-violet: #FBBC04;
-  --color-violet-rgb: 251, 188, 4;
-  --color-rose: #34A853;
-  --color-rose-rgb: 52, 168, 83;
-  --color-success: #34A853;
-  --color-success-rgb: 52, 168, 83;
-  --color-error: #EA4335;
-  --color-error-rgb: 234, 67, 53;
+  /* Backward-compatible color aliases */
+  --color-cyan: var(--cg-google-blue);
+  --color-cyan-rgb: var(--cg-google-blue-rgb);
+  --color-indigo: var(--cg-google-red);
+  --color-indigo-rgb: var(--cg-google-red-rgb);
+  --color-violet: var(--cg-google-yellow);
+  --color-violet-rgb: var(--cg-google-yellow-rgb);
+  --color-rose: var(--cg-google-green);
+  --color-rose-rgb: var(--cg-google-green-rgb);
+  --color-success: var(--cg-google-green);
+  --color-success-rgb: var(--cg-google-green-rgb);
+  --color-error: var(--cg-google-red);
+  --color-error-rgb: var(--cg-google-red-rgb);
 
-  --color-blue-light: #D2E3FC;
-  --color-red-light: #FAD2CF;
-  --color-yellow-light: #FEEFC3;
-  --color-green-light: #CEEAD6;
+  /* Light Theme Surfaces & Glass */
+  --bg-canvas: #F8F9FA;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-hover: #FFFFFF;
+  --bg-navbar: rgba(255, 255, 255, 0.92);
+  --bg-input: #FFFFFF;
+  --bg-code: var(--cg-google-gray-100);
+  --border-glass: rgba(218, 220, 224, 0.85);
+  --border-subtle: #DADCE0;
 
-  --bg-canvas: #F1F3F4;
-  --bg-card: rgba(255, 255, 255, 0.7);
-  --bg-card-hover: rgba(255, 255, 255, 0.9);
-  --bg-navbar: rgba(255, 255, 255, 0.85);
-  --bg-input: rgba(255, 255, 255, 0.7);
-  --bg-code: rgba(66, 103, 210, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.7);
-  --border-subtle: rgba(0, 0, 0, 0.08);
+  /* Ambient Google Orbs (Light Mode: soft pastel hues) */
+  --orb-blue: rgba(26, 115, 232, 0.08);
+  --orb-red: rgba(217, 48, 37, 0.06);
+  --orb-yellow: rgba(251, 188, 4, 0.07);
+  --orb-green: rgba(30, 142, 62, 0.06);
+  --orb-cyan: var(--orb-blue);
+  --orb-indigo: var(--orb-red);
+  --orb-violet: var(--orb-yellow);
+  --orb-rose: var(--orb-green);
 
-  --orb-cyan: rgba(66, 103, 210, 0.1);
-  --orb-indigo: rgba(234, 67, 53, 0.08);
-  --orb-violet: rgba(251, 188, 4, 0.08);
-  --orb-rose: rgba(52, 168, 83, 0.08);
+  /* Elevation Shadows */
+  --cg-shadow-sm: 0 1px 3px rgba(60, 64, 67, 0.12), 0 1px 2px rgba(60, 64, 67, 0.06);
+  --cg-shadow-md: 0 4px 14px rgba(60, 64, 67, 0.12), 0 1px 3px rgba(60, 64, 67, 0.08);
+  --cg-shadow-lg: 0 8px 24px rgba(60, 64, 67, 0.15), 0 2px 6px rgba(60, 64, 67, 0.08);
 }
 
 /* --------------------------------------------------------------------------
-   3. CSS VARIABLES — DARK THEME
-   Google Brand Colors (Dark) — overrides Bootstrap _root.scss
+   3. CSS VARIABLES — DARK THEME (Google Standard Dark / Android Dark)
    -------------------------------------------------------------------------- */
 
 .dark,
 [data-bs-theme="dark"] {
-  /* Bootstrap color overrides */
-  --bs-blue: #8AB4F8;
-  --bs-indigo: #F28B82;
-  --bs-purple: #FDD663;
-  --bs-pink: #F28B82;
-  --bs-red: #F28B82;
-  --bs-orange: #FDD663;
-  --bs-yellow: #FDD663;
-  --bs-green: #81C995;
-  --bs-teal: #81C995;
-  --bs-cyan: #8AB4F8;
-  --bs-primary: #8AB4F8;
+  /* Google Authentic Primary Palette (Dark - Luminous & Accessible) */
+  --cg-google-blue: #8AB4F8;
+  --cg-google-blue-brand: #8AB4F8;
+  --cg-google-blue-rgb: 138, 180, 248;
+  --cg-google-blue-container: rgba(138, 180, 248, 0.14);
+
+  --cg-google-red: #F28B82;
+  --cg-google-red-brand: #F28B82;
+  --cg-google-red-rgb: 242, 139, 130;
+  --cg-google-red-container: rgba(242, 139, 130, 0.14);
+
+  --cg-google-yellow: #FDD663;
+  --cg-google-yellow-brand: #FDD663;
+  --cg-google-yellow-rgb: 253, 214, 99;
+  --cg-google-yellow-container: rgba(253, 214, 99, 0.14);
+
+  --cg-google-green: #81C995;
+  --cg-google-green-brand: #81C995;
+  --cg-google-green-rgb: 129, 201, 149;
+  --cg-google-green-container: rgba(129, 201, 149, 0.14);
+
+  /* Google Material Neutrals (Dark) */
+  --cg-google-gray-900: #E8EAED;
+  --cg-google-gray-800: #BDC1C6;
+  --cg-google-gray-700: #9AA0A6;
+  --cg-google-gray-600: #80868B;
+  --cg-google-gray-300: #3C4043;
+  --cg-google-gray-100: #2D2F31;
+  --cg-google-gray-50: #202124;
+
+  /* Bootstrap Variable Overrides */
+  --bs-blue: var(--cg-google-blue);
+  --bs-indigo: var(--cg-google-blue);
+  --bs-purple: var(--cg-google-blue);
+  --bs-pink: var(--cg-google-red);
+  --bs-red: var(--cg-google-red);
+  --bs-orange: var(--cg-google-yellow);
+  --bs-yellow: var(--cg-google-yellow);
+  --bs-green: var(--cg-google-green);
+  --bs-teal: var(--cg-google-green);
+  --bs-cyan: var(--cg-google-blue);
+  --bs-primary: var(--cg-google-blue);
   --bs-secondary: #9AA0A6;
-  --bs-success: #81C995;
-  --bs-info: #8AB4F8;
-  --bs-warning: #FDD663;
-  --bs-danger: #F28B82;
+  --bs-success: var(--cg-google-green);
+  --bs-info: var(--cg-google-blue);
+  --bs-warning: var(--cg-google-yellow);
+  --bs-danger: var(--cg-google-red);
   --bs-light: #3C4043;
   --bs-dark: #1F1F1F;
-  --bs-primary-rgb: 138, 180, 248;
+
+  --bs-primary-rgb: var(--cg-google-blue-rgb);
   --bs-secondary-rgb: 154, 160, 166;
-  --bs-success-rgb: 129, 201, 149;
-  --bs-info-rgb: 138, 180, 248;
-  --bs-warning-rgb: 253, 214, 99;
-  --bs-danger-rgb: 242, 139, 130;
+  --bs-success-rgb: var(--cg-google-green-rgb);
+  --bs-info-rgb: var(--cg-google-blue-rgb);
+  --bs-warning-rgb: var(--cg-google-yellow-rgb);
+  --bs-danger-rgb: var(--cg-google-red-rgb);
   --bs-light-rgb: 60, 64, 67;
-  --bs-dark-rgb: 31, 31, 31;
+  --bs-dark-rgb: 32, 33, 36;
+
   --bs-body-color: #E8EAED;
   --bs-body-color-rgb: 232, 234, 237;
-  --bs-body-bg: #1A1A1A;
+  --bs-body-bg: #202124;
   --bs-body-secondary: #9AA0A6;
   --bs-emphasis-color: #FFFFFF;
   --bs-secondary-color: #9AA0A6;
-  --bs-link-color: #8AB4F8;
+  --bs-link-color: var(--cg-google-blue);
   --bs-link-hover-color: #AECBFA;
-  --bs-border-color: rgba(255, 255, 255, 0.08);
-  --bs-border-color-translucent: rgba(255, 255, 255, 0.06);
-  --bs-border-color-subtle: rgba(255, 255, 255, 0.08);
+  --bs-border-color: rgba(255, 255, 255, 0.1);
+  --bs-border-color-translucent: rgba(255, 255, 255, 0.08);
+  --bs-border-color-subtle: #3C4043;
   --bs-border-radius: 0.5rem;
 
-  /* Custom palette */
-  --color-cyan: #8AB4F8;
-  --color-cyan-rgb: 138, 180, 248;
-  --color-indigo: #F28B82;
-  --color-indigo-rgb: 242, 139, 130;
-  --color-violet: #FDD663;
-  --color-violet-rgb: 253, 214, 99;
-  --color-rose: #81C995;
-  --color-rose-rgb: 129, 201, 149;
-  --color-success: #81C995;
-  --color-success-rgb: 129, 201, 149;
-  --color-error: #F28B82;
-  --color-error-rgb: 242, 139, 130;
+  /* Backward-compatible color aliases */
+  --color-cyan: var(--cg-google-blue);
+  --color-cyan-rgb: var(--cg-google-blue-rgb);
+  --color-indigo: var(--cg-google-red);
+  --color-indigo-rgb: var(--cg-google-red-rgb);
+  --color-violet: var(--cg-google-yellow);
+  --color-violet-rgb: var(--cg-google-yellow-rgb);
+  --color-rose: var(--cg-google-green);
+  --color-rose-rgb: var(--cg-google-green-rgb);
+  --color-success: var(--cg-google-green);
+  --color-success-rgb: var(--cg-google-green-rgb);
+  --color-error: var(--cg-google-red);
+  --color-error-rgb: var(--cg-google-red-rgb);
 
-  --color-blue-dark: #174EA6;
-  --color-red-dark: #A50E0E;
-  --color-yellow-dark: #E37400;
-  --color-green-dark: #0D652D;
-
-  --bg-canvas: #1A1A1A;
-  --bg-card: rgba(42, 43, 46, 0.65);
-  --bg-card-hover: rgba(52, 53, 56, 0.85);
+  /* Dark Theme Surfaces & Glass */
+  --bg-canvas: #202124;
+  --bg-card: rgba(45, 47, 49, 0.78);
+  --bg-card-hover: rgba(53, 55, 58, 0.95);
   --bg-navbar: rgba(32, 33, 36, 0.95);
-  --bg-input: rgba(42, 43, 46, 0.7);
-  --bg-code: rgba(138, 180, 248, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.06);
-  --border-subtle: rgba(255, 255, 255, 0.08);
+  --bg-input: rgba(45, 47, 49, 0.8);
+  --bg-code: rgba(60, 64, 67, 0.6);
+  --border-glass: rgba(255, 255, 255, 0.09);
+  --border-subtle: #3C4043;
 
-  --orb-cyan: rgba(138, 180, 248, 0.08);
-  --orb-indigo: rgba(242, 139, 130, 0.06);
-  --orb-violet: rgba(253, 214, 99, 0.05);
-  --orb-rose: rgba(129, 201, 149, 0.05);
+  /* Ambient Google Orbs (Dark Mode: rich luminous glow) */
+  --orb-blue: rgba(138, 180, 248, 0.09);
+  --orb-red: rgba(242, 139, 130, 0.07);
+  --orb-yellow: rgba(253, 214, 99, 0.06);
+  --orb-green: rgba(129, 201, 149, 0.06);
+  --orb-cyan: var(--orb-blue);
+  --orb-indigo: var(--orb-red);
+  --orb-violet: var(--orb-yellow);
+  --orb-rose: var(--orb-green);
+
+  /* Elevation Shadows */
+  --cg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --cg-shadow-md: 0 4px 18px rgba(0, 0, 0, 0.4);
+  --cg-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 /* --------------------------------------------------------------------------
-   4. BODY THEME TRANSITION
+   4. BODY & CORE TYPOGRAPHY
    -------------------------------------------------------------------------- */
 
 body {
   font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-canvas);
   color: var(--bs-body-color);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -231,78 +307,101 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* --------------------------------------------------------------------------
-   5. GLASSMORPHISM (no Bootstrap equivalent)
+   5. GLASSMORPHISM & ELEVATION CARDS
    -------------------------------------------------------------------------- */
 
 .glass {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
+  box-shadow: var(--cg-shadow-sm);
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.glass:hover {
-  background: var(--bg-card-hover);
 }
 
 .glass-elevated {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-glass);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--cg-shadow-md);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 /* --------------------------------------------------------------------------
-   6. GRADIENT TEXT (no Bootstrap equivalent)
+   6. GOOGLE GRADIENT TEXT
    -------------------------------------------------------------------------- */
 
-.text-gradient-cyan {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
+.text-gradient-cyan,
+.cg-text-gradient-blue {
+  background: linear-gradient(135deg, var(--cg-google-blue), var(--cg-google-blue-brand));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.text-gradient-violet {
-  background: linear-gradient(135deg, var(--color-violet), var(--color-violet));
+.text-gradient-violet,
+.cg-text-gradient-yellow {
+  background: linear-gradient(135deg, var(--cg-google-yellow), var(--cg-google-yellow-brand));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cg-text-gradient-red {
+  background: linear-gradient(135deg, var(--cg-google-red), var(--cg-google-red-brand));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cg-text-gradient-green {
+  background: linear-gradient(135deg, var(--cg-google-green), var(--cg-google-green-brand));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* --------------------------------------------------------------------------
-   7. ANIMATED BACKGROUND ORBS (no Bootstrap equivalent)
+   7. ANIMATED BACKGROUND ORBS
    -------------------------------------------------------------------------- */
 
 .orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
-  animation: orb-float 20s ease-in-out infinite;
+  animation: orb-float 22s ease-in-out infinite;
   pointer-events: none;
 }
 
-.orb-cyan    { width: 400px; height: 400px; background: var(--orb-cyan); top: 10%; left: 10%; }
-.orb-indigo  { width: 350px; height: 350px; background: var(--orb-indigo); top: 50%; right: 10%; animation-delay: -5s; }
-.orb-violet  { width: 300px; height: 300px; background: var(--orb-violet); bottom: 10%; left: 30%; animation-delay: -10s; }
-.orb-rose    { width: 250px; height: 250px; background: var(--orb-rose); top: 30%; left: 60%; animation-delay: -15s; }
+.orb-cyan,
+.orb-blue   { width: 420px; height: 420px; background: var(--orb-blue); top: 8%; left: 8%; }
+
+.orb-indigo,
+.orb-red    { width: 360px; height: 360px; background: var(--orb-red); top: 50%; right: 8%; animation-delay: -5s; }
+
+.orb-violet,
+.orb-yellow { width: 320px; height: 320px; background: var(--orb-yellow); bottom: 8%; left: 28%; animation-delay: -10s; }
+
+.orb-rose,
+.orb-green  { width: 280px; height: 280px; background: var(--orb-green); top: 28%; left: 62%; animation-delay: -15s; }
 
 @keyframes orb-float {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  25%      { transform: translate(30px, -30px) scale(1.05); }
-  50%      { transform: translate(-20px, 20px) scale(0.95); }
-  75%      { transform: translate(20px, 10px) scale(1.02); }
+  25%      { transform: translate(25px, -25px) scale(1.04); }
+  50%      { transform: translate(-20px, 20px) scale(0.96); }
+  75%      { transform: translate(15px, 10px) scale(1.02); }
 }
 
 @media (max-width: 767.98px) {
-  .orb-cyan   { width: 250px; height: 250px; }
-  .orb-indigo { width: 200px; height: 200px; }
-  .orb-violet { width: 180px; height: 180px; }
-  .orb-rose   { width: 150px; height: 150px; }
+  .orb-cyan, .orb-blue   { width: 240px; height: 240px; }
+  .orb-indigo, .orb-red  { width: 200px; height: 200px; }
+  .orb-violet, .orb-yellow { width: 180px; height: 180px; }
+  .orb-rose, .orb-green  { width: 150px; height: 150px; }
 }
 
 /* --------------------------------------------------------------------------
-   8. GRID MESH OVERLAY (no Bootstrap equivalent)
+   8. GRID MESH OVERLAY
    -------------------------------------------------------------------------- */
 
 .grid-mesh {
@@ -310,40 +409,43 @@ h1, h2, h3, h4, h5, h6,
     linear-gradient(var(--border-subtle) 1px, transparent 1px),
     linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.3;
+  opacity: 0.35;
+}
+
+.dark .grid-mesh {
+  opacity: 0.18;
 }
 
 /* --------------------------------------------------------------------------
-   9. PULSE DOT ANIMATION (no Bootstrap equivalent)
+   9. PULSE DOT ANIMATION (Google Green)
    -------------------------------------------------------------------------- */
 
 .pulse-dot {
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.55rem;
+  height: 0.55rem;
   border-radius: 50%;
-  background: var(--color-success);
-  animation: pulse-dot-anim 2s ease-in-out infinite;
+  background: var(--cg-google-green);
+  box-shadow: 0 0 0 0 rgba(var(--cg-google-green-rgb), 0.7);
+  animation: pulse-dot-anim 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse-dot-anim {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.5; transform: scale(1.4); }
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(var(--cg-google-green-rgb), 0.7); }
+  70%  { transform: scale(1); box-shadow: 0 0 0 6px rgba(var(--cg-google-green-rgb), 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(var(--cg-google-green-rgb), 0); }
 }
 
 /* --------------------------------------------------------------------------
-   10. SKILL BAR FILL (no Bootstrap equivalent)
-   -------------------------------------------------------------------------- */
-
-/* --------------------------------------------------------------------------
-   11. TIMELINE MARKERS (no Bootstrap equivalent)
+   10. TIMELINE MARKERS
    -------------------------------------------------------------------------- */
 
 .timeline-marker-dot {
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.9rem;
+  height: 0.9rem;
   border-radius: 50%;
   border: 3px solid var(--bg-canvas);
+  box-shadow: var(--cg-shadow-sm);
   flex-shrink: 0;
 }
 
@@ -355,14 +457,14 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* --------------------------------------------------------------------------
-   12. LOADING SPINNER (no Bootstrap equivalent)
+   11. LOADING SPINNER
    -------------------------------------------------------------------------- */
 
 .loader-ring {
   width: 2rem;
   height: 2rem;
   border: 3px solid var(--border-subtle);
-  border-top-color: var(--color-cyan);
+  border-top-color: var(--cg-google-blue);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -370,70 +472,78 @@ h1, h2, h3, h4, h5, h6,
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* --------------------------------------------------------------------------
-   13. FORM INPUT GLASS STYLE (Bootstrap override)
+   12. FORM INPUT GLASS STYLE (Google Styled)
    -------------------------------------------------------------------------- */
 
 .form-control-glass {
   background: var(--bg-input);
-  border-color: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--bs-body-color);
   backdrop-filter: blur(8px);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .form-control-glass:focus {
-  border-color: var(--color-cyan);
-  box-shadow: 0 0 0 3px rgba(var(--color-cyan-rgb), 0.15);
+  background: var(--bg-input);
+  color: var(--bs-body-color);
+  border-color: var(--cg-google-blue);
+  box-shadow: 0 0 0 3px rgba(var(--cg-google-blue-rgb), 0.2);
+}
+
+.form-control-glass::placeholder {
+  color: var(--cg-google-gray-600);
 }
 
 /* --------------------------------------------------------------------------
-   14. SCROLLBAR
+   13. SCROLLBAR & SELECTION
    -------------------------------------------------------------------------- */
 
 ::-webkit-scrollbar       { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-canvas); }
-::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.3); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.5); }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.25); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.45); }
 
 ::selection {
-  background: rgba(var(--color-cyan-rgb), 0.25);
+  background: rgba(var(--cg-google-blue-rgb), 0.25);
+  color: inherit;
 }
 
 /* --------------------------------------------------------------------------
-   15. REUSABLE COMPONENT CLASSES
-   Replaces repeated inline styles across all pages.
+   14. REUSABLE COMPONENT CLASSES
    -------------------------------------------------------------------------- */
 
 /* Hero section */
 .hero-section { max-width: 900px; padding-top: 2rem; padding-bottom: 2rem; }
 
-/* Page section header (used on every page) */
+/* Page section header */
 .section-header { max-width: 720px; }
 .section-header p { line-height: 1.7; }
 
-/* Cyan badge label (large, used in hero) */
+/* Google Blue badge label (large hero status pill) */
 .badge-cyan-lg {
-  background: rgba(var(--color-cyan-rgb), 0.1);
-  color: var(--color-cyan);
-  border: 1px solid rgba(var(--color-cyan-rgb), 0.2);
+  background: var(--cg-google-blue-container);
+  color: var(--cg-google-blue);
+  border: 1px solid rgba(var(--cg-google-blue-rgb), 0.25);
   font-size: 0.875rem;
   white-space: normal;
   text-align: center;
 }
 
-/* Cyan badge label (standard, used above headings) */
+/* Google Blue badge label (standard, used above headings) */
 .badge-cyan {
-  background: rgba(var(--color-cyan-rgb), 0.1);
-  color: var(--color-cyan);
-  border: 1px solid rgba(var(--color-cyan-rgb), 0.2);
+  background: var(--cg-google-blue-container);
+  color: var(--cg-google-blue);
+  border: 1px solid rgba(var(--cg-google-blue-rgb), 0.25);
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 /* Section spacing */
 .section-gap { margin-top: 4rem; }
 
-/* Body text */
+/* Body text typography */
 .body-text {
   font-size: 0.875rem;
   line-height: 1.7;
@@ -444,7 +554,6 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.6;
 }
 
-/* Small/meta text */
 .text-xs {
   font-size: 0.75rem;
 }
@@ -455,39 +564,57 @@ h1, h2, h3, h4, h5, h6,
   color: var(--bs-body-color);
   border: 1px solid var(--border-subtle);
   font-size: 0.75rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* Code / info block */
 .block-code {
   background: var(--bg-code);
   border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease;
 }
 
-/* List item with cyan border accent */
+/* List item with blue border accent */
 .list-accent {
-  border-color: var(--color-cyan);
+  border-left: 3px solid var(--cg-google-blue);
+  padding-left: 1rem;
+  margin-bottom: 0.75rem;
   font-size: 0.875rem;
   color: var(--bs-body-color);
   line-height: 1.6;
+  border-radius: 0 0.25rem 0.25rem 0;
+  transition: background 0.2s ease;
 }
 
 /* Skill progress track */
 .progress-track {
-  height: 3px;
+  height: 4px;
   background: var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-/* Link color cyan */
+/* Link color blue */
 .link-cyan {
-  color: var(--color-cyan);
+  color: var(--cg-google-blue);
   text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Success badge */
+/* Google Green badge */
 .badge-success {
-  background: rgba(var(--color-success-rgb), 0.06);
-  color: var(--color-success);
-  border: 1px solid rgba(var(--color-success-rgb), 0.2);
+  background: var(--cg-google-green-container);
+  color: var(--cg-google-green);
+  border: 1px solid rgba(var(--cg-google-green-rgb), 0.25);
+  font-size: 0.75rem;
+}
+
+/* Google Red badge */
+.badge-indigo {
+  background: var(--cg-google-red-container);
+  color: var(--cg-google-red);
+  border: 1px solid rgba(var(--cg-google-red-rgb), 0.25);
   font-size: 0.75rem;
 }
 
@@ -500,6 +627,7 @@ h1, h2, h3, h4, h5, h6,
   justify-content: center;
   border-radius: 0.5rem;
   flex-shrink: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .icon-box-lg {
@@ -508,8 +636,9 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   flex-shrink: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .icon-box-xl {
@@ -520,9 +649,10 @@ h1, h2, h3, h4, h5, h6,
   justify-content: center;
   border-radius: 1rem;
   flex-shrink: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Brand logo box (nav/footer) */
+/* Brand logo box (nav / footer) */
 .brand-box {
   width: 2.25rem;
   height: 2.25rem;
@@ -530,38 +660,42 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
+  background: linear-gradient(135deg, #1A73E8, #4285F4);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.35);
   flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Brand logo box large (about page profile) */
+/* Brand logo box large */
 .brand-box-lg {
-  width: 3rem;
-  height: 3rem;
+  width: 3.25rem;
+  height: 3.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #1A73E8, #4285F4);
+  box-shadow: 0 3px 12px rgba(26, 115, 232, 0.35);
   flex-shrink: 0;
 }
 
-/* Navbar / theme button sizing */
+/* Navbar / Theme button sizing */
 .btn-icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.35rem;
+  height: 2.35rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
   background: var(--bg-card);
   color: var(--bs-body-color);
-  border-color: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 /* Navbar border */
 .navbar-border {
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-glass);
 }
 
 /* Drawer border */
@@ -571,7 +705,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Footer uppercase heading */
 .footer-heading {
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 /* Footer text truncation */
@@ -579,42 +713,51 @@ h1, h2, h3, h4, h5, h6,
   max-width: 180px;
 }
 
-/* Primary gradient button */
+/* Primary Google Blue button */
 .btn-primary-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
-  box-shadow: 0 2px 12px rgba(var(--color-cyan-rgb), 0.3);
+  background: linear-gradient(135deg, #1A73E8, #4285F4);
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 10px rgba(26, 115, 232, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-/* Gradient button (used for download CTAs) */
+/* Gradient button (download CTAs) */
 .btn-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
+  background: linear-gradient(135deg, #1A73E8, #4285F4);
+  color: #FFFFFF;
+  border: none;
   font-size: 0.875rem;
+  box-shadow: 0 2px 10px rgba(26, 115, 232, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Glass button with border */
 .btn-glass {
+  background: var(--bg-card);
   color: var(--bs-body-color);
   border: 1px solid var(--border-subtle);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Profile avatar gradient */
 .avatar-gradient {
-  background: linear-gradient(135deg, var(--color-cyan), var(--color-cyan));
+  background: linear-gradient(135deg, #1A73E8, #4285F4);
   font-size: 1.25rem;
+  color: #FFFFFF;
 }
 
-/* Alert success */
+/* Feedback alerts */
 .alert-success {
-  background: rgba(var(--color-success-rgb), 0.1);
-  color: var(--color-success);
-  border: 1px solid rgba(var(--color-success-rgb), 0.2);
+  background: var(--cg-google-green-container);
+  color: var(--cg-google-green);
+  border: 1px solid rgba(var(--cg-google-green-rgb), 0.3);
 }
 
-/* Alert error */
 .alert-error {
-  background: rgba(var(--color-error-rgb), 0.1);
-  color: var(--color-error);
-  border: 1px solid rgba(var(--color-error-rgb), 0.2);
+  background: var(--cg-google-red-container);
+  color: var(--cg-google-red);
+  border: 1px solid rgba(var(--cg-google-red-rgb), 0.3);
 }
 
 /* Textarea resize */
@@ -634,26 +777,28 @@ h1, h2, h3, h4, h5, h6,
   min-width: 0;
   background: transparent;
   outline: none;
+  color: var(--bs-body-color);
 }
 
 .form-search:focus {
   box-shadow: none;
   border-color: transparent;
   outline: none;
+  color: var(--bs-body-color);
 }
 
 /* Bullet dot for list items */
 .bullet-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--color-cyan);
+  width: 6px;
+  height: 6px;
+  background: var(--cg-google-blue);
   left: 0;
-  top: 0.5em;
+  top: 0.55em;
 }
 
 /* Icon secondary color */
 .icon-secondary {
-  color: var(--color-cyan);
+  color: var(--cg-google-blue);
   flex-shrink: 0;
 }
 
@@ -668,15 +813,9 @@ h1, h2, h3, h4, h5, h6,
   min-width: 0;
   max-width: 320px;
   width: 100%;
-  border: 1px solid rgba(var(--color-cyan-rgb), 0.25);
-  background: transparent;
-}
-
-/* Indigo badge */
-.badge-indigo {
-  background: rgba(var(--color-indigo-rgb), 0.08);
-  color: var(--color-indigo);
-  border: 1px solid rgba(var(--color-indigo-rgb), 0.15);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* List item line height */
@@ -686,11 +825,13 @@ h1, h2, h3, h4, h5, h6,
 
 /* Project card hover */
 .project-card {
-  transition: box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+
 .project-card-hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--cg-shadow-lg);
+  border-color: rgba(var(--cg-google-blue-rgb), 0.35);
 }
 
 /* Timeline content min-width */
@@ -731,16 +872,18 @@ h1, h2, h3, h4, h5, h6,
   z-index: 1;
 }
 
-/* Active nav link */
+/* Active navigation link */
 .nav-link.nav-active.cg-link {
-  color: var(--color-cyan);
-  background: rgba(var(--color-cyan-rgb), 0.08);
+  color: var(--cg-google-blue);
+  background: var(--cg-google-blue-container);
+  font-weight: 600;
 }
 
 /* Active mobile nav link */
 .cg-link.nav-active-mobile.router-link-active {
-  color: var(--color-cyan);
-  background: rgba(var(--color-cyan-rgb), 0.06);
+  color: var(--cg-google-blue);
+  background: var(--cg-google-blue-container);
+  font-weight: 600;
 }
 
 /* Text utility: muted */
@@ -749,15 +892,15 @@ body .text-muted { color: var(--bs-body-secondary); }
 /* Custom secondary link — unique class, no Bootstrap conflict */
 .cg-link {
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .light .cg-link {
-  color: var(--bs-body-secondary);
+  color: var(--cg-google-gray-700);
 }
 
 .light .cg-link:hover {
-  color: var(--color-cyan);
+  color: var(--cg-google-blue);
   text-decoration: none;
 }
 
@@ -766,241 +909,241 @@ body .text-muted { color: var(--bs-body-secondary); }
 }
 
 .dark .cg-link:hover {
-  color: var(--color-cyan);
+  color: var(--cg-google-blue);
   text-decoration: none;
 }
 
-/* Text utility: success */
-body .text-success { color: var(--color-success); }
+/* Text utility classes mapped to Google colors */
+body .text-success,
+body .cg-text-green   { color: var(--cg-google-green); }
 
-/* Text utility: rose */
-body .text-rose { color: var(--color-rose); }
+body .text-rose,
+body .cg-text-red     { color: var(--cg-google-red); }
 
-/* Text utility: canvas bg color */
-body .text-canvas { color: var(--bg-canvas); }
+body .cg-text-blue    { color: var(--cg-google-blue); }
 
-/* Border utility: canvas bg color */
-body .border-canvas { border-color: var(--bg-canvas); }
+body .cg-text-yellow  { color: var(--cg-google-yellow); }
+
+body .text-canvas     { color: var(--bg-canvas); }
+
+body .border-canvas   { border-color: var(--bg-canvas); }
 
 /* --------------------------------------------------------------------------
-   16. DESKTOP-ONLY HOVER EFFECTS
-   Only apply on screens >= 992px (desktop). No hover on tablet/mobile.
+   15. DESKTOP-ONLY HOVER EFFECTS (>= 992px)
    -------------------------------------------------------------------------- */
 
 @media (min-width: 992px) {
-
-  /* Glass cards */
   .glass:hover {
     background: var(--bg-card-hover);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--cg-shadow-md);
+    border-color: rgba(var(--cg-google-blue-rgb), 0.35);
   }
 
-  /* Primary gradient button */
   .btn-primary-gradient:hover {
-    box-shadow: 0 6px 24px rgba(var(--color-cyan-rgb), 0.4);
+    box-shadow: 0 6px 20px rgba(var(--cg-google-blue-rgb), 0.45);
+    transform: translateY(-1px);
+    opacity: 0.96;
   }
 
-  /* Gradient download button */
   .btn-gradient:hover {
-    box-shadow: 0 6px 24px rgba(var(--color-cyan-rgb), 0.4);
+    box-shadow: 0 6px 20px rgba(var(--cg-google-blue-rgb), 0.45);
+    transform: translateY(-1px);
+    opacity: 0.96;
   }
 
-  /* Glass button */
   .btn-glass:hover {
     background: var(--bg-card-hover);
-    border-color: var(--color-cyan);
-    color: var(--color-cyan);
+    border-color: var(--cg-google-blue);
+    color: var(--cg-google-blue);
+    transform: translateY(-1px);
   }
 
-  /* Icon buttons (nav, theme, etc.) */
   .btn-icon:hover {
     background: var(--bg-card-hover);
-    border-color: var(--color-cyan);
-    color: var(--color-cyan);
+    border-color: var(--cg-google-blue);
+    color: var(--cg-google-blue);
   }
 
-  /* Badge chips */
   .badge-chip:hover {
-    border-color: var(--color-cyan);
-    color: var(--color-cyan);
+    border-color: var(--cg-google-blue);
+    color: var(--cg-google-blue);
   }
 
-  /* Badge cyan */
   .badge-cyan:hover {
-    background: rgba(var(--color-cyan-rgb), 0.15);
+    background: rgba(var(--cg-google-blue-rgb), 0.18);
   }
 
-  /* Badge success */
   .badge-success:hover {
-    background: rgba(var(--color-success-rgb), 0.12);
-    border-color: rgba(var(--color-success-rgb), 0.35);
+    background: rgba(var(--cg-google-green-rgb), 0.18);
   }
 
-  /* Cyan links */
   .link-cyan:hover {
-    opacity: 0.8;
-    text-decoration: none;
+    opacity: 0.85;
+    text-decoration: underline;
   }
 
-  /* Nav links */
   .nav-link:hover {
-    color: var(--color-cyan);
-    background: rgba(var(--color-cyan-rgb), 0.06);
+    color: var(--cg-google-blue);
+    background: var(--cg-google-blue-container);
   }
 
-  /* Icon boxes */
-  .icon-box:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  }
-
+  .icon-box:hover,
   .icon-box-lg:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--cg-shadow-sm);
+    transform: scale(1.05);
   }
 
-  .icon-box-xl:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  .brand-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(26, 115, 232, 0.45);
   }
 
-  /* Search container */
   .search-container:hover {
-    border-color: rgba(var(--color-cyan-rgb), 0.5);
+    border-color: var(--cg-google-blue);
   }
 
-  /* Block code */
   .block-code:hover {
-    border-color: rgba(var(--color-cyan-rgb), 0.3);
+    border-color: rgba(var(--cg-google-blue-rgb), 0.35);
   }
 
-  /* List accent items */
   .list-accent:hover {
     background: var(--bg-code);
   }
 
-  /* Footer links */
   footer a:hover {
-    color: var(--color-cyan);
+    color: var(--cg-google-blue);
   }
 
-  /* Project cards */
   .project-card:hover {
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--cg-shadow-lg);
+    border-color: rgba(var(--cg-google-blue-rgb), 0.35);
   }
 
-  /* Quick nav links (about page) */
   .quick-nav-link:hover {
-    background: rgba(var(--color-cyan-rgb), 0.08);
-    color: var(--color-cyan);
+    background: var(--cg-google-blue-container);
+    color: var(--cg-google-blue);
   }
 
-  /* Social links (contact page) */
   .social-link:hover {
-    border-color: var(--color-cyan);
-    color: var(--color-cyan);
+    border-color: var(--cg-google-blue);
+    color: var(--cg-google-blue);
+    background: var(--cg-google-blue-container);
   }
 
-  /* Timeline cards */
   .glass-elevated:hover {
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--cg-shadow-lg);
   }
 
-  /* Filter buttons (skills/projects) */
   .btn-filter:hover {
-    border-color: var(--color-cyan);
-    color: var(--color-cyan);
+    border-color: var(--cg-google-blue);
+    color: var(--cg-google-blue);
   }
 
-  /* Education timeline dot */
   .timeline-dot:hover {
     transform: scale(1.3);
   }
 
-  /* Alert boxes */
   .alert-success:hover {
-    background: rgba(var(--color-success-rgb), 0.15);
+    background: rgba(var(--cg-google-green-rgb), 0.18);
   }
 
   .alert-error:hover {
-    background: rgba(var(--color-error-rgb), 0.15);
+    background: rgba(var(--cg-google-red-rgb), 0.18);
   }
-
 }
 
 /* --------------------------------------------------------------------------
-   10. DARK MODE — Component Overrides
-   Google Dark Theme Colors
+   16. DARK MODE — Scoped Component Refinements (.dark)
    -------------------------------------------------------------------------- */
 
 .dark .glass {
   background: var(--bg-card);
   border-color: var(--border-glass);
+  box-shadow: var(--cg-shadow-sm);
 }
 
 .dark .glass-elevated {
   background: var(--bg-card);
   border-color: var(--border-glass);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--cg-shadow-md);
 }
 
 .dark .btn-glass {
   color: #E8EAED;
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(42, 43, 46, 0.5);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(45, 47, 49, 0.6);
 }
 
 .dark .btn-glass:hover {
-  background: rgba(52, 53, 56, 0.8);
-  border-color: var(--color-cyan);
-  color: var(--color-cyan);
+  background: rgba(53, 55, 58, 0.95);
+  border-color: var(--cg-google-blue);
+  color: var(--cg-google-blue);
 }
 
+.dark .btn-primary-gradient,
 .dark .btn-gradient {
-  background: var(--color-cyan);
-  box-shadow: 0 2px 12px rgba(138, 180, 248, 0.25);
+  background: linear-gradient(135deg, #8AB4F8, #AECBFA);
+  color: #202124;
+  font-weight: 600;
+  box-shadow: 0 2px 14px rgba(138, 180, 248, 0.28);
 }
 
-.dark .btn-primary-gradient {
-  background: var(--color-cyan);
-  box-shadow: 0 2px 12px rgba(138, 180, 248, 0.25);
+.dark .btn-primary-gradient:hover,
+.dark .btn-gradient:hover {
+  background: #AECBFA;
+  box-shadow: 0 4px 20px rgba(138, 180, 248, 0.45);
 }
 
 .dark .badge-chip {
-  background: rgba(138, 180, 248, 0.08);
+  background: rgba(60, 64, 67, 0.6);
   border-color: rgba(255, 255, 255, 0.1);
   color: #E8EAED;
 }
 
 .dark .badge-chip:hover {
-  background: rgba(138, 180, 248, 0.15);
-  border-color: var(--color-cyan);
-  color: var(--color-cyan);
+  background: rgba(138, 180, 248, 0.14);
+  border-color: var(--cg-google-blue);
+  color: var(--cg-google-blue);
 }
 
 .dark .badge-cyan {
-  background: rgba(138, 180, 248, 0.12);
-  color: var(--color-cyan);
-  border: 1px solid rgba(138, 180, 248, 0.2);
+  background: var(--cg-google-blue-container);
+  color: var(--cg-google-blue);
+  border: 1px solid rgba(138, 180, 248, 0.25);
 }
 
 .dark .badge-cyan-lg {
-  background: rgba(138, 180, 248, 0.1);
-  color: var(--color-cyan);
-  border: 1px solid rgba(138, 180, 248, 0.2);
+  background: var(--cg-google-blue-container);
+  color: var(--cg-google-blue);
+  border: 1px solid rgba(138, 180, 248, 0.25);
+}
+
+.dark .badge-indigo {
+  background: var(--cg-google-red-container);
+  color: var(--cg-google-red);
+  border: 1px solid rgba(242, 139, 130, 0.25);
+}
+
+.dark .badge-success {
+  background: var(--cg-google-green-container);
+  color: var(--cg-google-green);
+  border: 1px solid rgba(129, 201, 149, 0.25);
 }
 
 .dark .block-code {
-  background: rgba(138, 180, 248, 0.06);
+  background: rgba(45, 47, 49, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dark .form-control-glass {
-  background: rgba(42, 43, 46, 0.6);
+  background: rgba(45, 47, 49, 0.85);
   border-color: rgba(255, 255, 255, 0.12);
   color: #E8EAED;
 }
 
 .dark .form-control-glass:focus {
-  border-color: var(--color-cyan);
-  box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.15);
+  border-color: var(--cg-google-blue);
+  box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.2);
 }
 
 .dark .form-control-glass::placeholder {
@@ -1008,13 +1151,13 @@ body .border-canvas { border-color: var(--bg-canvas); }
 }
 
 .dark .alert-success {
-  background: rgba(129, 201, 149, 0.1);
+  background: rgba(129, 201, 149, 0.12);
   color: #81C995;
   border-color: rgba(129, 201, 149, 0.25);
 }
 
 .dark .alert-error {
-  background: rgba(242, 139, 130, 0.1);
+  background: rgba(242, 139, 130, 0.12);
   color: #F28B82;
   border-color: rgba(242, 139, 130, 0.25);
 }
@@ -1028,14 +1171,16 @@ body .border-canvas { border-color: var(--bg-canvas); }
   color: #E8EAED;
 }
 
-.dark .text-gradient-cyan {
+.dark .text-gradient-cyan,
+.dark .cg-text-gradient-blue {
   background: linear-gradient(135deg, #8AB4F8, #AECBFA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.dark .text-gradient-violet {
+.dark .text-gradient-violet,
+.dark .cg-text-gradient-yellow {
   background: linear-gradient(135deg, #FDD663, #FDE293);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1045,17 +1190,18 @@ body .border-canvas { border-color: var(--bg-canvas); }
 .dark .btn-icon {
   border-color: rgba(255, 255, 255, 0.12);
   color: #E8EAED;
+  background: rgba(45, 47, 49, 0.7);
 }
 
 .dark .btn-icon:hover {
-  background: rgba(138, 180, 248, 0.1);
-  border-color: var(--color-cyan);
-  color: var(--color-cyan);
+  background: rgba(138, 180, 248, 0.14);
+  border-color: var(--cg-google-blue);
+  color: var(--cg-google-blue);
 }
 
 .dark .quick-nav-link:hover {
-  background: rgba(138, 180, 248, 0.08);
-  color: var(--color-cyan);
+  background: rgba(138, 180, 248, 0.12);
+  color: var(--cg-google-blue);
 }
 
 .dark .social-link {
@@ -1063,9 +1209,9 @@ body .border-canvas { border-color: var(--bg-canvas); }
 }
 
 .dark .social-link:hover {
-  border-color: var(--color-cyan);
-  color: var(--color-cyan);
-  background: rgba(138, 180, 248, 0.08);
+  border-color: var(--cg-google-blue);
+  color: var(--cg-google-blue);
+  background: rgba(138, 180, 248, 0.12);
 }
 
 .dark body .border-subtle,
@@ -1073,25 +1219,21 @@ body .border-canvas { border-color: var(--bg-canvas); }
 .dark body .border-bottom,
 .dark body .border-start,
 .dark body .border-end {
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
-.dark .btn-glass {
-  color: #E8EAED;
   border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(42, 43, 46, 0.5);
 }
 
 .dark .brand-box {
-  background: #174EA6;
+  background: linear-gradient(135deg, #174EA6, #1A73E8);
+  box-shadow: 0 2px 10px rgba(23, 78, 166, 0.45);
 }
 
 .dark .brand-box-lg {
-  background: #174EA6;
+  background: linear-gradient(135deg, #174EA6, #1A73E8);
+  box-shadow: 0 3px 14px rgba(23, 78, 166, 0.45);
 }
 
 .dark footer a:hover {
-  color: var(--color-cyan);
+  color: var(--cg-google-blue);
 }
 
 .dark footer .link-cyan:hover {
@@ -1099,25 +1241,18 @@ body .border-canvas { border-color: var(--bg-canvas); }
 }
 
 .dark .link-cyan {
-  color: var(--color-cyan);
+  color: var(--cg-google-blue);
 }
 
 .dark .link-cyan:hover {
   color: #AECBFA;
 }
 
-.dark .btn-primary-gradient:hover {
-  background: #669DF6;
-  box-shadow: 0 4px 16px rgba(102, 157, 246, 0.35);
+.dark .search-container {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(45, 47, 49, 0.8);
 }
 
-.dark .btn-gradient:hover {
-  background: #669DF6;
-  box-shadow: 0 4px 16px rgba(102, 157, 246, 0.35);
+.dark .search-container:hover {
+  border-color: var(--cg-google-blue);
 }
-
-.dark .btn:hover {
-  box-shadow: 0 4px 16px rgba(138, 180, 248, 0.2);
-}
-
-/* -------------------------------------------------------------------------- */

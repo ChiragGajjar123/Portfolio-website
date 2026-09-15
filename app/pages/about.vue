@@ -58,7 +58,7 @@
             <div class="ps-4 position-relative">
               <div class="position-absolute top-0 bottom-0 border-start border-subtle" :style="{ width: '2px', left: '0.45rem' }"></div>
               <div v-for="edu in education" :key="edu.degree" class="position-relative mb-4">
-                <div class="position-absolute rounded-circle border border-2 border-canvas timeline-dot" :style="{ width: '0.65rem', height: '0.65rem', background: 'var(--color-cyan)', left: '-1.5rem', top: '0.4rem', zIndex: 1 }"></div>
+                <div class="position-absolute rounded-circle border border-2 border-canvas timeline-dot" :style="{ width: '0.65rem', height: '0.65rem', background: 'var(--cg-google-blue)', left: '-1.5rem', top: '0.4rem', zIndex: 1 }"></div>
                 <div class="small fw-semibold mb-1 link-cyan">{{ edu.year }}</div>
                 <h6 class="fw-semibold mb-1">{{ edu.degree }}</h6>
                 <p class="text-body-secondary mb-1 body-text-sm">{{ edu.inst }}</p>
@@ -73,7 +73,7 @@
           <!-- Resume Widget -->
           <div class="glass rounded-4 p-4 mb-4">
             <div class="d-flex align-items-center gap-3 mb-4">
-              <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" :style="{width:'2.75rem',height:'2.75rem',background:'rgba(var(--color-cyan-rgb),0.1)',color:'var(--color-cyan)'}">
+              <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" :style="{width:'2.75rem',height:'2.75rem',background:'var(--cg-google-blue-container)',color:'var(--cg-google-blue)'}">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
               </div>
               <div class="d-grid min-w-0">
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div class="d-flex gap-2">
-              <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn flex-grow-1 fw-semibold text-white rounded-3 btn-gradient">
+              <a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" class="btn flex-grow-1 fw-semibold rounded-3 btn-gradient">
                 <svg class="me-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Resume
               </a>

@@ -69,7 +69,7 @@
           <a
             href="/Chirag_Software_Engineer.pdf"
             download="Chirag_Software_Engineer.pdf"
-            class="btn w-100 fw-semibold text-white rounded-3 btn-gradient"
+            class="btn w-100 fw-semibold rounded-3 btn-gradient"
             @click="isMobileOpen = false"
           >
             <svg class="me-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
