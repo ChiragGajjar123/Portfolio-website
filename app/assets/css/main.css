@@ -873,7 +873,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Background fixed layer */
 .bg-fixed {
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
