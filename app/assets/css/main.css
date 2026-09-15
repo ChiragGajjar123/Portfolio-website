@@ -698,8 +698,24 @@ h1, h2, h3, h4, h5, h6,
   border-bottom: 1px solid var(--border-glass);
 }
 
-/* Drawer border */
-.drawer-border {
+.mobile-menu-panel {
+  background: transparent;
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: none;
+  padding: 0.75rem 0 0.75rem;
+}
+
+.mobile-menu-list {
+  margin: 0;
+}
+
+.mobile-menu-list .cg-link {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.mobile-menu-cta {
+  padding-top: 0.65rem;
   border-top: 1px solid var(--border-subtle);
 }
 

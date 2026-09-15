@@ -52,12 +52,12 @@
       </nav>
 
       <!-- Mobile Drawer -->
-      <div v-if="isMobileOpen" class="glass rounded-bottom-4 p-3 d-lg-none drawer-border">
-        <ul class="list-unstyled mb-3">
+      <div v-if="isMobileOpen" class="mobile-menu-panel d-lg-none">
+        <ul class="list-unstyled mb-2 mobile-menu-list">
           <li v-for="link in navLinks" :key="link.path">
             <NuxtLink
               :to="link.path"
-              class="d-block px-3 py-2 rounded-3 cg-link text-decoration-none"
+              class="d-block px-2 py-2 rounded-3 cg-link text-decoration-none"
               :class="isActive(link.path) ? 'nav-active-mobile' : ''"
               @click="isMobileOpen = false"
             >
@@ -65,7 +65,7 @@
             </NuxtLink>
           </li>
         </ul>
-        <div class="pt-3 border-top border-subtle">
+        <div class="mobile-menu-cta">
           <a
             href="/Chirag_Software_Engineer.pdf"
             download="Chirag_Software_Engineer.pdf"
