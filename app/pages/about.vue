@@ -29,7 +29,7 @@
 
             <h5 class="fw-semibold mt-4 mb-3">Executive Summary</h5>
             <p class="text-body-secondary body-text">
-              I am a dedicated <strong>Software Engineer with 7+ years of experience</strong> delivering enterprise-grade web applications. My journey spans the full engineering spectrum: starting with UI/UX prototyping at <strong>Infibeam Avenues</strong>, evolving into high-speed e-commerce at <strong>Lucent Innovation</strong>, and scaling complex SaaS workflows at <strong>Salesmate CRM at 1center</strong> using <strong>Angular</strong>, <strong>React</strong>, and <strong>CSS</strong>, alongside high-concurrency systems in <strong>Node.js</strong>, <strong>Go</strong>, and <strong>Rust</strong>.
+              I am a dedicated <strong>Software Engineer with 7+ years of experience</strong> delivering enterprise-grade web applications. My journey spans the full engineering spectrum: starting with UI/UX prototyping at <strong>Infibeam Avenues</strong>, evolving into high-speed e-commerce at <strong>Lucent Innovation</strong>, and scaling complex SaaS workflows at <strong>Salesmate CRM at 1center</strong> using <strong>Angular</strong>, <strong>React</strong>, and <strong>CSS</strong>, alongside high-concurrency systems in <strong>Node.js</strong> and <strong>Go</strong>.
             </p>
             <p class="text-body-secondary body-text">
               I actively harness modern <strong>AI tooling (Cursor, Augment, ChatGPT APIs)</strong> to supercharge development workflows, automate unit tests, refactor legacy codebases, and maintain rigorous code quality and delivery speed.
@@ -38,7 +38,7 @@
             <h5 class="fw-semibold mt-4 mb-3">Engineering Philosophy</h5>
             <ul class="list-unstyled">
               <li class="list-accent">
-                <strong>Performance as a Feature:</strong> From Node.js cluster mode scaling to Go's 512K concurrent connections and Rust's zero-cost abstractions, speed is non-negotiable.
+                <strong>Performance as a Feature:</strong> From Node.js cluster mode scaling to Go's 512K concurrent connections, speed is non-negotiable.
               </li>
               <li class="list-accent">
                 <strong>Fluid User Experience:</strong> Clean, accessible, intuitive interfaces with responsive layouts and rich micro-interactions.
@@ -141,7 +141,7 @@ const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
 useSeoMeta({
   title: 'About Chirag Gajjar | Software Engineer (7+ Years)',
   ogTitle: 'About Chirag Gajjar — Software Engineer',
-  description: 'Learn about Chirag Gajjar: 7+ years of commercial software engineering with Angular, React, CSS, Node.js, Go, and Rust. Education at Ganpat University, career at 1center, Lucent Innovation, Infibeam.',
+  description: 'Learn about Chirag Gajjar: 7+ years of commercial software engineering with Angular, React, CSS, Node.js, and Go. Education at Ganpat University, career at 1center, Lucent Innovation, Infibeam.',
   ogDescription: '7+ years of software engineering experience across enterprise SaaS, e-commerce, and high-concurrency systems.',
   ogUrl: `${siteUrl}/about`,
   robots: 'index, follow'

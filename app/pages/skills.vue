@@ -83,8 +83,8 @@ const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
 useSeoMeta({
   title: 'Technical Skills Matrix | Chirag Gajjar (7+ Years Software Engineer)',
   ogTitle: 'Skills — Chirag Gajjar | Software Engineer',
-  description: 'Complete skills matrix of Chirag Gajjar: Angular, React, Vue, Next.js, Nuxt, TypeScript, Node.js, Express, Go, Rust, AWS, Docker, PostgreSQL, MongoDB, Redis, and AI tooling.',
-  ogDescription: 'Full-stack engineering skills: Angular, React, Go, Rust, Node.js, AWS, databases, and AI acceleration.',
+  description: 'Complete skills matrix of Chirag Gajjar: Angular, React, Vue, Next.js, Nuxt, TypeScript, Node.js, Express, Go, AWS, Docker, PostgreSQL, MongoDB, Redis, and AI tooling.',
+  ogDescription: 'Full-stack engineering skills: Angular, React, Go, Node.js, AWS, databases, and AI acceleration.',
   ogUrl: `${siteUrl}/skills`,
   robots: 'index, follow'
 })
@@ -104,7 +104,7 @@ useJsonld({
     jobTitle: 'Software Engineer',
     knowsAbout: [
       'Angular', 'React', 'Vue', 'Next.js', 'Nuxt', 'TypeScript', 'JavaScript',
-      'Node.js', 'Express', 'Go', 'Rust', 'AWS', 'Docker', 'PostgreSQL',
+      'Node.js', 'Express', 'Go', 'AWS', 'Docker', 'PostgreSQL',
       'MongoDB', 'Redis', 'Shopify', 'BigCommerce', 'Cursor IDE', 'Augment AI'
     ]
   }
@@ -128,7 +128,7 @@ const domains = [
     rgb: 'var(--cg-google-blue-rgb)',
     iconSvg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
     skills: [
-      { name: 'Angular (22 / Standalone / Signals)', color: 'var(--cg-google-blue)', context: 'Core UI framework at 1center (Salesmate CRM 4+ yrs) & CM Notes', projects: 'Salesmate CRM, CM Notes' },
+      { name: 'Angular (Standalone / Signals / SPAs)', color: 'var(--cg-google-blue)', context: 'Core UI framework at 1center (Salesmate CRM 4+ yrs), Signals, reactive architectures', projects: 'Salesmate CRM' },
       { name: 'React 19 & Next.js 16 (App Router)', color: 'var(--cg-google-blue)', context: 'Modern SPAs with Zustand, Recharts, Tiptap, Tailwind CSS v4', projects: 'CM Expense Tracker, CM Notes' },
       { name: 'Vue 3 & Nuxt 4', color: 'var(--cg-google-green)', context: 'Composition API, Nitro server engine, SSR/SSG, Vue Router', projects: 'Portfolio, Internal Applications' },
       { name: 'TypeScript & JavaScript (ESNext)', color: 'var(--cg-google-yellow)', context: 'Strict typing, modern asynchronous patterns, generics', projects: 'All Production Applications' },
@@ -137,13 +137,13 @@ const domains = [
     ]
   },
   {
-    id: 'backend', name: 'Backend, Systems & Protocols', summary: 'Node.js, Go, Rust, WebSockets, RESTful APIs, Docker',
+    id: 'backend', name: 'Backend, Systems & Protocols', summary: 'Node.js, Go, WebSockets, RESTful APIs, Docker',
     rgb: 'var(--cg-google-green-rgb)',
     iconSvg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
     skills: [
       { name: 'Node.js & Express 5 (Cluster Mode)', color: 'var(--cg-google-green)', context: 'Multi-core cluster scaling, Pino logging, Helmet security, HTTP-only JWTs', projects: 'CM Expense Tracker API' },
       { name: 'Go (Golang 1.26 & fasthttp)', color: 'var(--cg-google-blue)', context: '512K concurrent connections with sub-millisecond response & 64-shard rate limiters', projects: 'CM Notes Go Microservice' },
-      { name: 'Rust (Axum 0.7 & Tokio)', color: 'var(--cg-google-red)', context: 'Zero-cost abstractions, asynchronous multithreading, sub-millisecond endpoints', projects: 'CM Notes Rust Backend' },
+      { name: 'Microservices & High Concurrency', color: 'var(--cg-google-red)', context: 'Non-blocking I/O, goroutines, atomic primitives, sub-millisecond throughput', projects: 'CM Notes Go Microservice' },
       { name: 'WebSockets & REST APIs', color: 'var(--cg-google-yellow)', context: 'Real-time state synchronization, clean contract schemas, streaming endpoints', projects: 'Notes App, CRM Dashboards' },
       { name: 'Docker & Containerization', color: 'var(--cg-google-blue)', context: 'Multi-stage builds, container isolation, local environment reproducibility', projects: 'Backend Microservices' }
     ]
@@ -153,8 +153,8 @@ const domains = [
     rgb: 'var(--cg-google-red-rgb)',
     iconSvg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>',
     skills: [
-      { name: 'AWS SAM & Lambda', color: 'var(--cg-google-red)', context: 'Serverless Infrastructure as Code, automated deployment of Rust & Go microservices', projects: 'CM Notes Rust Backend' },
-      { name: 'AWS SES', color: 'var(--cg-google-yellow)', context: 'Transactional password recovery, 6-digit OTP with 60s cooldown limiters', projects: 'CM Notes (Amplify/AWS)' },
+      { name: 'AWS SAM & Lambda', color: 'var(--cg-google-red)', context: 'Serverless Infrastructure as Code, automated deployment of cloud microservices', projects: 'Serverless Microservices' },
+      { name: 'AWS SES', color: 'var(--cg-google-yellow)', context: 'Transactional password recovery, 6-digit OTP with 60s cooldown limiters', projects: 'AWS Cloud Applications' },
       { name: 'AWS RDS & API Gateway', color: 'var(--cg-google-blue)', context: 'Managed relational storage, secure API routing, VPC configuration', projects: 'PostgreSQL Cloud Deployment' },
       { name: 'GitHub Actions (CI/CD)', color: 'var(--cg-google-green)', context: 'Automated test suites, build pipelines, and continuous deployment', projects: 'All GitHub Repositories' },
       { name: 'Vercel, Amplify, Netlify, Render', color: 'var(--cg-google-blue)', context: 'Production edge deployments, environment variable isolation', projects: 'React & Next.js Apps' }
@@ -166,7 +166,7 @@ const domains = [
     iconSvg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',
     skills: [
       { name: 'MongoDB Atlas & Go Driver v2', color: 'var(--cg-google-green)', context: 'BSON document modeling, parameterized queries, optimized indexing', projects: 'CM Notes Go Backend' },
-      { name: 'PostgreSQL & SQLx', color: 'var(--cg-google-blue)', context: 'Automatic runtime schema migrations, parameterized query binding', projects: 'CM Notes Rust Backend' },
+      { name: 'PostgreSQL (AWS RDS & SQL)', color: 'var(--cg-google-blue)', context: 'Relational data modeling, indexing, parameterized queries, schema management', projects: 'AWS RDS, Cloud Applications' },
       { name: 'Redis (Caching & Rate Limiting)', color: 'var(--cg-google-red)', context: 'Non-blocking in-memory caching, distributed token bucket rate limiting', projects: 'CM Expense Tracker' },
       { name: 'Supabase & Neon Postgres', color: 'var(--cg-google-yellow)', context: 'Serverless PostgreSQL, row-level security, real-time subscriptions', projects: 'Cloud Applications' }
     ]
@@ -195,7 +195,7 @@ const domains = [
 
 const archHighlights = [
   { badge: '512K Concurrency', rgb: 'var(--cg-google-green-rgb)', title: '64-Shard In-Memory Rate Limiter (Go)', desc: 'Engineered using Go 1.26 & fasthttp with custom 64-shard distribution, FNV-1a hashing, and atomic counters. Eliminates mutex contention on high-frequency API endpoints.', meta: 'Go 1.26 • fasthttp • FNV-1a • Atomic Counters' },
-  { badge: 'Zero-Cost Systems', rgb: 'var(--cg-google-blue-rgb)', title: 'Sub-Millisecond Rust RESTful API', desc: 'Engineered with Rust (Axum 0.7 & Tokio) for zero-cost abstractions, asynchronous request handling, AWS RDS PostgreSQL with automated schema migrations.', meta: 'Rust • Axum 0.7 • Tokio • SQLx • PostgreSQL' },
+  { badge: 'Cloud Architecture', rgb: 'var(--cg-google-blue-rgb)', title: 'Serverless & Cloud-Native Microservices', desc: 'Architected scalable cloud deployments utilizing AWS Lambda, API Gateway, Docker multi-stage builds, and automated GitHub Actions CI/CD with environment-aware runtimes.', meta: 'AWS Lambda • API Gateway • Docker • GitHub Actions • CI/CD' },
   { badge: 'Enterprise CRM', rgb: 'var(--cg-google-red-rgb)', title: 'Salesmate CRM High-Velocity Angular UI', desc: '4+ years architecting modules for Salesmate CRM. Granular lazy loading, custom change detection, accessible UI components, and rich data reporting.', meta: 'Angular • JavaScript • SCSS • Lazy Loading' },
   { badge: 'Process Scaling', rgb: 'var(--cg-google-yellow-rgb)', title: 'Cluster Mode Multi-Core Express 5 Scaling', desc: 'Multi-core process scaling on Node.js Express 5 with Pino logging, Helmet security, HTTP-only cookie JWTs, and Redis-backed rate limiting.', meta: 'Express 5 • Cluster Mode • Redis • Mongoose' }
 ]

@@ -17,7 +17,7 @@
               <span class="pulse-dot"></span>
               <span class="small fw-semibold text-success">Actively Open to Opportunities</span>
             </div>
-            <p class="text-body-secondary small mb-0 body-text-sm">Available for Software Engineering positions using Angular, React, CSS, Node.js/Express, high-concurrency Go and Rust systems.</p>
+            <p class="text-body-secondary small mb-0 body-text-sm">Available for Software Engineering positions using Angular, React, CSS, Node.js/Express, and high-concurrency Go systems.</p>
           </div>
 
           <!-- Contact Details -->
@@ -172,8 +172,8 @@ const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
 useSeoMeta({
   title: 'Contact Chirag Gajjar | Software Engineer',
   ogTitle: 'Contact — Chirag Gajjar | Software Engineer',
-  description: 'Get in touch with Chirag Gajjar, a Software Engineer with 7+ years of experience in Angular, React, Go, Rust, and AWS. Available for software engineering opportunities.',
-  ogDescription: 'Contact Chirag Gajjar for software engineering roles. Available for Angular, React, Node.js, Go, Rust positions.',
+  description: 'Get in touch with Chirag Gajjar, a Software Engineer with 7+ years of experience in Angular, React, Go, and AWS. Available for software engineering opportunities.',
+  ogDescription: 'Contact Chirag Gajjar for software engineering roles. Available for Angular, React, Node.js, and Go positions.',
   ogUrl: `${siteUrl}/contact`,
   robots: 'index, follow'
 })

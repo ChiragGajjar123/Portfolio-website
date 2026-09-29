@@ -75,8 +75,8 @@ const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
 useSeoMeta({
   title: 'Production Projects Portfolio | Chirag Gajjar',
   ogTitle: 'Projects — Chirag Gajjar | Software Engineer',
-  description: 'Production projects by Chirag Gajjar: CM Notes (Rust & Angular), CM Notes (Go & Next.js), CM Expense Tracker (React & Express), Salesmate CRM, Cook & Boardman, Subliblanks.',
-  ogDescription: 'Production-grade projects: Rust/Angular notes app, Go microservice with 512K concurrency, React expense tracker, enterprise CRM.',
+  description: 'Production projects by Chirag Gajjar: CM Notes (Go & Next.js), CM Expense Tracker (React & Express), Salesmate CRM, Cook & Boardman, Subliblanks.',
+  ogDescription: 'Production-grade projects: Go microservice with 512K concurrency, React expense tracker, enterprise CRM, e-commerce storefronts.',
   ogUrl: `${siteUrl}/projects`,
   robots: 'index, follow'
 })
@@ -92,13 +92,6 @@ useJsonld({
   url: `${siteUrl}/projects`,
   description: 'Production projects and engineering portfolio of Chirag Gajjar.',
   hasPart: [
-    {
-      '@type': 'SoftwareSourceCode',
-      name: 'CM Notes — Rust & Angular 22',
-      codeRepository: 'https://github.com/ChiragGajjar123/Rust-Backend-Notes-App',
-      programmingLanguage: ['Rust', 'TypeScript'],
-      runtimePlatform: ['AWS Lambda', 'Amplify']
-    },
     {
       '@type': 'SoftwareSourceCode',
       name: 'CM Notes — Go & Next.js',
@@ -120,22 +113,13 @@ const selectedCategory = ref('all')
 const searchQuery = ref('')
 
 const categories = [
-  { id: 'all', name: 'All Projects (6)' },
+  { id: 'all', name: 'All Projects (5)' },
   { id: 'systems', name: 'Systems & Microservices' },
   { id: 'saas', name: 'Enterprise SaaS' },
   { id: 'ecommerce', name: 'E-Commerce' }
 ]
 
 const projects = [
-  {
-    id: 'cm-notes-rust', title: 'CM Notes — Notes Application (Rust & Angular 22)', category: 'systems', categoryTag: 'Rust + Angular 22', badgeRgb: 'var(--cg-google-blue-rgb)', type: 'Serverless AWS',
-    liveUrl: 'https://main.d3jqv6bft0m3qf.amplifyapp.com',
-    repos: [{ label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Angular-Frontend-for-rust-backend-Notes-App' }, { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Rust-Backend-Notes-App' }],
-    stack: 'Angular 22 SPA • Rust (Axum 0.7 & Tokio) • AWS SES • PostgreSQL SQLx • AWS SAM',
-    overview: 'Engineered a high-performance notes platform featuring Angular Signals state management, custom Glassmorphism UI, interactive authentication with rate-limited OTP recovery, and sub-millisecond Rust microservice.',
-    achievements: ['Developed a modern Angular 22 SPA using Standalone Components, Angular Signals for fine-grained state management, and custom Glassmorphism UI.', 'Built a 4-step Forgot Password workflow with real-time input verification, 60-second cooldown timers, and inbox/spam folder guidance.', 'Engineered a high-performance, asynchronous RESTful API using Rust (Axum 0.7 & Tokio) with sub-millisecond response times.', 'Implemented a secure password recovery system powered by AWS SES with 6-digit OTP verification, bcrypt token hashing, and 60-second rate limiting.', 'Integrated AWS RDS PostgreSQL (via SQLx) with automatic runtime schema migrations and parameterized query binding.', 'Configured automated Serverless deployment using AWS SAM, Lambda, API Gateway, and AWS Amplify.'],
-    tags: ['Angular 22', 'Angular Signals', 'Rust', 'Axum 0.7', 'Tokio', 'AWS SES', 'AWS RDS', 'PostgreSQL', 'SQLx', 'AWS SAM', 'Lambda', 'Amplify']
-  },
   {
     id: 'cm-notes-go', title: 'CM Notes — High-Concurrency Microservice (Go & Next.js 16)', category: 'systems', categoryTag: 'Go 1.26 + Next.js 16', badgeRgb: 'var(--cg-google-green-rgb)', type: '512K Concurrency',
     liveUrl: 'https://notes-next-js-mongo-db.vercel.app',

@@ -97,7 +97,7 @@
 
         <div class="text-center">
           <NuxtLink to="/projects" class="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">
-            View All 6 Production Projects (Including E-commerce)
+            View All 5 Production Projects (Including E-commerce)
             <svg class="ms-2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </NuxtLink>
         </div>
@@ -152,10 +152,10 @@
 const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
 
 useSeoMeta({
-  title: 'Chirag Gajjar | Software Engineer — Angular, React, Go, Rust',
+  title: 'Chirag Gajjar | Software Engineer — Angular, React, Go',
   ogTitle: 'Chirag Gajjar | Software Engineer',
-  description: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, Rust, AWS, and Cloud Architecture.',
-  ogDescription: '7+ years delivering scalable web platforms, high-concurrency Rust/Go microservices, and modern interfaces.',
+  description: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Vue, Next.js, Node.js, Go, AWS, and Cloud Architecture.',
+  ogDescription: '7+ years delivering scalable web platforms, high-concurrency Go microservices, and modern interfaces.',
   ogUrl: siteUrl,
   robots: 'index, follow'
 })
@@ -174,7 +174,7 @@ useJsonld({
     'https://www.linkedin.com/in/chirag-gajjar-0ba075101',
     'https://github.com/ChiragGajjar123'
   ],
-  knowsAbout: ['Angular', 'React', 'Vue', 'Next.js', 'Nuxt', 'Node.js', 'Go', 'Rust', 'AWS', 'Cloud Architecture'],
+  knowsAbout: ['Angular', 'React', 'Vue', 'Next.js', 'Nuxt', 'Node.js', 'Go', 'AWS', 'Cloud Architecture'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Gandhinagar',
@@ -187,23 +187,10 @@ const metrics = [
   { value: '7+', label: 'Years of Commercial Experience', sub: 'Enterprise & SaaS Products', gradient: 'cg-text-gradient-blue' },
   { value: 'Node', label: 'Express 5 API', sub: 'Cluster Mode Process Scaling', gradient: 'cg-text-gradient-green' },
   { value: '512K', label: 'Concurrent Connections', sub: 'Go / fasthttp Microservice', gradient: 'cg-text-gradient-blue' },
-  { value: '< 1ms', label: 'Sub-millisecond Latency', sub: 'Rust Axum & Zero-Cost Tokio', gradient: 'cg-text-gradient-yellow' }
+  { value: '< 1ms', label: 'Sub-millisecond Latency', sub: 'Go 1.26 fasthttp Engine', gradient: 'cg-text-gradient-yellow' }
 ]
 
 const featuredProjects = [
-  {
-    title: 'CM Notes — Notes Application',
-    stack: 'Rust (Axum 0.7 & Tokio) • Angular 22 SPA • AWS SES • PostgreSQL SQLx',
-    desc: 'Engineered a high-performance notes platform with Angular Signals state management, custom Glassmorphism UI, 4-step Forgot Password with 60s cooldown timer, and sub-millisecond Rust RESTful API backed by AWS RDS PostgreSQL and AWS SAM Lambda deployment.',
-    badges: [{ text: 'Rust + Angular 22', rgb: 'var(--cg-google-blue-rgb)' }, { text: 'AWS SAM Serverless', rgb: 'var(--cg-google-red-rgb)' }],
-    techs: ['Angular 22', 'Rust Axum', 'Tokio', 'AWS SES', 'PostgreSQL', 'AWS Amplify'],
-    liveUrl: 'https://main.d3jqv6bft0m3qf.amplifyapp.com',
-    repos: [
-      { label: 'FE Repo', url: 'https://github.com/ChiragGajjar123/Angular-Frontend-for-rust-backend-Notes-App' },
-      { label: 'BE Repo', url: 'https://github.com/ChiragGajjar123/Rust-Backend-Notes-App' }
-    ],
-    orbColor: 'var(--cg-google-blue)'
-  },
   {
     title: 'CM Notes — High-Concurrency Microservice',
     stack: 'Next.js 16 (App Router) • Go 1.26 fasthttp • MongoDB Atlas • Resend API',
@@ -239,14 +226,24 @@ const featuredProjects = [
     liveUrl: 'https://www.salesmate.io',
     repos: [],
     orbColor: 'var(--cg-google-red)'
+  },
+  {
+    title: 'Cook & Boardman E-Commerce Storefront',
+    stack: 'BigCommerce • HTML5 • CSS3 • JavaScript • Responsive Architecture',
+    desc: 'Enterprise e-commerce storefront supporting digital transformation with intuitive navigation, custom product catalog views, and responsive mobile architecture.',
+    badges: [{ text: 'BigCommerce', rgb: 'var(--cg-google-blue-rgb)' }, { text: 'Enterprise E-Commerce', rgb: 'var(--cg-google-green-rgb)' }],
+    techs: ['BigCommerce', 'HTML5', 'CSS3', 'JavaScript', 'Responsive UX'],
+    liveUrl: 'https://www.cookandboardman.com',
+    repos: [],
+    orbColor: 'var(--cg-google-blue)'
   }
 ]
 
 const domains = [
   { title: 'Frontend & Frameworks', desc: 'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue, Next.js, Nuxt.', pills: ['Angular', 'React', 'Vue / Nuxt', 'Next.js', 'TypeScript', 'SCSS'], rgb: 'var(--cg-google-blue-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>' },
-  { title: 'Backend & Protocols', desc: 'Node.js, Express, Docker, Go (Golang 1.26, fasthttp), Rust (Axum, Tokio), WebSockets, REST APIs, multi-core cluster scaling.', pills: ['Rust (Axum)', 'Go (fasthttp)', 'Node Express', 'WebSockets', 'REST APIs', 'Docker'], rgb: 'var(--cg-google-green-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>' },
+  { title: 'Backend & Protocols', desc: 'Node.js, Express, Docker, Go (Golang 1.26, fasthttp), WebSockets, REST APIs, multi-core cluster scaling.', pills: ['Go (fasthttp)', 'Node Express', 'Microservices', 'WebSockets', 'REST APIs', 'Docker'], rgb: 'var(--cg-google-green-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>' },
   { title: 'Cloud & DevOps', desc: 'AWS (EC2, RDS, Lambda, SES, API Gateway, CloudFormation SAM, Amplify), GitHub Actions (CI/CD), Vercel, Netlify, Render.', pills: ['AWS SAM', 'AWS Lambda', 'AWS SES', 'GitHub Actions', 'Vercel', 'Render'], rgb: 'var(--cg-google-red-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>' },
-  { title: 'Databases & Caching', desc: 'MongoDB Atlas, PostgreSQL (SQLx), Redis (caching & distributed rate limiting), Supabase, Neon Postgres.', pills: ['PostgreSQL', 'MongoDB Atlas', 'Redis Caching', 'SQLx', 'Supabase', 'Neon'], rgb: 'var(--cg-google-yellow-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>' },
+  { title: 'Databases & Caching', desc: 'MongoDB Atlas, PostgreSQL (AWS RDS), Redis (caching & distributed rate limiting), Supabase, Neon Postgres.', pills: ['PostgreSQL', 'MongoDB Atlas', 'Redis Caching', 'AWS RDS', 'Supabase', 'Neon'], rgb: 'var(--cg-google-yellow-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>' },
   { title: 'AI Tooling Acceleration', desc: 'Integrated modern AI tools (Cursor, Augment, ChatGPT, CLI & APIs) across daily engineering workflows to boost velocity.', pills: ['Cursor IDE', 'Augment AI', 'ChatGPT', 'Rapid Refactoring', 'Test Generation'], rgb: 'var(--cg-google-blue-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
   { title: 'E-Commerce Platforms', desc: 'Shopify custom theme development with Liquid, HTML5, SCSS, JS, SEO optimization, BigCommerce enterprise storefronts.', pills: ['Shopify Liquid', 'BigCommerce', 'Conversion SEO', 'Theme Dev'], rgb: 'var(--cg-google-red-rgb)', icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' }
 ]
