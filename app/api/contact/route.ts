@@ -1,6 +1,41 @@
 import { NextResponse } from 'next/server'
+import { email as recipientEmail, siteUrl } from '../../site-config'
 
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!)
+
+// ---------------------------------------------------------------------------
+// Validation limits
+// ---------------------------------------------------------------------------
+const LIMITS = { name: 100, email: 150, subject: 150, message: 5000 }
+const EMAIL_PATTERN = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/
+
+// ---------------------------------------------------------------------------
+// Best-effort per-IP rate limiting (in-memory, per serverless instance).
+// The honeypot + same-origin check handle most naive bots; this throttles
+// determined single-source abuse within a warm instance.
+// ---------------------------------------------------------------------------
+const RATE_WINDOW_MS = 10 * 60 * 1000
+const RATE_MAX_REQUESTS = 8
+const attempts = new Map<string, { count: number; resetAt: number }>()
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  // Opportunistic cleanup so the map cannot grow unbounded.
+  if (attempts.size > 1000) {
+    for (const [key, entry] of attempts) if (entry.resetAt <= now) attempts.delete(key)
+  }
+  const entry = attempts.get(ip)
+  if (!entry || entry.resetAt <= now) {
+    attempts.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS })
+    return false
+  }
+  entry.count += 1
+  return entry.count > RATE_MAX_REQUESTS
+}
+
+function clientIp(request: Request): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'unknown'
+}
 
 function buildContactEmail({ name, email, subject, message }: { name: string; email: string; subject: string; message: string }) {
   const safeName = escapeHtml(name)
@@ -44,7 +79,7 @@ function buildContactEmail({ name, email, subject, message }: { name: string; em
             <div style="padding:18px;background-color:#ffffff;border:1px solid #dadce0;border-radius:12px;color:#3c4043;font-size:14px;line-height:1.7;white-space:normal;">${safeMessage}</div>
             <p style="margin:18px 0 0;color:#5f6368;font-size:13px;line-height:1.5;">Reply directly to this email to respond to ${safeName}.</p>
           </td></tr>
-          <tr><td style="padding:18px 32px;background-color:#f8f9fa;border-top:1px solid #e8eaed;color:#80868b;font-size:12px;line-height:1.5;">Sent from the contact form on chirag-gajjar-software-engineer.vercel.app</td></tr>
+          <tr><td style="padding:18px 32px;background-color:#f8f9fa;border-top:1px solid #e8eaed;color:#80868b;font-size:12px;line-height:1.5;">Sent from the contact form on ${new URL(siteUrl).host}</td></tr>
         </table>
       </td></tr>
     </table>
@@ -55,21 +90,55 @@ function buildContactEmail({ name, email, subject, message }: { name: string; em
 }
 
 export async function POST(request: Request) {
-  const body = await request.json().catch(() => ({}))
-  const name = typeof body.name === 'string' ? body.name.trim() : ''
-  const email = typeof body.email === 'string' ? body.email.trim() : ''
-  const subject = typeof body.subject === 'string' && body.subject.trim() ? body.subject.trim() : `Portfolio Message from ${name}`
-  const message = typeof body.message === 'string' ? body.message.trim() : ''
+  // Same-origin gate: block cross-site form postings and simple scripted calls.
+  const origin = request.headers.get('origin')
+  if (origin && origin !== new URL(siteUrl).origin) {
+    return NextResponse.json({ success: false, message: 'Forbidden origin' }, { status: 403 })
+  }
+  if (isRateLimited(clientIp(request))) {
+    return NextResponse.json({ success: false, message: 'Too many messages from this address. Please try again later.' }, { status: 429 })
+  }
+
+  // Hard body size cap before parsing (rejects oversized payloads early).
+  const raw = await request.text().catch(() => '')
+  if (raw.length > 32_000) {
+    return NextResponse.json({ success: false, message: 'Message payload is too large' }, { status: 413 })
+  }
+  let body: Record<string, unknown>
+  try { body = JSON.parse(raw) } catch { body = {} }
+
+  // Honeypot: bots fill hidden fields — accept silently but do nothing.
+  if (typeof body.website === 'string' && body.website.trim() !== '') {
+    return NextResponse.json({ success: true, message: 'Thank you! Your message has been received.' })
+  }
+
+  const str = (value: unknown, max: number) => typeof value === 'string' ? value.trim().slice(0, max) : ''
+  const name = str(body.name, LIMITS.name)
+  const email = str(body.email, LIMITS.email)
+  const subject = str(body.subject, LIMITS.subject) || `Portfolio Message from ${name}`
+  const message = str(body.message, LIMITS.message)
+
   if (!name) return NextResponse.json({ success: false, message: 'Name is required' }, { status: 400 })
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ success: false, message: 'A valid email address is required' }, { status: 400 })
+  if (!email || !EMAIL_PATTERN.test(email)) return NextResponse.json({ success: false, message: 'A valid email address is required' }, { status: 400 })
   if (message.length < 5) return NextResponse.json({ success: false, message: 'Message must be at least 5 characters long' }, { status: 400 })
+
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
-    console.log('[CONTACT FORM SUBMISSION SIMULATION]', { name, email, subject, message, destination: 'chiraggajjar421@gmail.com' })
+    console.log('[CONTACT FORM SUBMISSION SIMULATION]', { name, email, subject, message, destination: recipientEmail })
     return NextResponse.json({ success: true, isMock: true, message: 'Thank you! Your message has been received. Add RESEND_API_KEY to enable email delivery.' })
   }
   const emailContent = buildContactEmail({ name, email, subject, message })
-  const result = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ from: 'Chirag Portfolio <onboarding@resend.dev>', to: ['chiraggajjar421@gmail.com'], reply_to: email, subject: `[Portfolio Inquiry] ${subject}`, html: emailContent.html, text: emailContent.text }) })
+  let result: Response
+  try {
+    result = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ from: 'Chirag Portfolio <onboarding@resend.dev>', to: [recipientEmail], reply_to: email, subject: `[Portfolio Inquiry] ${subject}`, html: emailContent.html, text: emailContent.text }),
+      signal: AbortSignal.timeout(10_000)
+    })
+  } catch {
+    return NextResponse.json({ success: false, message: 'Email service timed out. Please try again or reach out directly by email.' }, { status: 504 })
+  }
   const response = await result.json().catch(() => ({}))
   if (!result.ok) return NextResponse.json({ success: false, message: response.message || 'Failed to dispatch email via Resend. Please try direct email.' }, { status: 502 })
   return NextResponse.json({ success: true, message: 'Your message has been sent successfully to Chirag! Thank you for reaching out.', emailId: response.id })

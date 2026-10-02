@@ -2,7 +2,26 @@
   "name": "portfolio-website",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start" },
-  "dependencies": { "bootstrap": "^5.3.8", "next": "16.3.8", "react": "^19.2.0", "react-dom": "^19.2.0" },
-  "devDependencies": { "@types/node": "^26.5.0", "@types/react": "^19.2.0", "@types/react-dom": "^19.2.0", "typescript": "^5.9.3" }
+  "scripts": {
+    "css:bootstrap": "sass app/assets/css/bootstrap.scss app/assets/css/bootstrap.css --style=expanded --load-path=node_modules --no-source-map --quiet --no-charset",
+    "predev": "npm run css:bootstrap",
+    "dev": "next dev",
+    "prebuild": "npm run css:bootstrap",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
+    "bootstrap": "^5.3.8",
+    "next": "16.3.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "sass": "^1.105.1",
+    "typescript": "^5.9.3"
+  }
 }

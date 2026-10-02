@@ -4,57 +4,12 @@
    Rules: No !important, scoped with .light / .dark, unique cg-* classes.
    ========================================================================== */
 
+/* Bootstrap comes from the tree-shaken prebuild (bootstrap.scss → bootstrap.css),
+   imported first in layout.tsx so the styles below override it. */
+
 /* --------------------------------------------------------------------------
-   1. FONT FACES
+   1. FONT FACES — provided by next/font (Poppins, self-hosted + subsetted)
    -------------------------------------------------------------------------- */
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* --------------------------------------------------------------------------
    2. CSS VARIABLES — LIGHT THEME (Google Workspace / Material Design 3)
@@ -294,7 +249,7 @@
    -------------------------------------------------------------------------- */
 
 body {
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
   background-color: var(--bg-canvas);
   color: var(--bs-body-color);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -303,7 +258,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .btn, .badge, .form-control, .form-label, .nav-link {
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
 }
 
 /* --------------------------------------------------------------------------
@@ -472,6 +427,16 @@ h1, h2, h3, h4, h5, h6,
 /* --------------------------------------------------------------------------
    12. FORM INPUT GLASS STYLE (Google Styled)
    -------------------------------------------------------------------------- */
+
+/* Honeypot anti-spam field — visually removed, still in the form */
+.cg-hp {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 .form-control-glass {
   background: var(--bg-input);

@@ -2,6 +2,7 @@
 .next
 out
 dist
+*.tsbuildinfo
 
 # Node dependencies
 node_modules

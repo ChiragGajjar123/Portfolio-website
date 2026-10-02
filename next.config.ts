@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     return [{ source: '/resume.pdf', destination: '/Chirag_Software_Engineer.pdf', permanent: true }]
   },
   async headers() {
-    return [{ source: '/Chirag_Software_Engineer.pdf', headers: [{ key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' }, { key: 'Pragma', value: 'no-cache' }, { key: 'Expires', value: '0' }] }]
+    // Resume PDF changes rarely — allow browser/CDN caching instead of no-store.
+    return [{ source: '/Chirag_Software_Engineer.pdf', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' }] }]
   }
 }
 

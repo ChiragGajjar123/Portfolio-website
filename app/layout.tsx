@@ -1,11 +1,20 @@
 import type { Metadata } from 'next'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './assets/css/main.css'
+import { Poppins } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import './assets/css/bootstrap.css'
+import './assets/css/main.scss'
 import SiteChrome from './site-chrome'
+import Footer from './footer'
+import StructuredData from './structured-data'
+import { siteUrl, siteTitle, siteDescription, email, linkedinUrl, githubUrl, ogImage, ogImageAlt } from './site-config'
 
-const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
-const title = 'Chirag Gajjar | Software Engineer'
-const description = 'Software engineer Chirag Gajjar has 7+ years of experience building scalable web applications, high-concurrency Go services, and cloud platforms.'
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+  display: 'swap'
+})
+
 const siteStructuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -16,9 +25,9 @@ const siteStructuredData = {
       url: siteUrl,
       jobTitle: 'Software Engineer',
       description: 'Software engineer with 7+ years of experience in web applications, enterprise SaaS, high-concurrency Go services, and cloud platforms.',
-      email: 'mailto:chiraggajjar421@gmail.com',
+      email: `mailto:${email}`,
       address: { '@type': 'PostalAddress', addressLocality: 'Gandhinagar', addressRegion: 'Gujarat', addressCountry: 'IN' },
-      sameAs: ['https://www.linkedin.com/in/chirag-gajjar-0ba075101', 'https://github.com/ChiragGajjar123']
+      sameAs: [linkedinUrl, githubUrl]
     },
     {
       '@type': 'WebSite',
@@ -34,8 +43,8 @@ const siteStructuredData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: title, template: '%s | Chirag Gajjar' },
-  description,
+  title: { default: siteTitle, template: '%s | Chirag Gajjar' },
+  description: siteDescription,
   applicationName: 'Chirag Gajjar Portfolio',
   authors: [{ name: 'Chirag Gajjar', url: siteUrl }],
   creator: 'Chirag Gajjar',
@@ -57,20 +66,20 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: siteUrl,
     siteName: 'Chirag Gajjar — Software Engineer',
-    title,
-    description,
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Chirag Gajjar — Software Engineer' }]
+    title: siteTitle,
+    description: siteDescription,
+    images: ogImage
   },
   twitter: {
     card: 'summary_large_image',
-    title,
-    description,
-    images: [{ url: '/opengraph-image', alt: 'Chirag Gajjar — Software Engineer' }]
+    title: siteTitle,
+    description: siteDescription,
+    images: [{ url: '/opengraph-image', alt: ogImageAlt }]
   },
   formatDetection: { email: false, address: false, telephone: false },
   icons: { icon: '/favicon.svg', shortcut: '/favicon.ico' }
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN" className="light" data-bs-theme="light" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData).replace(/</g, '\\u003c') }}/><SiteChrome>{children}</SiteChrome></body></html>
+  return <html lang="en-IN" className="light" data-bs-theme="light" data-scroll-behavior="smooth"><body className={poppins.variable}><StructuredData data={siteStructuredData}/><SiteChrome>{children}</SiteChrome><Footer/><SpeedInsights/></body></html>
 }

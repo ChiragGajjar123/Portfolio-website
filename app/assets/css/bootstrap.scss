@@ -1,0 +1,51 @@
+// Tree-shaken Bootstrap build — only the parts this portfolio actually renders.
+// Compiled to bootstrap.css by the `css:bootstrap` npm script (sass CLI);
+// the result is imported by app/layout.tsx. Re-run the script after editing.
+// Uses Bootstrap's documented customization flow (docs/customize/sass).
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Layout & components actually used by the site.
+// `containers` defines .container/.container-fluid (required — the whole
+// layout is wrapped in it). `grid` only provides .row/.col; it does NOT.
+// `type` defines .display-*, .small, .list-unstyled (all used in the markup).
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/alert";
+
+// Full utilities map — safe superset (size win comes from dropping components,
+// not from pruning utilities; the site uses display/flex/gap/spacing/border/
+// text/color/position/overflow utilities across every page).
+@import "bootstrap/scss/utilities/api";
+
+// Helper classes defined OUTSIDE the utilities API map (.text-truncate,
+// .visually-hidden, .stretched-link, .vr, .ratio, etc.). These were silently
+// missing until now — full bootstrap.min.css includes them via bootstrap.scss.
+@import "bootstrap/scss/helpers";
