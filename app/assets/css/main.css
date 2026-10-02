@@ -880,6 +880,56 @@ h1, h2, h3, h4, h5, h6,
   position: sticky;
 }
 
+/* Route-change progress indicator */
+.cg-route-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 1100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.cg-route-progress.is-loading,
+.cg-route-progress.is-complete {
+  opacity: 1;
+}
+
+.cg-route-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cg-google-blue-brand) 0%, var(--cg-google-red-brand) 12.5%, var(--cg-google-yellow-brand) 25%, var(--cg-google-green-brand) 37.5%, var(--cg-google-blue-brand) 50%, var(--cg-google-red-brand) 62.5%, var(--cg-google-yellow-brand) 75%, var(--cg-google-green-brand) 87.5%, var(--cg-google-blue-brand) 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  box-shadow: 0 0 8px rgba(var(--cg-google-blue-rgb), 0.55);
+}
+
+.cg-route-progress.is-loading .cg-route-progress-bar {
+  animation: cg-route-progress-scroll 1.4s linear infinite;
+}
+
+.cg-route-progress.is-complete .cg-route-progress-bar {
+  background-position: 100% 50%;
+  transition: background-position 150ms ease;
+}
+
+@keyframes cg-route-progress-scroll {
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-route-progress {
+    transition-duration: 0ms;
+  }
+
+  .cg-route-progress.is-loading .cg-route-progress-bar {
+    animation: none;
+  }
+}
+
 /* Footer stacking */
 .footer-layer {
   z-index: 1;
@@ -893,7 +943,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Active mobile nav link */
-.cg-link.nav-active-mobile.router-link-active {
+.light .mobile-menu-list .cg-link.nav-active-mobile,
+.dark .mobile-menu-list .cg-link.nav-active-mobile {
   color: var(--cg-google-blue);
   background: var(--cg-google-blue-container);
   font-weight: 600;
@@ -1028,6 +1079,7 @@ body .border-canvas   { border-color: var(--bg-canvas); }
   }
 
   .project-card:hover {
+    transform: translateY(-3px);
     box-shadow: var(--cg-shadow-lg);
     border-color: rgba(var(--cg-google-blue-rgb), 0.35);
   }

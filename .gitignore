@@ -1,9 +1,6 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
+# Build outputs
+.next
+out
 dist
 
 # Node dependencies
