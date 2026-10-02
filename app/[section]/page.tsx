@@ -13,24 +13,88 @@ function ClockIcon() {
 
 const content: Record<string, { title: string; eyebrow: string; intro: string; sections: [string, string][] }> = {
   about: { title: 'About Chirag Gajjar', eyebrow: 'Career Evolution & Background', intro: '7+ years crafting scalable web applications with Angular, React, and CSS, from UI/UX design and high-converting e-commerce to enterprise CRM architectures and high-throughput microservices.', sections: [['Executive Summary', 'A dedicated Software Engineer delivering enterprise-grade web applications. My journey spans UI/UX prototyping at Infibeam Avenues, e-commerce at Lucent Innovation, and SaaS workflows at Salesmate CRM at 1center using Angular, React, CSS, Node.js, and Go.'], ['Engineering Philosophy', 'Build accessible, maintainable interfaces and resilient services. Use thoughtful architecture, clear communication, and modern AI tooling to improve delivery quality and speed.'], ['Location', 'Gandhinagar, Gujarat, India · 7+ years experience']] },
-  skills: { title: 'Skills & Architecture Matrix', eyebrow: 'Technical Competencies', intro: 'Angular, React, Next.js, and CSS lead a complete matrix of skills, languages, frameworks, protocols, and cloud tools backed by 7+ years of commercial production experience.', sections: [['Frontend & Frameworks', 'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, and Next.js.'], ['Backend & Protocols', 'Node.js, Express, Docker, Go (Golang, fasthttp), WebSockets, REST APIs, multi-core cluster scaling.'], ['Cloud & DevOps', 'AWS EC2, RDS, Lambda, SES, API Gateway, CloudFormation SAM, Amplify, GitHub Actions, Vercel, Netlify, Render.'], ['Databases & Caching', 'MongoDB Atlas, PostgreSQL, Redis, Supabase, Neon Postgres.'], ['AI Tooling Acceleration', 'Cursor, Augment, ChatGPT, CLI and APIs across daily engineering workflows.'], ['E-Commerce Platforms', 'Shopify theme development with Liquid, HTML5, SCSS, JavaScript, SEO, and BigCommerce storefronts.']] },
+  skills: { title: 'Skills & Architecture Matrix', eyebrow: 'Technical Competencies', intro: 'Angular, React, Vue 3, Next.js, and CSS lead a complete matrix of skills, languages, frameworks, protocols, and cloud tools backed by 7+ years of commercial production experience.', sections: [['Frontend & Frameworks', 'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue 3, and Next.js.'], ['Backend & Protocols', 'Node.js, Express, Docker, Go (Golang, fasthttp), WebSockets, REST APIs, multi-core cluster scaling.'], ['Cloud & DevOps', 'AWS EC2, RDS, Lambda, SES, API Gateway, CloudFormation SAM, Amplify, GitHub Actions, Vercel, Netlify, Render.'], ['Databases & Caching', 'MongoDB Atlas, PostgreSQL, Redis, Supabase, Neon Postgres.'], ['AI Tooling Acceleration', 'Cursor, Augment, ChatGPT, CLI and APIs across daily engineering workflows.'], ['E-Commerce Platforms', 'Shopify theme development with Liquid, HTML5, SCSS, JavaScript, SEO, and BigCommerce storefronts.']] },
   projects: { title: 'Featured Projects & Architecture', eyebrow: 'Production Portfolios', intro: 'High-performance distributed web applications built with Angular, React, and CSS, alongside enterprise SaaS platforms and digital storefronts.', sections: [['CM Notes — High-Concurrency Microservice', 'Next.js, Go fasthttp, MongoDB Atlas, Resend API. Tuned for 512K concurrent connections with sub-millisecond response times and a custom 64-shard in-memory rate limiter.'], ['CM Expense Tracker — Financial Analytics', 'React, TypeScript, Zustand, Recharts, and Node Express cluster. Real-time budget tracking with category analytics, Redis rate limiting, and email alerts.'], ['Salesmate CRM Product', 'Enterprise sales automation and customer lifecycle management. Built responsive UI modules, complex dashboards, reporting features, and lazy loading.'], ['Cook & Boardman E-Commerce Storefront', 'BigCommerce enterprise storefront supporting digital transformation with intuitive navigation and responsive mobile architecture.'], ['Project links', 'CM Notes: https://notes-next-js-mongo-db.vercel.app · Expense Tracker: https://expense-tracker-app-react-node-expr.vercel.app · Salesmate: https://www.salesmate.io · Cook & Boardman: https://www.cookandboardman.com']] },
   experience: { title: 'Professional Experience', eyebrow: 'Career Milestones', intro: '7+ years of continuous commercial engineering delivery with Angular, React, and CSS across enterprise SaaS products, e-commerce storefronts, and cross-functional teams.', sections: [['1center — Salesmate CRM', 'Developed enterprise sales automation and customer lifecycle management software. Delivered responsive UI modules, dashboards, reporting features, lazy loading, and change detection improvements.'], ['Lucent Innovation', 'Built high-speed e-commerce experiences and responsive storefronts, with a focus on quality user experience and conversion.'], ['Infibeam Avenues', 'Contributed to UI/UX prototyping and web product development, building a strong foundation in frontend engineering.'], ['Technology', 'Angular, React, JavaScript, TypeScript, CSS, Node.js, Go, AWS, MongoDB, PostgreSQL, Redis']] },
   contact: { title: 'Get in Touch', eyebrow: 'Direct Communication', intro: 'Interested in connecting with a Software Engineer experienced in Angular, React, and CSS, or exploring engineering opportunities? Send a direct message below.', sections: [] }
+}
+
+const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
+const sectionSeo: Record<string, { description: string; keywords: string[] }> = {
+  about: {
+    description: 'Meet Chirag Gajjar, a software engineer in Gujarat with 7+ years of experience across SaaS, e-commerce, frontend engineering, and cloud systems.',
+    keywords: ['about Chirag Gajjar', 'software engineer Gujarat', 'software engineer experience', 'frontend engineer', 'SaaS engineer']
+  },
+  skills: {
+    description: 'Explore Chirag Gajjar’s engineering skills across Angular, React, Next.js, Vue, TypeScript, Node.js, Go, AWS, databases, and DevOps.',
+    keywords: ['software engineer skills', 'Angular', 'React', 'Next.js', 'Vue', 'TypeScript', 'Node.js', 'Go', 'AWS', 'PostgreSQL']
+  },
+  projects: {
+    description: 'Explore production software projects by Chirag Gajjar, including Next.js applications, Go microservices, CRM platforms, and e-commerce storefronts.',
+    keywords: ['software engineering projects', 'Next.js projects', 'Go microservices', 'high concurrency', 'CRM development', 'e-commerce development']
+  },
+  experience: {
+    description: 'Review Chirag Gajjar’s 7+ years of software engineering experience in enterprise SaaS, Salesmate CRM, e-commerce, and web application development.',
+    keywords: ['software engineer experience', 'Salesmate CRM developer', 'Angular developer experience', 'e-commerce developer', 'Gujarat software engineer']
+  },
+  contact: {
+    description: 'Contact Chirag Gajjar about software engineering opportunities, frontend and full-stack development, SaaS products, or Go services.',
+    keywords: ['contact software engineer', 'hire software engineer', 'Chirag Gajjar contact', 'software engineering opportunities']
+  }
 }
 
 export function generateStaticParams() { return Object.keys(content).map(section => ({ section })) }
 export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
   const { section } = await params
   const page = content[section]
-  return page ? { title: `${page.title} | Chirag Gajjar`, description: page.intro, alternates: { canonical: `/${section}` } } : {}
+  const seo = sectionSeo[section]
+  if (!page || !seo) return { title: 'Page Not Found', robots: { index: false, follow: true } }
+  const pageUrl = `${siteUrl}/${section}`
+  const title = `${page.title} | Chirag Gajjar`
+  return {
+    title: page.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: { canonical: `/${section}` },
+    openGraph: {
+      type: 'website', locale: 'en_IN', siteName: 'Chirag Gajjar — Software Engineer',
+      url: pageUrl, title, description: seo.description,
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Chirag Gajjar — Software Engineer' }]
+    },
+    twitter: {
+      card: 'summary_large_image', title, description: seo.description,
+      images: [{ url: '/opengraph-image', alt: 'Chirag Gajjar — Software Engineer' }]
+    }
+  }
 }
 
 export default async function SectionPage({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params
   const page = content[section]
-  if (!page) notFound()
-  return <div className="pt-5"><div className="container"><div className="text-center mb-5 mx-auto section-header"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">{page.eyebrow}</span><h1 className="fw-bold mb-3">{page.title}</h1><p className="text-body-secondary body-text">{page.intro}</p></div>{section === 'contact' ? <ContactForm/> : section === 'about' ? <AboutContent/> : section === 'experience' ? <ExperienceContent/> : section === 'projects' ? <ProjectsMatrix/> : section === 'skills' ? <SkillsMatrix/> : null}</div></div>
+  const seo = sectionSeo[section]
+  if (!page || !seo) notFound()
+  const pageUrl = `${siteUrl}/${section}`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: page.title, item: pageUrl }
+        ]
+      },
+      {
+        '@type': section === 'contact' ? 'ContactPage' : section === 'about' ? 'AboutPage' : section === 'projects' || section === 'skills' ? 'CollectionPage' : 'WebPage',
+        name: page.title,
+        description: seo.description,
+        url: pageUrl,
+        inLanguage: 'en-IN',
+        isPartOf: { '@id': `${siteUrl}/#website` }
+      }
+    ]
+  }
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}/><div className="pt-5"><div className="container"><div className="text-center mb-5 mx-auto section-header"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">{page.eyebrow}</span><h1 className="fw-bold mb-3">{page.title}</h1><p className="text-body-secondary body-text">{page.intro}</p></div>{section === 'contact' ? <ContactForm/> : section === 'about' ? <AboutContent/> : section === 'experience' ? <ExperienceContent/> : section === 'projects' ? <ProjectsMatrix/> : section === 'skills' ? <SkillsMatrix/> : null}</div></div></>
 }
 
 function ResumeWidget(){return <div className="glass rounded-4 p-4 mb-4"><div className="d-flex align-items-center gap-3 mb-4"><div className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" style={{width:'2.75rem',height:'2.75rem',background:'var(--cg-google-blue-container)',color:'var(--cg-google-blue)'}}><ResumeIcon className="m-0" size={20}/></div><div className="d-grid min-w-0"><h3 className="fs-6 fw-semibold mb-0 text-truncate">Chirag_Software_Engineer.pdf</h3><p className="text-body-secondary mb-0 text-xs">Official Curriculum Vitae • 4-Page PDF</p></div></div><div className="d-flex gap-2"><a href="/Chirag_Software_Engineer.pdf" download className="btn flex-grow-1 fw-semibold rounded-3 btn-gradient"><DownloadIcon/>Resume</a><a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" className="btn flex-grow-1 fw-semibold rounded-3 glass btn-glass">Preview</a></div></div>}

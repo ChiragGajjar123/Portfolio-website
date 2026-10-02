@@ -74,6 +74,8 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (previousPathname.current === pathname) return
     previousPathname.current = pathname
+    window.scrollTo(0, 0)
+    window.requestAnimationFrame(() => window.scrollTo(0, 0))
     if (routeProgressRef.current === 'idle') startRouteProgress()
     finishRouteProgress()
   }, [pathname, finishRouteProgress, startRouteProgress])

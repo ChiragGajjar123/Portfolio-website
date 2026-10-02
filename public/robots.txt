@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /api/
-
-Sitemap: https://chirag-gajjar-software-engineer.vercel.app/sitemap.xml

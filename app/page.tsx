@@ -4,10 +4,33 @@ import { DownloadIcon } from './resume-icon'
 
 const siteUrl = 'https://chirag-gajjar-software-engineer.vercel.app'
 export const metadata: Metadata = {
-  title: 'Chirag Gajjar | Software Engineer — Angular, React, Go',
-  description: 'Portfolio of Chirag Gajjar, a Software Engineer with 7+ years of experience delivering high-performance web applications across Angular, React, Next.js, Node.js, Go, AWS, and Cloud Architecture.',
+  title: 'Software Engineer Portfolio — Angular, React & Go',
+  description: 'Explore Chirag Gajjar’s software engineering portfolio: 7+ years building web applications, enterprise SaaS interfaces, Go services, and cloud platforms.',
   alternates: { canonical: '/' },
-  openGraph: { title: 'Chirag Gajjar | Software Engineer', description: '7+ years delivering scalable web platforms, high-concurrency Go microservices, and modern interfaces.', url: siteUrl, type: 'website' }
+  openGraph: {
+    title: 'Software Engineer Portfolio — Angular, React & Go',
+    description: '7+ years delivering scalable web platforms, high-concurrency Go microservices, and modern interfaces.',
+    url: siteUrl,
+    type: 'website',
+    siteName: 'Chirag Gajjar — Software Engineer',
+    locale: 'en_IN',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Chirag Gajjar — Software Engineer' }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Software Engineer Portfolio — Angular, React & Go',
+    description: '7+ years building scalable web applications, high-concurrency Go services, and cloud platforms.',
+    images: [{ url: '/opengraph-image', alt: 'Chirag Gajjar — Software Engineer' }]
+  }
+}
+
+const profileStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${siteUrl}/#profile`,
+  url: siteUrl,
+  name: 'Chirag Gajjar | Software Engineer',
+  mainEntity: { '@id': `${siteUrl}/#person` }
 }
 
 const metrics = [
@@ -36,7 +59,7 @@ const domains = [
 function ExternalIcon() { return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> }
 
 export default function Home() {
-  return <div className="pt-4"><div className="container">
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileStructuredData).replace(/</g, '\\u003c') }}/><div className="pt-4"><div className="container">
     <section className="text-center mx-auto hero-section">
       <div className="mb-4"><span className="badge rounded-pill d-inline-flex align-items-center gap-2 px-3 py-2 fw-medium badge-cyan-lg"><span className="pulse-dot"/>Available for Software Engineering Roles</span></div>
       <h1 className="display-5 fw-bold mb-4">Architecting Scalable Web Systems &amp; <span className="text-gradient-cyan">Modern Dynamic User Experiences</span></h1>
@@ -47,5 +70,5 @@ export default function Home() {
     <section className="mb-5 mt-5"><div className="text-center mb-5 mx-auto section-header"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">Production Implementations</span><h2 className="fw-bold mb-3">Featured Engineering Showcase</h2><p className="text-body-secondary">Direct repositories, deployed single-page applications, and high-throughput microservices built with modern stacks.</p></div><div className="row g-4 mb-4">{projects.map(project => <div key={project.title} className="col-12 col-lg-6"><article className="glass rounded-4 p-4 h-100 position-relative overflow-hidden project-card"><div className="position-absolute rounded-circle" style={{width:200,height:200,filter:'blur(80px)',opacity:.14,top:-50,right:-50,background:project.orb,pointerEvents:'none'}}/><div className="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2"><div className="d-flex flex-wrap gap-2">{project.badges.map(badge => <span key={badge.text} className="badge rounded-pill fw-medium" style={{background:`rgba(${badge.rgb},0.1)`,color:`rgb(${badge.rgb})`,border:`1px solid rgba(${badge.rgb},0.25)`,fontSize:'0.75rem'}}>{badge.text}</span>)}</div><a href={project.url} target="_blank" rel="noopener noreferrer" className="btn p-0 d-flex align-items-center justify-content-center rounded-3 border flex-shrink-0 btn-icon" title="Live Demo"><ExternalIcon/></a></div><h3 className="fs-5 fw-semibold mb-1">{project.title}</h3><p className="text-body-secondary mb-2 text-xs">{project.stack}</p><p className="text-body-secondary mb-3 body-text">{project.desc}</p><div className="d-flex flex-wrap gap-2 mb-3">{project.techs.map(tech => <span key={tech} className="badge rounded-3 fw-medium badge-chip">{tech}</span>)}</div><div className="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-3 border-top border-subtle"><a href={project.url} target="_blank" rel="noopener noreferrer" className="fw-semibold small text-decoration-none link-cyan">Live App →</a><div className="d-flex gap-3">{project.repos.map(repo => <a key={repo.url} href={repo.url} target="_blank" rel="noopener noreferrer" className="small cg-link text-decoration-none">{repo.label}</a>)}</div></div></article></div>)}</div><div className="text-center"><Link href="/projects" className="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">View All 5 Production Projects (Including E-commerce) <svg className="ms-2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></Link></div></section>
     <section className="mb-5 section-gap"><div className="text-center mb-5 mx-auto section-header"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">Technical Capabilities</span><h2 className="fw-bold mb-3">Core Engineering Domains</h2><p className="text-body-secondary">Complete mastery across the modern software lifecycle from responsive UI systems to high-concurrency protocols and cloud infrastructure.</p></div><div className="row g-4">{domains.map(domain => <div key={domain.title} className="col-12 col-sm-6 col-lg-4"><article className="glass rounded-4 p-4 h-100"><div className="icon-box-lg mb-3" style={{background:`rgba(${domain.rgb},0.12)`,color:`rgb(${domain.rgb})`,border:`1px solid rgba(${domain.rgb},0.25)`}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">{domain.icon}</svg></div><h3 className="fs-5 fw-semibold mb-2">{domain.title}</h3><p className="text-body-secondary mb-3 body-text-sm">{domain.desc}</p><div className="d-flex flex-wrap gap-1">{domain.pills.map(pill => <span key={pill} className="badge rounded-pill fw-medium badge-chip">{pill}</span>)}</div></article></div>)}</div></section>
     <section className="mb-5 section-gap"><div className="glass-elevated rounded-4 p-4 p-md-5"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">Official Curriculum Vitae</span><h2 className="fs-3 fw-bold mb-2">Ready to Review the Full Resume?</h2><p className="text-body-secondary body-text-sm mb-4">Contains complete documentation of 7+ years of commercial development at 1center (Salesmate CRM), Lucent Innovation, Infibeam, academic background from Ganpat University, and benchmarks.</p><div className="d-flex flex-column flex-sm-row flex-wrap gap-2"><a href="/Chirag_Software_Engineer.pdf" download="Chirag_Software_Engineer.pdf" className="btn fw-semibold px-4 py-2 rounded-3 btn-gradient"><DownloadIcon/>Resume</a><a href="/Chirag_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer" className="btn fw-semibold px-4 py-2 rounded-3 glass btn-glass">Preview</a></div></div></section>
-  </div></div>
+  </div></div></>
 }
