@@ -72,5 +72,5 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN" className="light" data-bs-theme="light"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData).replace(/</g, '\\u003c') }}/><SiteChrome>{children}</SiteChrome></body></html>
+  return <html lang="en-IN" className="light" data-bs-theme="light" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData).replace(/</g, '\\u003c') }}/><SiteChrome>{children}</SiteChrome></body></html>
 }
