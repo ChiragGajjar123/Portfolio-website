@@ -12,6 +12,6 @@ export default function NotFound() {
     <p className="badge rounded-pill px-3 py-2 badge-cyan">404 · Page not found</p>
     <h1 className="fw-bold mt-3">This page is unavailable</h1>
     <p className="text-body-secondary">The link may be out of date, or the page may have moved.</p>
-    <Link href="/" className="btn fw-semibold px-4 py-2 rounded-3 btn-primary-gradient">Return to homepage</Link>
+    <Link scroll={false} href="/" className="btn fw-semibold px-4 py-2 rounded-3 btn-primary-gradient">Return to homepage</Link>
   </div>
 }
