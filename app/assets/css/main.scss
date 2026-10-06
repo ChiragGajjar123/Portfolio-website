@@ -1165,6 +1165,27 @@ body .border-canvas   { border-color: var(--bg-canvas); }
 }
 
 /* --------------------------------------------------------------------------
+   15b. MOBILE — Suppress hover on icon buttons (< 992px)
+   Touch devices keep hover state after tap; reset it here.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+  .btn-icon:hover {
+    background: var(--bg-card);
+    border-color: var(--border-subtle);
+    color: var(--bs-body-color);
+    transform: none;
+    box-shadow: none;
+  }
+
+  .dark .btn-icon:hover {
+    background: rgba(45, 47, 49, 0.7);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #E8EAED;
+  }
+}
+
+/* --------------------------------------------------------------------------
    16. DARK MODE — Scoped Component Refinements (.dark)
    -------------------------------------------------------------------------- */
 
@@ -1305,10 +1326,12 @@ body .border-canvas   { border-color: var(--bg-canvas); }
   background: rgba(45, 47, 49, 0.7);
 }
 
-.dark .btn-icon:hover {
-  background: rgba(138, 180, 248, 0.14);
-  border-color: var(--cg-google-blue);
-  color: var(--cg-google-blue);
+@media (min-width: 992px) {
+  .dark .btn-icon:hover {
+    background: rgba(138, 180, 248, 0.14);
+    border-color: var(--cg-google-blue);
+    color: var(--cg-google-blue);
+  }
 }
 
 .dark .cg-copy-btn {
