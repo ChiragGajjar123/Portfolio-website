@@ -25,7 +25,7 @@ async function listFiles(directory) {
 const [sourceFiles, renderedFiles, cssFiles] = await Promise.all([
   listFiles(resolve(root, 'app')),
   bootstrapOnly ? [] : listFiles(resolve(root, '.next/server/app')),
-  bootstrapOnly ? [] : listFiles(resolve(root, '.next/static/chunks'))
+  bootstrapOnly ? [] : listFiles(resolve(root, '.next/static'))
 ])
 
 const contentFiles = [
@@ -37,10 +37,19 @@ const stylesheets = bootstrapOnly
   : cssFiles.filter(path => path.endsWith('.css'))
 const purgeStylesheets = stylesheets.map(path => path.replaceAll('\\', '/'))
 
-if (contentFiles.length === 0 || stylesheets.length === 0) {
+if (contentFiles.length === 0) {
   throw new Error(bootstrapOnly
-    ? 'Bootstrap CSS pruning needs application source files and a compiled stylesheet.'
-    : 'Production CSS pruning needs source files and a completed Next.js build.')
+    ? 'Bootstrap CSS pruning needs application source files.'
+    : 'Production CSS pruning needs application source files and a completed Next.js build.')
+}
+
+if (stylesheets.length === 0) {
+  if (bootstrapOnly) {
+    throw new Error('Bootstrap CSS pruning needs a compiled stylesheet.')
+  }
+
+  console.log('No production CSS files found under .next/static; skipping CSS pruning.')
+  process.exit(0)
 }
 
 const before = await Promise.all(stylesheets.map(async path => (await readFile(path)).byteLength))
