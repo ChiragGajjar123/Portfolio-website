@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "css:bootstrap": "sass app/assets/css/bootstrap.scss app/assets/css/bootstrap.css --style=expanded --load-path=node_modules --no-source-map --quiet --no-charset",
+    "css:bootstrap": "sass app/assets/css/bootstrap.scss app/assets/css/bootstrap.css --style=expanded --load-path=node_modules --no-source-map --quiet --no-charset && node scripts/purge-css.mjs --bootstrap",
     "predev": "npm run css:bootstrap",
     "dev": "next dev",
     "prebuild": "npm run css:bootstrap",
-    "build": "next build",
+    "build": "next build && node scripts/purge-css.mjs",
     "start": "next start"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@types/node": "^26.5.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "purgecss": "^8.0.0",
     "sass": "^1.105.1",
     "typescript": "^5.9.3"
   }
