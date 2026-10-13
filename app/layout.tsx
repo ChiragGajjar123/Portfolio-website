@@ -95,7 +95,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var m=document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);var d=m?decodeURIComponent(m[1])==='dark':(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d&&!document.documentElement.classList.contains('dark')){document.documentElement.className='dark';document.documentElement.setAttribute('data-bs-theme','dark');}}catch(e){}})();`,
+            __html: `(function(){try{var m=document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);var d=m?decodeURIComponent(m[1])==='dark':false;if(d){if(!document.documentElement.classList.contains('dark')){document.documentElement.className='dark';document.documentElement.setAttribute('data-bs-theme','dark');}}else{if(document.documentElement.classList.contains('dark')){document.documentElement.className='light';document.documentElement.setAttribute('data-bs-theme','light');}}}catch(e){}})();`,
           }}
         />
       </head>
