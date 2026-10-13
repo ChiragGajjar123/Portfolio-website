@@ -252,7 +252,7 @@ body {
   font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
   background-color: var(--bg-canvas);
   color: var(--bs-body-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* No body-level transition — prevents unnecessary paint on every route change */
   min-height: 100vh;
 }
 
@@ -260,6 +260,7 @@ h1, h2, h3, h4, h5, h6,
 .btn, .badge, .form-control, .form-label, .nav-link {
   font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
 }
+
 
 /* --------------------------------------------------------------------------
    5. GLASSMORPHISM & ELEVATION CARDS
@@ -270,6 +271,8 @@ h1, h2, h3, h4, h5, h6,
   backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
   box-shadow: var(--cg-shadow-sm);
+  /* contain:layout prevents glass cards from triggering full-page layout */
+  contain: layout;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
@@ -278,6 +281,7 @@ h1, h2, h3, h4, h5, h6,
   backdrop-filter: blur(20px);
   border: 1px solid var(--border-glass);
   box-shadow: var(--cg-shadow-md);
+  contain: layout;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
@@ -322,35 +326,74 @@ h1, h2, h3, h4, h5, h6,
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
-  animation: orb-float 22s ease-in-out infinite;
+  /* will-change:transform promotes orbs to dedicated compositor layers */
+  will-change: transform;
+  contain: strict;
   pointer-events: none;
 }
 
+/* On desktop: animate orbs with 3D transforms for stutter-free GPU compositing */
+@media (min-width: 768px) {
+  .orb {
+    animation: orb-float 24s ease-in-out infinite;
+  }
+}
+
 .orb-cyan,
-.orb-blue   { width: 420px; height: 420px; background: var(--orb-blue); top: 8%; left: 8%; }
+.orb-blue {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, var(--orb-blue) 0%, rgba(var(--cg-google-blue-rgb), 0.04) 45%, transparent 70%);
+  filter: blur(35px);
+  top: 8%;
+  left: 8%;
+}
 
 .orb-indigo,
-.orb-red    { width: 360px; height: 360px; background: var(--orb-red); top: 50%; right: 8%; animation-delay: -5s; }
+.orb-red {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, var(--orb-red) 0%, rgba(var(--cg-google-red-rgb), 0.03) 45%, transparent 70%);
+  filter: blur(35px);
+  top: 50%;
+  right: 8%;
+  animation-delay: -5s;
+}
 
 .orb-violet,
-.orb-yellow { width: 320px; height: 320px; background: var(--orb-yellow); bottom: 8%; left: 28%; animation-delay: -10s; }
+.orb-yellow {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--orb-yellow) 0%, rgba(var(--cg-google-yellow-rgb), 0.03) 45%, transparent 70%);
+  filter: blur(35px);
+  bottom: 8%;
+  left: 28%;
+  animation-delay: -10s;
+}
 
 .orb-rose,
-.orb-green  { width: 280px; height: 280px; background: var(--orb-green); top: 28%; left: 62%; animation-delay: -15s; }
+.orb-green {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--orb-green) 0%, rgba(var(--cg-google-green-rgb), 0.03) 45%, transparent 70%);
+  filter: blur(35px);
+  top: 28%;
+  left: 62%;
+  animation-delay: -15s;
+}
 
 @keyframes orb-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25%      { transform: translate(25px, -25px) scale(1.04); }
-  50%      { transform: translate(-20px, 20px) scale(0.96); }
-  75%      { transform: translate(15px, 10px) scale(1.02); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  25%      { transform: translate3d(25px, -25px, 0) scale(1.04); }
+  50%      { transform: translate3d(-20px, 20px, 0) scale(0.96); }
+  75%      { transform: translate3d(15px, 10px, 0) scale(1.02); }
 }
 
 @media (max-width: 767.98px) {
-  .orb-cyan, .orb-blue   { width: 240px; height: 240px; }
-  .orb-indigo, .orb-red  { width: 200px; height: 200px; }
-  .orb-violet, .orb-yellow { width: 180px; height: 180px; }
-  .orb-rose, .orb-green  { width: 150px; height: 150px; }
+  .orb-cyan, .orb-blue     { width: 200px; height: 200px; filter: blur(20px); }
+  .orb-indigo, .orb-red    { width: 160px; height: 160px; filter: blur(20px); }
+  .orb-violet, .orb-yellow { width: 140px; height: 140px; filter: blur(20px); }
+  .orb-rose, .orb-green    { width: 120px; height: 120px; filter: blur(20px); }
 }
 
 /* --------------------------------------------------------------------------
@@ -483,6 +526,11 @@ h1, h2, h3, h4, h5, h6,
 /* Page section header */
 .section-header { max-width: 720px; }
 .section-header p { line-height: 1.7; }
+
+/* Spacing between major content sections */
+.section-gap {
+  contain: layout;
+}
 
 /* Google Blue badge label (large hero status pill) */
 .badge-cyan-lg {
@@ -970,6 +1018,21 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Global: suppress all animations and transitions for accessibility + perf */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+
+  .orb {
+    animation: none;
+    will-change: auto;
+  }
+
   .cg-route-progress {
     transition-duration: 0ms;
   }

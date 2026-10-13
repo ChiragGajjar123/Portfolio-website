@@ -48,6 +48,8 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
       if (!(target instanceof Element)) return
       const anchor = target.closest('a[href]')
       if (!(anchor instanceof HTMLAnchorElement) || anchor.target === '_blank' || anchor.hasAttribute('download')) return
+      const href = anchor.getAttribute('href')
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return
       const destination = new URL(anchor.href, window.location.href)
       if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname) return
       startRouteProgress()
@@ -66,17 +68,14 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (previousPathname.current === pathname) return
     previousPathname.current = pathname
-    window.scrollTo({ top: 0, left: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     if (routeProgressRef.current === 'idle') startRouteProgress()
     finishRouteProgress()
   }, [pathname, finishRouteProgress, startRouteProgress])
 
   useEffect(() => {
-    const match = document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/)
-    const value = match ? decodeURIComponent(match[1]) === 'dark' : false
-    setDark(value)
-    document.documentElement.className = value ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-bs-theme', value ? 'dark' : 'light')
+    const isDark = document.documentElement.classList.contains('dark')
+    setDark(isDark)
   }, [])
 
   function toggleTheme() {

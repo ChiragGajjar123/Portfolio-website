@@ -12,7 +12,8 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
-  display: 'swap'
+  display: 'swap',
+  preload: true,
 })
 
 const siteStructuredData = {
@@ -81,5 +82,21 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN" className="light" data-bs-theme="light" data-scroll-behavior="smooth"><body className={poppins.variable}><StructuredData data={siteStructuredData}/><SiteChrome>{children}</SiteChrome><Footer/><SpeedInsights/></body></html>
+  return (
+    <html lang="en-IN" className="light" data-bs-theme="light" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/);var d=m?decodeURIComponent(m[1])==='dark':(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.className='dark';document.documentElement.setAttribute('data-bs-theme','dark');}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className={poppins.variable}>
+        <StructuredData data={siteStructuredData} />
+        <SiteChrome>{children}</SiteChrome>
+        <Footer />
+        <SpeedInsights />
+      </body>
+    </html>
+  )
 }
