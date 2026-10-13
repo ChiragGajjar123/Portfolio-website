@@ -4,6 +4,8 @@ import { DownloadIcon, ArrowRightIcon } from './icons'
 import StructuredData from './structured-data'
 import { siteUrl, resumeUrl, resumeFileName, ogImage, ogImageAlt } from './site-config'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Software Engineer Portfolio — Angular, React & Go',
   description: 'Explore Chirag Gajjar’s software engineering portfolio: 7+ years building web applications, enterprise SaaS interfaces, Go services, and cloud platforms.',

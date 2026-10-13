@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 import { navLinks, resumeUrl, resumeFileName } from './site-config'
 import { ResumeIcon, DownloadIcon } from './icons'
 
-export default function SiteChrome({ children }: { children: React.ReactNode }) {
-  const [dark, setDark] = useState(false)
+export default function SiteChrome({ children, initialDark = false }: { children: React.ReactNode; initialDark?: boolean }) {
+  const [dark, setDark] = useState(initialDark)
   const [open, setOpen] = useState(false)
   const [routeProgress, setRouteProgress] = useState<'idle' | 'loading' | 'complete'>('idle')
   const pathname = usePathname()
@@ -68,7 +68,11 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (previousPathname.current === pathname) return
     previousPathname.current = pathname
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    }
     if (routeProgressRef.current === 'idle') startRouteProgress()
     finishRouteProgress()
   }, [pathname, finishRouteProgress, startRouteProgress])

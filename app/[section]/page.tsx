@@ -44,7 +44,8 @@ const sectionSeo: Record<string, { description: string; keywords: string[] }> = 
   }
 }
 
-export function generateStaticParams() { return Object.keys(content).map(section => ({ section })) }
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
   const { section } = await params
   const page = content[section]
@@ -69,8 +70,15 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
   }
 }
 
-export default async function SectionPage({ params }: { params: Promise<{ section: string }> }) {
+export default async function SectionPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ section: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
   const { section } = await params
+  const resolvedSearchParams = await searchParams
   const page = content[section]
   const seo = sectionSeo[section]
   if (!page || !seo) notFound()
@@ -95,7 +103,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
       }
     ]
   }
-  return <><StructuredData data={structuredData}/><div className="pt-5"><div className="container"><div className="text-center mb-5 mx-auto section-header"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">{page.eyebrow}</span><h1 className="fw-bold mb-3">{page.title}</h1><p className="text-body-secondary body-text">{page.intro}</p></div>{section === 'contact' || section === 'projects' || section === 'skills' ? <InteractiveSectionContent section={section}/> : section === 'about' ? <AboutContent/> : <ExperienceContent/>}</div></div></>
+  return <><StructuredData data={structuredData}/><div className="pt-5"><div className="container"><div className="text-center mb-5 mx-auto section-header"><span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">{page.eyebrow}</span><h1 className="fw-bold mb-3">{page.title}</h1><p className="text-body-secondary body-text">{page.intro}</p></div>{section === 'contact' || section === 'projects' || section === 'skills' ? <InteractiveSectionContent section={section} searchParams={resolvedSearchParams}/> : section === 'about' ? <AboutContent/> : <ExperienceContent/>}</div></div></>
 }
 
 function ResumeWidget(){return <div className="glass rounded-4 p-4 mb-4"><div className="d-flex align-items-center gap-3 mb-4"><div className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3" style={{width:'2.75rem',height:'2.75rem',background:'var(--cg-google-blue-container)',color:'var(--cg-google-blue)'}}><ResumeIcon className="m-0" size={20}/></div><div className="d-grid min-w-0"><h3 className="fs-6 fw-semibold mb-0 text-truncate">{resumeFileName}</h3><p className="text-body-secondary mb-0 text-xs">Official Curriculum Vitae • 4-Page PDF</p></div></div><div className="d-flex gap-2"><a href={resumeUrl} download={resumeFileName} className="btn flex-grow-1 fw-semibold rounded-3 btn-gradient"><DownloadIcon/>Resume</a><a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="btn flex-grow-1 fw-semibold rounded-3 glass btn-glass">Preview</a></div></div>}
