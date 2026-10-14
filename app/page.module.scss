@@ -1,0 +1,33 @@
+.cg-home-hero {
+  --cg-home-hero-max-width: 56.25rem;
+  --cg-home-hero-vertical-space: 2rem;
+
+  max-width: var(--cg-home-hero-max-width);
+  padding-block: var(--cg-home-hero-vertical-space);
+}
+
+.cg-home-summary {
+  --cg-home-summary-max-width: 45rem;
+  --cg-home-summary-line-height: 1.7;
+
+  max-width: var(--cg-home-summary-max-width);
+  line-height: var(--cg-home-summary-line-height);
+}
+
+.cg-home-metric-sub {
+  --cg-home-metric-sub-font-size: 0.75rem;
+  --cg-home-metric-sub-line-height: 1.5;
+
+  font-size: var(--cg-home-metric-sub-font-size);
+  line-height: var(--cg-home-metric-sub-line-height);
+}
+
+.cg-home-metric-card {
+  --cg-home-metric-card-background: rgba(var(--bs-white-rgb), 0.9);
+
+  background-color: var(--cg-home-metric-card-background);
+}
+
+.dark .cg-home-metric-card {
+  --cg-home-metric-card-background: rgba(var(--bs-body-bg-rgb), 0.9);
+}

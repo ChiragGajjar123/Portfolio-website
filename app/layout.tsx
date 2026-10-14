@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
-import { cookies } from 'next/headers'
 import { Poppins } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import './assets/css/bootstrap.css'
-import './assets/css/main.scss'
+import './assets/css/bootstrap.scss'
 import SiteChrome from './site-chrome'
 import Footer from './footer'
 import StructuredData from './structured-data'
 import { siteUrl, siteTitle, siteDescription, email, linkedinUrl, githubUrl, ogImage, ogImageAlt } from './site-config'
-
-export const dynamic = 'force-dynamic'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -84,14 +80,9 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.svg', shortcut: '/favicon.ico' }
 }
 
-export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const cookieStore = await cookies()
-  const themeCookie = cookieStore.get('portfolio-theme')?.value
-  const isDark = themeCookie === 'dark'
-  const theme = isDark ? 'dark' : 'light'
-
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={theme} data-bs-theme={theme} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en-IN" className="light" data-bs-theme="light" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -101,7 +92,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       </head>
       <body className={poppins.variable}>
         <StructuredData data={siteStructuredData} />
-        <SiteChrome initialDark={isDark}>{children}</SiteChrome>
+        <SiteChrome>{children}</SiteChrome>
         <Footer />
         <SpeedInsights />
       </body>

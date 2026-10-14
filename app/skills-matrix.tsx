@@ -11,28 +11,19 @@ const categories = [
 ]
 
 const skillDomains = [
-  { id:'frontend', name:'Frontend & Frameworks', summary:'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue, Next.js', rgb:'var(--cg-google-blue-rgb)', skills:[['Angular (Standalone / Signals / SPAs)','Core UI framework at 1center (Salesmate CRM 4+ yrs), Signals, reactive architectures','Salesmate CRM'],['React 19 & Next.js 16 (App Router)','Modern SPAs with Zustand, Recharts, Tiptap, Tailwind CSS v4','CM Expense Tracker, CM Notes'],['Vue 3','Composition API, reactive components, Vue Router','Portfolio, Internal Applications'],['TypeScript & JavaScript (ESNext)','Strict typing, modern asynchronous patterns, generics','All Production Applications'],['Tailwind CSS v4 & SCSS','Design tokens, custom glassmorphism systems, responsive animations','CM Notes, Expense Tracker, Salesmate'],['HTML5, CSS3 & Bootstrap','Semantic markup, accessibility, responsive layouts, cross-browser','Infibeam, Lucent, Salesmate']] },
-  { id:'backend', name:'Backend, Systems & Protocols', summary:'Node.js, Go, WebSockets, RESTful APIs, Docker', rgb:'var(--cg-google-green-rgb)', skills:[['Node.js & Express 5 (Cluster Mode)','Multi-core cluster scaling, Pino logging, Helmet security, HTTP-only JWTs','CM Expense Tracker API'],['Go (Golang 1.26 & fasthttp)','512K concurrent connections with sub-millisecond response & 64-shard rate limiters','CM Notes Go Microservice'],['Microservices & High Concurrency','Non-blocking I/O, goroutines, atomic primitives, sub-millisecond throughput','CM Notes Go Microservice'],['WebSockets & REST APIs','Real-time state synchronization, clean contract schemas, streaming endpoints','Notes App, CRM Dashboards'],['Docker & Containerization','Multi-stage builds, container isolation, local environment reproducibility','Backend Microservices']] },
-  { id:'cloud', name:'Cloud, DevOps & CI/CD', summary:'AWS, GitHub Actions, Vercel, Netlify, Render', rgb:'var(--cg-google-red-rgb)', skills:[['AWS SAM & Lambda','Serverless Infrastructure as Code, automated deployment of cloud microservices','Serverless Microservices'],['AWS SES','Transactional password recovery, 6-digit OTP with 60s cooldown limiters','AWS Cloud Applications'],['AWS RDS & API Gateway','Managed relational storage, secure API routing, VPC configuration','PostgreSQL Cloud Deployment'],['GitHub Actions (CI/CD)','Automated test suites, build pipelines, and continuous deployment','All GitHub Repositories'],['Vercel, Amplify, Netlify, Render','Production edge deployments, environment variable isolation','React & Next.js Apps']] },
-  { id:'databases', name:'Databases & Caching', summary:'MongoDB Atlas, PostgreSQL, Redis, Supabase, Neon', rgb:'var(--cg-google-yellow-rgb)', skills:[['MongoDB Atlas & Go Driver v2','BSON document modeling, parameterized queries, optimized indexing','CM Notes Go Backend'],['PostgreSQL (AWS RDS & SQL)','Relational data modeling, indexing, parameterized queries, schema management','AWS RDS, Cloud Applications'],['Redis (Caching & Rate Limiting)','Non-blocking in-memory caching, distributed token bucket rate limiting','CM Expense Tracker'],['Supabase & Neon Postgres','Serverless PostgreSQL, row-level security, real-time subscriptions','Cloud Applications']] },
-  { id:'ai', name:'AI Tooling & Accelerated Workflows', summary:'Cursor IDE, Augment AI, ChatGPT, automated test generation', rgb:'var(--cg-google-blue-rgb)', skills:[['Cursor IDE & AI Coding Assistants','Harnessing AI contexts for accelerated development and debugging','1center & Personal Projects'],['Augment AI & LLM Pair Programming','Cross-file architecture refactoring, complex logic explanation','All modern development'],['ChatGPT CLI & APIs','Automated test suite generation, rapid code reviews, prompt engineering','API Automation & Refactoring']] },
-  { id:'ecommerce', name:'E-Commerce Platforms & Custom Themes', summary:'Shopify, Liquid, BigCommerce', rgb:'var(--cg-google-red-rgb)', skills:[['Shopify & Liquid Engine','Custom responsive themes, Liquid template hierarchy, third-party integrations','Lucent Innovation, Subliblanks'],['BigCommerce Storefronts','Modernized user-centric e-commerce interfaces, streamlined checkout','Cook & Boardman'],['E-Commerce SEO & Web Vitals','Asset compression, Core Web Vitals optimization, mobile conversion','Lucent, Subliblanks, Cook & Boardman']] }
+  { id:'frontend', name:'Frontend & Frameworks', summary:'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue, Next.js', skills:[['Angular (Standalone / Signals / SPAs)','Core UI framework at 1center (Salesmate CRM 4+ yrs), Signals, reactive architectures','Salesmate CRM'],['React 19 & Next.js 16 (App Router)','Modern SPAs with Zustand, Recharts, Tiptap, Tailwind CSS v4','CM Expense Tracker, CM Notes'],['Vue 3','Composition API, reactive components, Vue Router','Portfolio, Internal Applications'],['TypeScript & JavaScript (ESNext)','Strict typing, modern asynchronous patterns, generics','All Production Applications'],['Tailwind CSS v4 & SCSS','Design tokens, custom glassmorphism systems, responsive animations','CM Notes, Expense Tracker, Salesmate'],['HTML5, CSS3 & Bootstrap','Semantic markup, accessibility, responsive layouts, cross-browser','Infibeam, Lucent, Salesmate']] },
+  { id:'backend', name:'Backend, Systems & Protocols', summary:'Node.js, Go, WebSockets, RESTful APIs, Docker', skills:[['Node.js & Express 5 (Cluster Mode)','Multi-core cluster scaling, Pino logging, Helmet security, HTTP-only JWTs','CM Expense Tracker API'],['Go (Golang 1.26 & fasthttp)','512K concurrent connections with sub-millisecond response & 64-shard rate limiters','CM Notes Go Microservice'],['Microservices & High Concurrency','Non-blocking I/O, goroutines, atomic primitives, sub-millisecond throughput','CM Notes Go Microservice'],['WebSockets & REST APIs','Real-time state synchronization, clean contract schemas, streaming endpoints','Notes App, CRM Dashboards'],['Docker & Containerization','Multi-stage builds, container isolation, local environment reproducibility','Backend Microservices']] },
+  { id:'cloud', name:'Cloud, DevOps & CI/CD', summary:'AWS, GitHub Actions, Vercel, Netlify, Render', skills:[['AWS SAM & Lambda','Serverless Infrastructure as Code, automated deployment of cloud microservices','Serverless Microservices'],['AWS SES','Transactional password recovery, 6-digit OTP with 60s cooldown limiters','AWS Cloud Applications'],['AWS RDS & API Gateway','Managed relational storage, secure API routing, VPC configuration','PostgreSQL Cloud Deployment'],['GitHub Actions (CI/CD)','Automated test suites, build pipelines, and continuous deployment','All GitHub Repositories'],['Vercel, Amplify, Netlify, Render','Production edge deployments, environment variable isolation','React & Next.js Apps']] },
+  { id:'databases', name:'Databases & Caching', summary:'MongoDB Atlas, PostgreSQL, Redis, Supabase, Neon', skills:[['MongoDB Atlas & Go Driver v2','BSON document modeling, parameterized queries, optimized indexing','CM Notes Go Backend'],['PostgreSQL (AWS RDS & SQL)','Relational data modeling, indexing, parameterized queries, schema management','AWS RDS, Cloud Applications'],['Redis (Caching & Rate Limiting)','Non-blocking in-memory caching, distributed token bucket rate limiting','CM Expense Tracker'],['Supabase & Neon Postgres','Serverless PostgreSQL, row-level security, real-time subscriptions','Cloud Applications']] },
+  { id:'ai', name:'AI Tooling & Accelerated Workflows', summary:'Cursor IDE, Augment AI, ChatGPT, automated test generation', skills:[['Cursor IDE & AI Coding Assistants','Harnessing AI contexts for accelerated development and debugging','1center & Personal Projects'],['Augment AI & LLM Pair Programming','Cross-file architecture refactoring, complex logic explanation','All modern development'],['ChatGPT CLI & APIs','Automated test suite generation, rapid code reviews, prompt engineering','API Automation & Refactoring']] },
+  { id:'ecommerce', name:'E-Commerce Platforms & Custom Themes', summary:'Shopify, Liquid, BigCommerce', skills:[['Shopify & Liquid Engine','Custom responsive themes, Liquid template hierarchy, third-party integrations','Lucent Innovation, Subliblanks'],['BigCommerce Storefronts','Modernized user-centric e-commerce interfaces, streamlined checkout','Cook & Boardman'],['E-Commerce SEO & Web Vitals','Asset compression, Core Web Vitals optimization, mobile conversion','Lucent, Subliblanks, Cook & Boardman']] }
 ]
 
-const skillProgressColors: Record<string, string[]> = {
-  frontend:['var(--cg-google-blue)','var(--cg-google-blue)','var(--cg-google-green)','var(--cg-google-yellow)','var(--cg-google-blue)','var(--cg-google-red)'],
-  backend:['var(--cg-google-green)','var(--cg-google-blue)','var(--cg-google-red)','var(--cg-google-yellow)','var(--cg-google-blue)'],
-  cloud:['var(--cg-google-red)','var(--cg-google-yellow)','var(--cg-google-blue)','var(--cg-google-green)','var(--cg-google-blue)'],
-  databases:['var(--cg-google-green)','var(--cg-google-blue)','var(--cg-google-red)','var(--cg-google-yellow)'],
-  ai:['var(--cg-google-blue)','var(--cg-google-green)','var(--cg-google-yellow)'],
-  ecommerce:['var(--cg-google-green)','var(--cg-google-blue)','var(--cg-google-yellow)']
-}
-
 const architecture = [
-  ['512K Concurrency','64-Shard In-Memory Rate Limiter (Go)','Engineered using Go 1.26 & fasthttp with custom 64-shard distribution, FNV-1a hashing, and atomic counters. Eliminates mutex contention on high-frequency API endpoints.','Go 1.26 • fasthttp • FNV-1a • Atomic Counters','var(--cg-google-green-rgb)'],
-  ['Cloud Architecture','Serverless & Cloud-Native Microservices','Architected scalable cloud deployments utilizing AWS Lambda, API Gateway, Docker multi-stage builds, and automated GitHub Actions CI/CD with environment-aware runtimes.','AWS Lambda • API Gateway • Docker • GitHub Actions • CI/CD','var(--cg-google-blue-rgb)'],
-  ['Enterprise CRM','Salesmate CRM High-Velocity Angular UI','4+ years architecting modules for Salesmate CRM. Granular lazy loading, custom change detection, accessible UI components, and rich data reporting.','Angular • JavaScript • SCSS • Lazy Loading','var(--cg-google-red-rgb)'],
-  ['Process Scaling','Cluster Mode Multi-Core Express 5 Scaling','Multi-core process scaling on Node.js Express 5 with Pino logging, Helmet security, HTTP-only cookie JWTs, and Redis-backed rate limiting.','Express 5 • Cluster Mode • Redis • Mongoose','var(--cg-google-yellow-rgb)']
+  ['512K Concurrency','64-Shard In-Memory Rate Limiter (Go)','Engineered using Go 1.26 & fasthttp with custom 64-shard distribution, FNV-1a hashing, and atomic counters. Eliminates mutex contention on high-frequency API endpoints.','Go 1.26 • fasthttp • FNV-1a • Atomic Counters'],
+  ['Cloud Architecture','Serverless & Cloud-Native Microservices','Architected scalable cloud deployments utilizing AWS Lambda, API Gateway, Docker multi-stage builds, and automated GitHub Actions CI/CD with environment-aware runtimes.','AWS Lambda • API Gateway • Docker • GitHub Actions • CI/CD'],
+  ['Enterprise CRM','Salesmate CRM High-Velocity Angular UI','4+ years architecting modules for Salesmate CRM. Granular lazy loading, custom change detection, accessible UI components, and rich data reporting.','Angular • JavaScript • SCSS • Lazy Loading'],
+  ['Process Scaling','Cluster Mode Multi-Core Express 5 Scaling','Multi-core process scaling on Node.js Express 5 with Pino logging, Helmet security, HTTP-only cookie JWTs, and Redis-backed rate limiting.','Express 5 • Cluster Mode • Redis • Mongoose']
 ]
 
 export function SkillsMatrix({
@@ -44,7 +35,7 @@ export function SkillsMatrix({
   const visible = skillDomains.filter(domain => category === 'all' || domain.id === category)
 
   return (
-    <>
+    <div>
       <div className="d-flex flex-wrap justify-content-center gap-2 mb-5">
         {categories.map(([id, label]) => {
           const isActive = category === id
@@ -58,29 +49,11 @@ export function SkillsMatrix({
               key={id}
               scroll={false}
               href={targetHref}
-              className="btn btn-sm rounded-pill fw-medium px-3 btn-filter text-decoration-none"
-              style={
-                isActive
-                  ? {
-                      background: 'var(--cg-google-blue-container)',
-                      color: 'var(--cg-google-blue)',
-                      border: '1px solid rgba(var(--cg-google-blue-rgb),0.3)',
-                    }
-                  : {
-                      background: 'var(--bg-card)',
-                      color: 'var(--bs-body-color)',
-                      border: '1px solid var(--border-subtle)',
-                    }
-              }
+              className={`btn btn-sm rounded-pill fw-medium px-3 text-decoration-none cg-button-filter ${isActive ? 'btn-primary' : 'btn-outline-primary'}`}
             >
               {label}
               <span
-                className="badge rounded-pill ms-1 text-xs"
-                style={
-                  isActive
-                    ? { background: 'rgba(var(--cg-google-blue-rgb),0.18)', color: 'var(--cg-google-blue)' }
-                    : { background: 'var(--bg-code)', color: 'var(--bs-body-secondary)' }
-                }
+                className={`badge rounded-pill ms-1 small ${isActive ? 'bg-primary-subtle text-primary-emphasis' : 'bg-secondary-subtle text-secondary-emphasis'}`}
               >
                 {count}
               </span>
@@ -90,48 +63,31 @@ export function SkillsMatrix({
       </div>
       <div className="d-flex flex-column gap-4 mb-5">
         {visible.map(domain => (
-          <section key={domain.id} className="glass rounded-4 p-4">
+          <section key={domain.id} className="bg-body-tertiary border shadow-sm rounded-4 p-4">
             <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
               <div className="d-flex align-items-start gap-3">
-                <div
-                  className="d-flex align-items-center justify-content-center rounded-3 flex-shrink-0"
-                  style={{ width: '3rem', height: '3rem', background: `rgba(${domain.rgb},0.12)`, color: `rgb(${domain.rgb})` }}
-                >
+                <div className="d-flex align-items-center justify-content-center rounded-3 flex-shrink-0 p-3 bg-primary-subtle text-primary">
                   <SkillIcon id={domain.id} />
                 </div>
                 <div>
                   <h2 className="fs-5 fw-semibold mb-1">{domain.name}</h2>
-                  <p className="text-body-secondary mb-0 text-xs">{domain.summary}</p>
+                  <p className="text-body-secondary mb-0 small">{domain.summary}</p>
                 </div>
               </div>
-              <span
-                className="badge rounded-pill fw-medium"
-                style={{
-                  background: `rgba(${domain.rgb},0.12)`,
-                  color: `rgb(${domain.rgb})`,
-                  border: `1px solid rgba(${domain.rgb},0.25)`,
-                  fontSize: '.75rem',
-                }}
-              >
+              <span className="badge rounded-pill fw-medium bg-primary-subtle text-primary-emphasis border border-primary-subtle">
                 {domain.skills.length} Technologies
               </span>
             </div>
             <div className="row g-3">
-              {domain.skills.map(([name, context, projects], skillIndex) => (
+              {domain.skills.map(([name, context, projects]) => (
                 <div key={name} className="col-12 col-md-6 col-xl-4">
-                  <div
-                    className="p-3 rounded-3 h-100"
-                    style={{ background: 'var(--bg-code)', border: `1px solid rgba(${domain.rgb},0.25)` }}
-                  >
+                  <div className="p-3 rounded-3 h-100 bg-body-tertiary border border-secondary-subtle">
                     <span className="small fw-semibold d-block mb-2">{name}</span>
-                    <div className="progress mb-2 progress-track">
-                      <div
-                        className="progress-bar"
-                        style={{ width: '100%', background: skillProgressColors[domain.id][skillIndex] }}
-                      />
+                    <div className="progress mb-2">
+                      <div className="progress-bar w-100 bg-primary" />
                     </div>
-                    <p className="text-body-secondary mb-1 body-text-sm">{context}</p>
-                    <div className="text-xs">
+                    <p className="text-body-secondary mb-1 small lh-base">{context}</p>
+                    <div className="small">
                       <span className="text-body-secondary fw-semibold">Utilized in:</span>
                       <span className="text-body-secondary"> {projects}</span>
                     </div>
@@ -142,36 +98,28 @@ export function SkillsMatrix({
           </section>
         ))}
       </div>
-      <section className="mb-5 section-gap">
-        <div className="text-center mb-5 mx-auto section-header">
-          <span className="badge rounded-pill px-3 py-1 mb-3 fw-medium badge-cyan">Deep Engineering Capabilities</span>
+      <section className="mb-5 mt-5">
+        <div className="text-center mb-5 mx-auto col-lg-8">
+          <span className="badge rounded-pill px-3 py-1 mb-3 fw-medium bg-primary-subtle text-primary-emphasis border border-primary-subtle">Deep Engineering Capabilities</span>
           <h2 className="fw-bold mb-3">Architectural Highlights &amp; Benchmarks</h2>
           <p className="text-body-secondary">Specific design patterns and high-performance protocols engineered across production projects.</p>
         </div>
         <div className="row g-4">
-          {architecture.map(([badge, title, desc, meta, rgb]) => (
+          {architecture.map(([badge, title, desc, meta]) => (
             <div key={title} className="col-12 col-md-6">
-              <article className="glass rounded-4 p-4 h-100">
-                <span
-                  className="badge rounded-pill fw-medium mb-3"
-                  style={{
-                    background: `rgba(${rgb},0.12)`,
-                    color: `rgb(${rgb})`,
-                    border: `1px solid rgba(${rgb},0.25)`,
-                    fontSize: '.75rem',
-                  }}
-                >
+              <article className="bg-body-tertiary border shadow-sm rounded-4 p-4 h-100">
+                <span className="badge rounded-pill fw-medium mb-3 bg-primary-subtle text-primary-emphasis border border-primary-subtle">
                   {badge}
                 </span>
                 <h3 className="fs-6 fw-semibold mb-2">{title}</h3>
-                <p className="text-body-secondary mb-3 body-text-sm">{desc}</p>
-                <p className="text-body-secondary mb-0 text-xs">{meta}</p>
+                <p className="text-body-secondary mb-3 small lh-base">{desc}</p>
+                <p className="text-body-secondary mb-0 small">{meta}</p>
               </article>
             </div>
           ))}
         </div>
       </section>
-    </>
+    </div>
   )
 }
 

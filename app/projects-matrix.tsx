@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 const projectRows = [
-  { id:'cm-notes', title:'CM Notes — High-Concurrency Microservice (Go & Next.js 16)', category:'systems', categoryTag:'Go 1.26 + Next.js 16', rgb:'var(--cg-google-green-rgb)', type:'512K Concurrency', live:'https://notes-next-js-mongo-db.vercel.app', repos:[['FE Repo','https://github.com/ChiragGajjar123/Notes---Next.js-MongoDB'],['BE Repo','https://github.com/ChiragGajjar123/Notes-App-Go-Backend']], stack:'Next.js 16 App Router • React 19 • Go 1.26 (fasthttp) • MongoDB Atlas • Resend API', overview:'Engineered a high-concurrency microservice tuned to process 512K concurrent connections with sub-millisecond response times, featuring custom atomic rate limiters and Tiptap rich-text editing.', achievements:['Developed a modern Next.js 16 (App Router) & React 19 SPA using Tailwind CSS v4, Radix UI, and custom Glassmorphism UI.','Built a dynamic dashboard featuring a Tiptap Rich-Text Editor, real-time search, category filters, note pinning/archiving, and theme toggling.','Engineered a high-performance RESTful API using Go (Golang 1.26 & fasthttp) tuned for 512K concurrent connections.','Implemented a custom 64-shard in-memory rate limiter utilizing FNV-1a hashing and atomic counters.','Configured automated background goroutines for expired entry cleanup and 30-second MongoDB synchronization.','Secured authentication APIs with bcrypt password hashing, SHA-256 reset token hashing, and internal API key middleware.'], tags:['Go (Golang 1.26)','fasthttp','64-Shard Limiter','FNV-1a','Next.js 16','React 19','MongoDB Atlas','Resend API','Tiptap Editor','Tailwind CSS v4','Vercel']},
-  { id:'expense', title:'CM Expense Tracker — Financial Management Platform', category:'systems', categoryTag:'React 19 + Express 5', rgb:'var(--cg-google-yellow-rgb)', type:'Multi-Core Cluster', live:'https://expense-tracker-app-react-node-expr.vercel.app', repos:[['FE Repo','https://github.com/ChiragGajjar123/Expense-Tracker-App---React---Node---Express---mongoDB'],['BE Repo','https://github.com/ChiragGajjar123/Expense-Tracker-Node-Express-Backend']], stack:'React 19 • TypeScript • Vite 8 • Zustand • Recharts • Node.js Express 5 • Redis • MongoDB', overview:'Financial analytics application featuring interactive expenditure breakdown charts, multi-core Express 5 process scaling, Redis rate limiting, and HTTP-only JWT authentication.', achievements:['Developed a modern React 19 SPA using TypeScript, Vite 8, Zustand, Recharts, and Tailwind CSS v4.','Built interactive financial management workflows with real-time budget tracking and category-wise expenditure charts.','Engineered a high-performance RESTful API using Node.js (Express 5) with Cluster mode multi-core process scaling.','Implemented secure authentication using JWT (HTTP-only cookies), bcrypt.js, Redis-backed rate limiting, and Resend API.','Integrated MongoDB (via Mongoose) with optimized connection pooling, payload compression, and Redis caching.','Configured automated serverless deployment on Vercel with environment-aware runtime detection.'], tags:['React 19','Vite 8','TypeScript','Zustand','Recharts','Express 5','Cluster Mode','Redis','MongoDB','Mongoose','Resend API','Vercel']},
-  { id:'salesmate', title:'Salesmate CRM — Enterprise Sales Automation SaaS', category:'saas', categoryTag:'Enterprise CRM', rgb:'var(--cg-google-blue-rgb)', type:'Global SaaS', live:'https://www.salesmate.io', repos:[], stack:'Angular • JavaScript • SCSS • Enterprise Workflows • Reporting Dashboards', overview:'SaaS-based sales automation and CRM product used by global businesses. Contributed 4+ years as UI Developer improving core modules, dashboards, change detection, and responsive components.', achievements:['Contributed to the development of Salesmate CRM, a SaaS-based product used by global businesses for sales automation.','Built and optimized Angular-based UI components, improving responsiveness and user experience across web modules.','Worked on CRM workflows, dashboards, and reporting features, ensuring seamless integration with backend APIs.','Improved performance by implementing lazy loading, change detection strategies, and reusable components.','Conducted regular UI/UX reviews to enhance usability and accessibility across international client teams.'], tags:['Angular','JavaScript','SCSS','Enterprise SaaS','Lazy Loading','Change Detection','CRM Dashboards','UI/UX Optimization']},
-  { id:'cook-boardman', title:'Cook & Boardman — Enterprise E-Commerce Storefront', category:'ecommerce', categoryTag:'BigCommerce', rgb:'var(--cg-google-red-rgb)', type:'Commercial Storefront', live:'https://www.cookandboardman.com', repos:[], stack:'BigCommerce • HTML5 • CSS3 • JavaScript • Responsive Architecture', overview:'Designed and built the Cook & Boardman e-commerce storefront on BigCommerce, delivering a modernized, user-centric interface supporting enterprise digital transformation goals.', achievements:['Storefront Development & UI/UX: Designed and built the e-commerce storefront using HTML5, CSS3, and JavaScript.','Responsive Architecture: Created fully responsive layouts for seamless navigation across desktop and mobile devices.','Navigation & Customer Experience: Streamlined site structure and user flows to enhance usability and drive engagement.'], tags:['BigCommerce','HTML5','CSS3','JavaScript','Responsive Design','E-Commerce UX']},
-  { id:'subliblanks', title:'Subliblanks — Custom Shopify Storefront & Theme', category:'ecommerce', categoryTag:'Shopify Liquid', rgb:'var(--cg-google-green-rgb)', type:'Custom Theme', live:'https://subliblanks.com', repos:[], stack:'Shopify • Liquid • JavaScript • HTML5 • SCSS • Conversion SEO', overview:'Custom Shopify storefront development with tailored product catalogs, promotional banner systems, performance tuning, and cross-device responsiveness.', achievements:['Custom Theme Development: Built and customized responsive Shopify themes using Liquid, JavaScript, HTML5, and SCSS.','Catalog & Navigation UI: Designed dynamic product catalogs, promotional banners, and intuitive navigation.','Performance & Responsiveness: Ensured cross-device compatibility and optimized site speed for faster page loads.','Brand Alignment: Partnered with stakeholders to integrate UI/UX design with business and marketing strategies.'], tags:['Shopify','Liquid','HTML5','SCSS','JavaScript','Product Catalogs','Conversion Optimization']}
+  { id:'cm-notes', title:'CM Notes — High-Concurrency Microservice (Go & Next.js 16)', category:'systems', categoryTag:'Go 1.26 + Next.js 16', type:'512K Concurrency', live:'https://notes-next-js-mongo-db.vercel.app', repos:[['FE Repo','https://github.com/ChiragGajjar123/Notes---Next.js-MongoDB'],['BE Repo','https://github.com/ChiragGajjar123/Notes-App-Go-Backend']], stack:'Next.js 16 App Router • React 19 • Go 1.26 (fasthttp) • MongoDB Atlas • Resend API', overview:'Engineered a high-concurrency microservice tuned to process 512K concurrent connections with sub-millisecond response times, featuring custom atomic rate limiters and Tiptap rich-text editing.', achievements:['Developed a modern Next.js 16 (App Router) & React 19 SPA using Tailwind CSS v4, Radix UI, and custom Glassmorphism UI.','Built a dynamic dashboard featuring a Tiptap Rich-Text Editor, real-time search, category filters, note pinning/archiving, and theme toggling.','Engineered a high-performance RESTful API using Go (Golang 1.26 & fasthttp) tuned for 512K concurrent connections.','Implemented a custom 64-shard in-memory rate limiter utilizing FNV-1a hashing and atomic counters.','Configured automated background goroutines for expired entry cleanup and 30-second MongoDB synchronization.','Secured authentication APIs with bcrypt password hashing, SHA-256 reset token hashing, and internal API key middleware.'], tags:['Go (Golang 1.26)','fasthttp','64-Shard Limiter','FNV-1a','Next.js 16','React 19','MongoDB Atlas','Resend API','Tiptap Editor','Tailwind CSS v4','Vercel']},
+  { id:'expense', title:'CM Expense Tracker — Financial Management Platform', category:'systems', categoryTag:'React 19 + Express 5', type:'Multi-Core Cluster', live:'https://expense-tracker-app-react-node-expr.vercel.app', repos:[['FE Repo','https://github.com/ChiragGajjar123/Expense-Tracker-App---React---Node---Express---mongoDB'],['BE Repo','https://github.com/ChiragGajjar123/Expense-Tracker-Node-Express-Backend']], stack:'React 19 • TypeScript • Vite 8 • Zustand • Recharts • Node.js Express 5 • Redis • MongoDB', overview:'Financial analytics application featuring interactive expenditure breakdown charts, multi-core Express 5 process scaling, Redis rate limiting, and HTTP-only JWT authentication.', achievements:['Developed a modern React 19 SPA using TypeScript, Vite 8, Zustand, Recharts, and Tailwind CSS v4.','Built interactive financial management workflows with real-time budget tracking and category-wise expenditure charts.','Engineered a high-performance RESTful API using Node.js (Express 5) with Cluster mode multi-core process scaling.','Implemented secure authentication using JWT (HTTP-only cookies), bcrypt.js, Redis-backed rate limiting, and Resend API.','Integrated MongoDB (via Mongoose) with optimized connection pooling, payload compression, and Redis caching.','Configured automated serverless deployment on Vercel with environment-aware runtime detection.'], tags:['React 19','Vite 8','TypeScript','Zustand','Recharts','Express 5','Cluster Mode','Redis','MongoDB','Mongoose','Resend API','Vercel']},
+  { id:'salesmate', title:'Salesmate CRM — Enterprise Sales Automation SaaS', category:'saas', categoryTag:'Enterprise CRM', type:'Global SaaS', live:'https://www.salesmate.io', repos:[], stack:'Angular • JavaScript • SCSS • Enterprise Workflows • Reporting Dashboards', overview:'SaaS-based sales automation and CRM product used by global businesses. Contributed 4+ years as UI Developer improving core modules, dashboards, change detection, and responsive components.', achievements:['Contributed to the development of Salesmate CRM, a SaaS-based product used by global businesses for sales automation.','Built and optimized Angular-based UI components, improving responsiveness and user experience across web modules.','Worked on CRM workflows, dashboards, and reporting features, ensuring seamless integration with backend APIs.','Improved performance by implementing lazy loading, change detection strategies, and reusable components.','Conducted regular UI/UX reviews to enhance usability and accessibility across international client teams.'], tags:['Angular','JavaScript','SCSS','Enterprise SaaS','Lazy Loading','Change Detection','CRM Dashboards','UI/UX Optimization']},
+  { id:'cook-boardman', title:'Cook & Boardman — Enterprise E-Commerce Storefront', category:'ecommerce', categoryTag:'BigCommerce', type:'Commercial Storefront', live:'https://www.cookandboardman.com', repos:[], stack:'BigCommerce • HTML5 • CSS3 • JavaScript • Responsive Architecture', overview:'Designed and built the Cook & Boardman e-commerce storefront on BigCommerce, delivering a modernized, user-centric interface supporting enterprise digital transformation goals.', achievements:['Storefront Development & UI/UX: Designed and built the e-commerce storefront using HTML5, CSS3, and JavaScript.','Responsive Architecture: Created fully responsive layouts for seamless navigation across desktop and mobile devices.','Navigation & Customer Experience: Streamlined site structure and user flows to enhance usability and drive engagement.'], tags:['BigCommerce','HTML5','CSS3','JavaScript','Responsive Design','E-Commerce UX']},
+  { id:'subliblanks', title:'Subliblanks — Custom Shopify Storefront & Theme', category:'ecommerce', categoryTag:'Shopify Liquid', type:'Custom Theme', live:'https://subliblanks.com', repos:[], stack:'Shopify • Liquid • JavaScript • HTML5 • SCSS • Conversion SEO', overview:'Custom Shopify storefront development with tailored product catalogs, promotional banner systems, performance tuning, and cross-device responsiveness.', achievements:['Custom Theme Development: Built and customized responsive Shopify themes using Liquid, JavaScript, HTML5, and SCSS.','Catalog & Navigation UI: Designed dynamic product catalogs, promotional banners, and intuitive navigation.','Performance & Responsiveness: Ensured cross-device compatibility and optimized site speed for faster page loads.','Brand Alignment: Partnered with stakeholders to integrate UI/UX design with business and marketing strategies.'], tags:['Shopify','Liquid','HTML5','SCSS','JavaScript','Product Catalogs','Conversion Optimization']}
 ]
 
 const projectCategories = [
@@ -33,7 +33,7 @@ export function ProjectsMatrix({
   )
 
   return (
-    <>
+    <div>
       <div className="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 mb-5">
         <div className="d-flex flex-wrap gap-2">
           {projectCategories.map(([id, label]) => {
@@ -44,20 +44,7 @@ export function ProjectsMatrix({
                 key={id}
                 scroll={false}
                 href={targetHref}
-                className="btn btn-sm rounded-pill fw-medium px-3 btn-filter text-decoration-none"
-                style={
-                  isActive
-                    ? {
-                        background: 'var(--cg-google-blue-container)',
-                        color: 'var(--cg-google-blue)',
-                        border: '1px solid rgba(var(--cg-google-blue-rgb),0.3)',
-                      }
-                    : {
-                        background: 'var(--bg-card)',
-                        color: 'var(--bs-body-color)',
-                        border: '1px solid var(--border-subtle)',
-                      }
-                }
+                className={`btn btn-sm rounded-pill fw-medium px-3 text-decoration-none cg-button-filter ${isActive ? 'btn-primary' : 'btn-outline-primary'}`}
               >
                 {label}
               </Link>
@@ -67,7 +54,7 @@ export function ProjectsMatrix({
         <form
           method="GET"
           action="/projects"
-          className="glass rounded-pill d-flex align-items-center gap-2 px-3 py-2 search-container"
+          className="input-group rounded-pill border bg-body-tertiary align-items-center gap-2 px-3 py-2"
         >
           {category !== 'all' && <input type="hidden" name="category" value={category} />}
           <svg
@@ -77,7 +64,7 @@ export function ProjectsMatrix({
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            className="icon-secondary"
+            className="text-primary"
           >
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -86,14 +73,14 @@ export function ProjectsMatrix({
             name="search"
             defaultValue={query}
             placeholder="Search tech..."
-            className="form-control form-control-sm border-0 bg-transparent p-0 form-search"
+            className="form-control form-control-sm border-0 bg-transparent p-0"
             aria-label="Search tech"
           />
           {query ? (
             <Link
               scroll={false}
               href={`/projects${category !== 'all' ? `?category=${category}` : ''}`}
-              className="btn btn-sm p-0 border-0 bg-transparent flex-shrink-0 btn-clear text-decoration-none"
+              className="btn btn-sm p-0 border-0 bg-transparent flex-shrink-0 link-secondary text-decoration-none"
               title="Clear search"
             >
               ×
@@ -107,28 +94,20 @@ export function ProjectsMatrix({
       </div>
       <div className="d-flex flex-column gap-4">
         {visible.map(project => (
-          <article key={project.id} className="glass rounded-4 p-4 project-card">
+          <article key={project.id} className="bg-body-tertiary border shadow-sm rounded-4 p-4">
             <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
               <div className="d-flex flex-wrap gap-2">
-                <span
-                  className="badge rounded-pill fw-medium"
-                  style={{
-                    background: `rgba(${project.rgb},0.12)`,
-                    color: `rgb(${project.rgb})`,
-                    border: `1px solid rgba(${project.rgb},0.25)`,
-                    fontSize: '.75rem',
-                  }}
-                >
+                <span className="badge rounded-pill fw-medium bg-primary-subtle text-primary-emphasis border border-primary-subtle">
                   {project.categoryTag}
                 </span>
-                <span className="badge rounded-pill fw-medium text-xs badge-indigo">{project.type}</span>
+                <span className="badge rounded-pill fw-medium small bg-danger-subtle text-danger-emphasis border border-danger-subtle">{project.type}</span>
               </div>
               <div className="d-flex flex-wrap gap-2">
                 <a
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="badge rounded-pill text-decoration-none d-inline-flex align-items-center gap-1 fw-medium badge-success"
+                  className="badge rounded-pill text-decoration-none d-inline-flex align-items-center gap-1 fw-medium bg-success-subtle text-success-emphasis border border-success-subtle"
                 >
                   Live App ↗
                 </a>
@@ -138,7 +117,7 @@ export function ProjectsMatrix({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="badge rounded-pill text-decoration-none fw-medium badge-chip"
+                    className="badge rounded-pill text-decoration-none fw-medium bg-body-tertiary border"
                   >
                     {label}
                   </a>
@@ -146,22 +125,21 @@ export function ProjectsMatrix({
               </div>
             </div>
             <h2 className="fs-5 fw-semibold mb-1">{project.title}</h2>
-            <p className="text-body-secondary mb-2 text-xs">{project.stack}</p>
-            <p className="text-body-secondary mb-3 body-text">{project.overview}</p>
-            <div className="p-3 rounded-3 mb-3 block-code">
+            <p className="text-body-secondary mb-2 small">{project.stack}</p>
+            <p className="text-body-secondary mb-3 small lh-base">{project.overview}</p>
+            <div className="p-3 rounded-3 mb-3 bg-body-tertiary border">
               <h3 className="fs-6 fw-semibold mb-2">Key Architectural Achievements:</h3>
               <ul className="list-unstyled mb-0">
                 {project.achievements.map((point, index) => (
-                  <li key={index} className="mb-2 ps-3 position-relative small text-body-secondary list-line-height">
-                    <span className="position-absolute rounded-circle bullet-dot" />
-                    {point}
+                  <li key={index} className="mb-2 d-flex gap-2 small text-body-secondary lh-base">
+                    <span className="text-primary" aria-hidden="true">•</span>{point}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="d-flex flex-wrap gap-2">
               {project.tags.map(tag => (
-                <span key={tag} className="badge rounded-3 fw-medium badge-chip">
+                <span key={tag} className="badge rounded-3 fw-medium bg-body-tertiary border">
                   {tag}
                 </span>
               ))}
@@ -169,6 +147,6 @@ export function ProjectsMatrix({
           </article>
         ))}
       </div>
-    </>
+    </div>
   )
 }
