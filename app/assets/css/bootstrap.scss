@@ -180,6 +180,20 @@
     --cg-button-icon-hover-background: var(--bs-white);
     --cg-button-filter-hover-background: transparent;
     --cg-button-filter-hover-color: var(--cg-google-blue);
+    --cg-button-filter-background: transparent;
+    --cg-button-filter-border: var(--bs-border-color);
+    --cg-button-filter-color: var(--bs-body-color);
+    --cg-glass-surface-background: rgba(var(--bs-white-rgb), 0.88);
+    --cg-glass-surface-border: 1px solid rgba(218, 220, 224, 0.85);
+    --cg-glass-surface-shadow: 0 1px 3px rgba(60, 64, 67, 0.12), 0 1px 2px rgba(60, 64, 67, 0.06);
+    --cg-glass-surface-backdrop: blur(1rem);
+    --cg-glass-header-background: rgba(var(--bs-white-rgb), 0.92);
+    --cg-glass-header-border: 1px solid rgba(218, 220, 224, 0.85);
+    --cg-glass-header-shadow: 0 4px 14px rgba(60, 64, 67, 0.12), 0 1px 3px rgba(60, 64, 67, 0.08);
+    --cg-scrollbar-width: 0.5rem;
+    --cg-scrollbar-thumb: rgba(128, 128, 128, 0.25);
+    --cg-scrollbar-thumb-hover: rgba(128, 128, 128, 0.45);
+    --cg-scrollbar-radius: 0.25rem;
     --cg-button-hover-transform: translateY(-1px);
     --cg-button-icon-size: 2.35rem;
     --cg-button-radius: 0.5rem;
@@ -290,6 +304,15 @@
     --cg-button-icon-hover-background: var(--cg-google-blue-container);
     --cg-button-filter-hover-background: transparent;
     --cg-button-filter-hover-color: var(--cg-google-blue);
+    --cg-button-filter-background: rgba(var(--bs-white-rgb), 0.05);
+    --cg-button-filter-border: rgba(var(--bs-white-rgb), 0.1);
+    --cg-button-filter-color: var(--bs-body-color);
+    --cg-glass-surface-background: rgba(45, 47, 49, 0.78);
+    --cg-glass-surface-border: 1px solid rgba(var(--bs-white-rgb), 0.09);
+    --cg-glass-surface-shadow: 0 1px 3px rgba(var(--bs-black-rgb), 0.35);
+    --cg-glass-header-background: rgba(45, 47, 49, 0.78);
+    --cg-glass-header-border: 1px solid rgba(var(--bs-white-rgb), 0.09);
+    --cg-glass-header-shadow: 0 4px 14px rgba(var(--bs-black-rgb), 0.3), 0 1px 3px rgba(var(--bs-black-rgb), 0.2);
     --cg-orb-blue: rgba(138, 180, 248, 0.09);
     --cg-orb-red: rgba(242, 139, 130, 0.07);
     --cg-orb-yellow: rgba(253, 214, 99, 0.06);
@@ -4791,7 +4814,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-sm .offcanvas .offcanvas-body {
-        display: flex;
+        display: flex !important;
         flex-grow: 0;
         padding: 0;
         overflow-y: visible
@@ -4822,7 +4845,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-md .navbar-collapse {
-        display: flex !important;
+        display: flex;
         flex-basis: auto
     }
 
@@ -4848,7 +4871,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-md .offcanvas .offcanvas-body {
-        display: flex;
+        display: flex !important;
         flex-grow: 0;
         padding: 0;
         overflow-y: visible
@@ -4879,7 +4902,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-lg .navbar-collapse {
-        display: flex !important;
+        display: flex;
         flex-basis: auto
     }
 
@@ -4905,7 +4928,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-lg .offcanvas .offcanvas-body {
-        display: flex;
+        display: flex !important;
         flex-grow: 0;
         padding: 0;
         overflow-y: visible
@@ -4936,7 +4959,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-xl .navbar-collapse {
-        display: flex !important;
+        display: flex;
         flex-basis: auto
     }
 
@@ -4962,7 +4985,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-xl .offcanvas .offcanvas-body {
-        display: flex;
+        display: flex !important;
         flex-grow: 0;
         padding: 0;
         overflow-y: visible
@@ -4993,7 +5016,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-xxl .navbar-collapse {
-        display: flex !important;
+        display: flex;
         flex-basis: auto
     }
 
@@ -13997,6 +14020,25 @@ fieldset:disabled .btn {
 
 html { scroll-behavior: var(--cg-scroll-behavior); }
 
+::-webkit-scrollbar {
+  width: var(--cg-scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bs-body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cg-scrollbar-thumb);
+  border-radius: var(--cg-scrollbar-radius);
+}
+
+@media (min-width: 992px) {
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--cg-scrollbar-thumb-hover);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { --cg-scroll-behavior: auto; }
 }
@@ -14011,6 +14053,51 @@ body {
 h1, h2, h3, h4, h5, h6,
 .btn, .badge, .form-control, .form-label, .nav-link {
   font-family: var(--font-poppins), var(--cg-font-fallback);
+}
+
+.cg-badge-neutral {
+  --bs-badge-color: var(--bs-body-color);
+}
+
+.cg-pulse-dot {
+  --cg-pulse-dot-size: 0.55rem;
+  --cg-pulse-dot-duration: 2s;
+  --cg-pulse-dot-easing: cubic-bezier(0.4, 0, 0.6, 1);
+  --cg-pulse-dot-ring-size: 6px;
+  --cg-pulse-dot-ring-opacity: 0.7;
+  --cg-pulse-dot-rest-scale: 0.95;
+  --cg-pulse-dot-active-scale: 1;
+
+  display: inline-block;
+  flex: 0 0 auto;
+  width: var(--cg-pulse-dot-size);
+  height: var(--cg-pulse-dot-size);
+  border-radius: 50%;
+  background-color: var(--cg-google-green);
+  animation: cg-pulse-dot var(--cg-pulse-dot-duration) var(--cg-pulse-dot-easing) infinite;
+}
+
+@keyframes cg-pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--cg-google-green-rgb), var(--cg-pulse-dot-ring-opacity));
+    transform: scale(var(--cg-pulse-dot-rest-scale));
+  }
+
+  70% {
+    box-shadow: 0 0 0 var(--cg-pulse-dot-ring-size) rgba(var(--cg-google-green-rgb), 0);
+    transform: scale(var(--cg-pulse-dot-active-scale));
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--cg-google-green-rgb), 0);
+    transform: scale(var(--cg-pulse-dot-rest-scale));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-pulse-dot {
+    animation: none;
+  }
 }
 
 ::selection {
@@ -14048,6 +14135,26 @@ h1, h2, h3, h4, h5, h6,
 
 .cg-button-filter {
   transition: var(--cg-button-transition);
+}
+
+.cg-button-filter:not(.btn-primary) {
+  background-color: var(--cg-button-filter-background);
+  border-color: var(--cg-button-filter-border);
+  color: var(--cg-button-filter-color);
+}
+
+.cg-glass-surface {
+  background-color: var(--cg-glass-surface-background);
+  border: var(--cg-glass-surface-border);
+  box-shadow: var(--cg-glass-surface-shadow);
+  backdrop-filter: var(--cg-glass-surface-backdrop);
+}
+
+.cg-glass-header {
+  background-color: var(--cg-glass-header-background);
+  border-bottom: var(--cg-glass-header-border);
+  box-shadow: var(--cg-glass-header-shadow);
+  backdrop-filter: var(--cg-glass-surface-backdrop);
 }
 
 @media (min-width: 992px) {

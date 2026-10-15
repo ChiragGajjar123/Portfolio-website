@@ -92,8 +92,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={poppins.variable}>
         <StructuredData data={siteStructuredData} />
-        <SiteChrome>{children}</SiteChrome>
-        <Footer />
+        <SiteChrome footer={<Footer />}>{children}</SiteChrome>
         <SpeedInsights />
       </body>
     </html>

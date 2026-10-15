@@ -1,0 +1,89 @@
+.cg-section-skills-intro {
+  --cg-section-skills-intro-width: 43rem;
+
+  max-width: var(--cg-section-skills-intro-width);
+}
+
+.cg-section-experience-intro {
+  --cg-section-experience-intro-width: 42rem;
+
+  max-width: var(--cg-section-experience-intro-width);
+}
+
+.cg-section-experience-eyebrow {
+  --cg-section-experience-eyebrow-letter-spacing: 0.08em;
+
+  letter-spacing: var(--cg-section-experience-eyebrow-letter-spacing);
+}
+
+.cg-section-contact-eyebrow {
+  --cg-section-contact-eyebrow-letter-spacing: 0.08em;
+
+  letter-spacing: var(--cg-section-contact-eyebrow-letter-spacing);
+}
+
+.cg-section-timeline-marker {
+  --cg-section-timeline-marker-size: 0.75rem;
+  --cg-section-timeline-marker-ring: var(--bs-body-bg);
+  --cg-section-timeline-marker-shadow: 0 0 0 1px rgba(var(--cg-google-blue-rgb), 0.2), 0 1px 3px rgba(var(--cg-google-blue-rgb), 0.2);
+
+  width: var(--cg-section-timeline-marker-size);
+  height: var(--cg-section-timeline-marker-size);
+  flex: 0 0 var(--cg-section-timeline-marker-size);
+  border: 2px solid var(--cg-section-timeline-marker-ring);
+  box-shadow: var(--cg-section-timeline-marker-shadow);
+}
+
+.cg-section-profile-mark {
+  --cg-section-profile-mark-size: 3.25rem;
+  --cg-section-profile-mark-radius: 0.75rem;
+  --cg-section-profile-mark-background: linear-gradient(135deg, var(--cg-google-blue), var(--cg-google-blue-brand));
+  --cg-section-profile-mark-shadow: 0 3px 12px rgba(var(--cg-google-blue-rgb), 0.35);
+
+  width: var(--cg-section-profile-mark-size);
+  height: var(--cg-section-profile-mark-size);
+  flex: 0 0 var(--cg-section-profile-mark-size);
+  border-radius: var(--cg-section-profile-mark-radius);
+  background: var(--cg-section-profile-mark-background);
+  box-shadow: var(--cg-section-profile-mark-shadow);
+}
+
+.cg-section-resume-subtitle {
+  --cg-section-resume-subtitle-font-size: 0.8125rem;
+  --cg-section-resume-subtitle-line-height: 1.2;
+  --cg-section-resume-subtitle-white-space: nowrap;
+
+  font-size: var(--cg-section-resume-subtitle-font-size);
+  line-height: var(--cg-section-resume-subtitle-line-height);
+  white-space: var(--cg-section-resume-subtitle-white-space);
+}
+
+@media (max-width: 1199.98px) {
+  .cg-section-resume-subtitle {
+    --cg-section-resume-subtitle-white-space: normal;
+  }
+}
+
+.cg-section-explore-link {
+  --cg-section-explore-hover-background: var(--cg-google-blue-container);
+  --cg-section-explore-hover-color: var(--cg-google-blue);
+  --cg-section-explore-transition: background-color 0.2s ease, color 0.2s ease;
+
+  transition: var(--cg-section-explore-transition);
+}
+
+:global(.dark) a.cg-section-explore-link {
+  --cg-section-explore-dark-background: rgba(var(--bs-white-rgb), 0.04);
+  --cg-section-explore-dark-border: rgba(var(--bs-white-rgb), 0.14);
+  --cg-section-explore-dark-color: var(--cg-google-gray-800);
+
+  background-color: var(--cg-section-explore-dark-background);
+  border-color: var(--cg-section-explore-dark-border);
+  color: var(--cg-section-explore-dark-color);
+}
+
+a.cg-section-explore-link:hover,
+a.cg-section-explore-link:focus-visible {
+  background-color: var(--cg-section-explore-hover-background);
+  color: var(--cg-section-explore-hover-color);
+}

@@ -1,8 +1,73 @@
+.cg-contact-field {
+  --cg-contact-field-background: var(--bs-white);
+
+  background-color: var(--cg-contact-field-background);
+}
+
+:global(.dark) .cg-contact-field {
+  --cg-contact-field-background: var(--bs-body-bg);
+}
+
 .cg-message-field {
   --cg-contact-message-min-height: 7.5rem;
   --cg-contact-message-resize: vertical;
   min-height: var(--cg-contact-message-min-height);
   resize: var(--cg-contact-message-resize);
+}
+
+.cg-contact-detail-icon {
+  --cg-contact-detail-icon-size: 2.5rem;
+
+  width: var(--cg-contact-detail-icon-size);
+  height: var(--cg-contact-detail-icon-size);
+  flex: 0 0 var(--cg-contact-detail-icon-size);
+  padding: 0;
+}
+
+.cg-contact-social-link {
+  --cg-contact-social-background: var(--bs-tertiary-bg);
+  --cg-contact-social-border: var(--bs-border-color);
+  --cg-contact-social-color: var(--bs-secondary-color);
+  --cg-contact-social-hover-background: var(--cg-google-blue-container);
+  --cg-contact-social-hover-border: rgba(var(--cg-google-blue-rgb), 0.4);
+  --cg-contact-social-hover-color: var(--cg-google-blue);
+  --cg-contact-social-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  background-color: var(--cg-contact-social-background);
+  border-color: var(--cg-contact-social-border);
+  color: var(--cg-contact-social-color);
+  transition: var(--cg-contact-social-transition);
+}
+
+:global(.dark) a.cg-contact-social-link {
+  --cg-contact-social-background: rgba(var(--bs-white-rgb), 0.04);
+  --cg-contact-social-border: rgba(var(--bs-white-rgb), 0.14);
+  --cg-contact-social-color: var(--bs-body-color);
+
+  background-color: var(--cg-contact-social-background);
+  border-color: var(--cg-contact-social-border);
+  color: var(--cg-contact-social-color);
+}
+
+.cg-contact-details {
+  --cg-contact-details-hover-border: rgba(var(--cg-google-blue-rgb), 0.45);
+  --cg-contact-details-hover-ring: 0 0 0 1px rgba(var(--cg-google-blue-rgb), 0.08);
+  --cg-contact-details-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  transition: var(--cg-contact-details-transition);
+}
+
+.cg-contact-details:hover,
+.cg-contact-details:focus-within {
+  border-color: var(--cg-contact-details-hover-border);
+  box-shadow: var(--cg-contact-details-hover-ring), var(--cg-glass-surface-shadow);
+}
+
+a.cg-contact-social-link:hover,
+a.cg-contact-social-link:focus-visible {
+  background-color: var(--cg-contact-social-hover-background);
+  border-color: var(--cg-contact-social-hover-border);
+  color: var(--cg-contact-social-hover-color);
 }
 
 .cg-copy-button {
@@ -36,39 +101,41 @@
   --cg-copy-button-color: var(--cg-google-green);
 }
 
-.dark .cg-copy-button {
+:global(.dark) .cg-copy-button {
   --cg-copy-button-background: rgba(var(--bs-body-bg-rgb), 0.7);
   --cg-copy-button-border: rgba(var(--bs-white-rgb), 0.12);
   --cg-copy-button-color: var(--bs-secondary-color);
 }
 
-.dark .cg-copy-button-copied {
+:global(.dark) .cg-copy-button-copied {
   --cg-copy-button-background: var(--cg-google-green-container);
   --cg-copy-button-border: var(--cg-google-green);
   --cg-copy-button-color: var(--cg-google-green);
 }
 
-@media (min-width: 992px) {
-  .cg-copy-button:hover {
-    --cg-copy-button-background: var(--cg-google-blue-container);
-    --cg-copy-button-border: rgba(var(--cg-google-blue-rgb), 0.4);
-    --cg-copy-button-color: var(--cg-google-blue);
-    --cg-copy-button-shadow: var(--cg-copy-button-hover-shadow);
+button.cg-copy-button:hover,
+button.cg-copy-button:focus-visible {
+  --cg-copy-button-background: var(--cg-google-blue-container);
+  --cg-copy-button-border: rgba(var(--cg-google-blue-rgb), 0.4);
+  --cg-copy-button-color: var(--cg-google-blue);
+  --cg-copy-button-shadow: var(--cg-copy-button-hover-shadow);
 
-    transform: translateY(-1px);
-  }
+  background-color: var(--cg-copy-button-background);
+  border-color: var(--cg-copy-button-border);
+  color: var(--cg-copy-button-color);
+  box-shadow: var(--cg-copy-button-shadow);
+  transform: translateY(-1px);
+}
 
-  .dark .cg-copy-button:hover {
-    --cg-copy-button-shadow: var(--cg-copy-button-dark-hover-shadow);
-  }
+:global(.dark) button.cg-copy-button:hover,
+:global(.dark) button.cg-copy-button:focus-visible {
+  --cg-copy-button-shadow: var(--cg-copy-button-dark-hover-shadow);
+
+  box-shadow: var(--cg-copy-button-shadow);
 }
 
 @media (max-width: 991.98px) {
-  .cg-copy-button:hover {
-    background-color: var(--cg-copy-button-background);
-    border-color: var(--cg-copy-button-border);
-    color: var(--cg-copy-button-color);
-    box-shadow: none;
+  button.cg-copy-button:hover {
     transform: none;
   }
 }

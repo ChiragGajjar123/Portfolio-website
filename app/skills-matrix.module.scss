@@ -1,0 +1,133 @@
+.cg-skill-filter-count {
+  --cg-skill-filter-count-size: 1.375rem;
+  --cg-skill-filter-count-font-size: 0.6875rem;
+  --cg-skill-filter-count-background: var(--bs-secondary-bg);
+  --cg-skill-filter-count-color: var(--bs-secondary-color);
+
+  display: inline-flex;
+  width: var(--cg-skill-filter-count-size);
+  height: var(--cg-skill-filter-count-size);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: var(--cg-skill-filter-count-background);
+  color: var(--cg-skill-filter-count-color);
+  font-size: var(--cg-skill-filter-count-font-size);
+}
+
+.cg-skill-filter-active .cg-skill-filter-count {
+  --cg-skill-filter-count-active-background: rgba(var(--cg-google-blue-rgb), 0.18);
+  --cg-skill-filter-count-active-color: var(--cg-google-blue);
+
+  background-color: var(--cg-skill-filter-count-active-background);
+  color: var(--cg-skill-filter-count-active-color);
+}
+
+:global(a.cg-button-filter).cg-skill-filter-active {
+  --cg-skill-filter-active-background: var(--cg-google-blue-container);
+  --cg-skill-filter-active-border: rgba(var(--cg-google-blue-rgb), 0.25);
+  --cg-skill-filter-active-color: var(--cg-google-blue);
+
+  background-color: var(--cg-skill-filter-active-background);
+  border-color: var(--cg-skill-filter-active-border);
+  color: var(--cg-skill-filter-active-color);
+}
+
+:global(a.cg-button-filter).cg-skill-filter-active:hover,
+:global(a.cg-button-filter).cg-skill-filter-active:focus-visible {
+  background-color: var(--cg-skill-filter-active-background);
+  border-color: var(--cg-skill-filter-active-border);
+  color: var(--cg-skill-filter-active-color);
+}
+
+.cg-skill-category-icon {
+  --cg-skill-category-icon-size: 3rem;
+
+  width: var(--cg-skill-category-icon-size);
+  height: var(--cg-skill-category-icon-size);
+}
+
+.cg-skill-domain {
+  --cg-skill-domain-accent: var(--cg-google-blue);
+  --cg-skill-domain-rgb: var(--cg-google-blue-rgb);
+  --cg-skill-domain-container: var(--cg-google-blue-container);
+}
+
+.cg-skill-domain-backend {
+  --cg-skill-domain-accent: var(--cg-google-green);
+  --cg-skill-domain-rgb: var(--cg-google-green-rgb);
+  --cg-skill-domain-container: var(--cg-google-green-container);
+}
+
+.cg-skill-domain-cloud {
+  --cg-skill-domain-accent: var(--cg-google-red);
+  --cg-skill-domain-rgb: var(--cg-google-red-rgb);
+  --cg-skill-domain-container: var(--cg-google-red-container);
+}
+
+.cg-skill-domain-databases {
+  --cg-skill-domain-accent: var(--cg-google-yellow);
+  --cg-skill-domain-rgb: var(--cg-google-yellow-rgb);
+  --cg-skill-domain-container: var(--cg-google-yellow-container);
+}
+
+.cg-skill-domain-ecommerce {
+  --cg-skill-domain-accent: var(--cg-google-red);
+  --cg-skill-domain-rgb: var(--cg-google-red-rgb);
+  --cg-skill-domain-container: var(--cg-google-red-container);
+}
+
+.cg-skill-domain .cg-skill-category-icon,
+.cg-skill-domain .cg-skill-category-badge {
+  background-color: var(--cg-skill-domain-container);
+  color: var(--cg-skill-domain-accent);
+}
+
+.cg-skill-category-badge {
+  border: var(--bs-border-width) solid rgba(var(--cg-skill-domain-rgb), 0.25);
+}
+
+.cg-skill-tile {
+  --cg-skill-tile-background: var(--cg-google-gray-100);
+  --cg-skill-tile-border: rgba(var(--cg-skill-domain-rgb), 0.28);
+
+  border: var(--bs-border-width) solid var(--cg-skill-tile-border);
+  background-color: var(--cg-skill-tile-background);
+}
+
+.cg-skill-progress-blue { --cg-skill-accent: var(--cg-google-blue); }
+.cg-skill-progress-green { --cg-skill-accent: var(--cg-google-green); }
+.cg-skill-progress-red { --cg-skill-accent: var(--cg-google-red); }
+.cg-skill-progress-yellow { --cg-skill-accent: var(--cg-google-yellow); }
+
+.cg-skill-summary,
+.cg-skill-utilization {
+  --cg-skill-supporting-font-size: 0.75rem;
+
+  font-size: var(--cg-skill-supporting-font-size);
+}
+
+.cg-skill-progress {
+  --cg-skill-progress-height: 0.25rem;
+  --cg-skill-progress-background: rgba(var(--bs-secondary-color-rgb), 0.18);
+
+  height: var(--cg-skill-progress-height);
+  overflow: hidden;
+  border-radius: var(--bs-border-radius-pill);
+  background-color: var(--cg-skill-progress-background);
+}
+
+.cg-skill-progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cg-skill-accent);
+}
+
+:global(.dark) .cg-skill-tile {
+  --cg-skill-tile-background: var(--bs-secondary-bg);
+  --cg-skill-tile-border: rgba(var(--cg-skill-domain-rgb), 0.42);
+}
+
+:global(.dark) .cg-skill-progress {
+  --cg-skill-progress-background: rgba(var(--bs-white-rgb), 0.14);
+}

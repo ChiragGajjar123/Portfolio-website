@@ -1,0 +1,13 @@
+.cg-footer-link {
+  --cg-footer-link-color: var(--bs-secondary-color);
+  --cg-footer-link-hover-color: var(--cg-google-blue);
+  --cg-footer-link-transition: color 0.18s ease;
+
+  color: var(--cg-footer-link-color);
+  transition: var(--cg-footer-link-transition);
+}
+
+.cg-footer-link:hover,
+.cg-footer-link:focus-visible {
+  color: var(--cg-footer-link-hover-color);
+}

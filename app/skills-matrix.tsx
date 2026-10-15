@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import styles from './skills-matrix.module.scss'
+import SkillFilters from './skill-filters'
 
 const categories = [
   ['all', 'All Disciplines'],
@@ -10,6 +11,15 @@ const categories = [
   ['ecommerce', 'E-Commerce']
 ]
 
+const skillProgressTones: Record<string, string[]> = {
+  frontend: ['blue', 'blue', 'green', 'yellow', 'blue', 'red'],
+  backend: ['green', 'blue', 'red', 'yellow', 'blue'],
+  cloud: ['red', 'yellow', 'blue', 'green', 'blue'],
+  databases: ['green', 'blue', 'red', 'yellow'],
+  ai: ['blue', 'green', 'yellow'],
+  ecommerce: ['green', 'blue', 'yellow'],
+}
+
 const skillDomains = [
   { id:'frontend', name:'Frontend & Frameworks', summary:'HTML, CSS, SCSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Angular, React, Vue, Next.js', skills:[['Angular (Standalone / Signals / SPAs)','Core UI framework at 1center (Salesmate CRM 4+ yrs), Signals, reactive architectures','Salesmate CRM'],['React 19 & Next.js 16 (App Router)','Modern SPAs with Zustand, Recharts, Tiptap, Tailwind CSS v4','CM Expense Tracker, CM Notes'],['Vue 3','Composition API, reactive components, Vue Router','Portfolio, Internal Applications'],['TypeScript & JavaScript (ESNext)','Strict typing, modern asynchronous patterns, generics','All Production Applications'],['Tailwind CSS v4 & SCSS','Design tokens, custom glassmorphism systems, responsive animations','CM Notes, Expense Tracker, Salesmate'],['HTML5, CSS3 & Bootstrap','Semantic markup, accessibility, responsive layouts, cross-browser','Infibeam, Lucent, Salesmate']] },
   { id:'backend', name:'Backend, Systems & Protocols', summary:'Node.js, Go, WebSockets, RESTful APIs, Docker', skills:[['Node.js & Express 5 (Cluster Mode)','Multi-core cluster scaling, Pino logging, Helmet security, HTTP-only JWTs','CM Expense Tracker API'],['Go (Golang 1.26 & fasthttp)','512K concurrent connections with sub-millisecond response & 64-shard rate limiters','CM Notes Go Microservice'],['Microservices & High Concurrency','Non-blocking I/O, goroutines, atomic primitives, sub-millisecond throughput','CM Notes Go Microservice'],['WebSockets & REST APIs','Real-time state synchronization, clean contract schemas, streaming endpoints','Notes App, CRM Dashboards'],['Docker & Containerization','Multi-stage builds, container isolation, local environment reproducibility','Backend Microservices']] },
@@ -20,10 +30,10 @@ const skillDomains = [
 ]
 
 const architecture = [
-  ['512K Concurrency','64-Shard In-Memory Rate Limiter (Go)','Engineered using Go 1.26 & fasthttp with custom 64-shard distribution, FNV-1a hashing, and atomic counters. Eliminates mutex contention on high-frequency API endpoints.','Go 1.26 • fasthttp • FNV-1a • Atomic Counters'],
-  ['Cloud Architecture','Serverless & Cloud-Native Microservices','Architected scalable cloud deployments utilizing AWS Lambda, API Gateway, Docker multi-stage builds, and automated GitHub Actions CI/CD with environment-aware runtimes.','AWS Lambda • API Gateway • Docker • GitHub Actions • CI/CD'],
-  ['Enterprise CRM','Salesmate CRM High-Velocity Angular UI','4+ years architecting modules for Salesmate CRM. Granular lazy loading, custom change detection, accessible UI components, and rich data reporting.','Angular • JavaScript • SCSS • Lazy Loading'],
-  ['Process Scaling','Cluster Mode Multi-Core Express 5 Scaling','Multi-core process scaling on Node.js Express 5 with Pino logging, Helmet security, HTTP-only cookie JWTs, and Redis-backed rate limiting.','Express 5 • Cluster Mode • Redis • Mongoose']
+  ['512K Concurrency','64-Shard In-Memory Rate Limiter (Go)','Engineered using Go 1.26 & fasthttp with custom 64-shard distribution, FNV-1a hashing, and atomic counters. Eliminates mutex contention on high-frequency API endpoints.','Go 1.26 • fasthttp • FNV-1a • Atomic Counters','success'],
+  ['Cloud Architecture','Serverless & Cloud-Native Microservices','Architected scalable cloud deployments utilizing AWS Lambda, API Gateway, Docker multi-stage builds, and automated GitHub Actions CI/CD with environment-aware runtimes.','AWS Lambda • API Gateway • Docker • GitHub Actions • CI/CD','primary'],
+  ['Enterprise CRM','Salesmate CRM High-Velocity Angular UI','4+ years architecting modules for Salesmate CRM. Granular lazy loading, custom change detection, accessible UI components, and rich data reporting.','Angular • JavaScript • SCSS • Lazy Loading','danger'],
+  ['Process Scaling','Cluster Mode Multi-Core Express 5 Scaling','Multi-core process scaling on Node.js Express 5 with Pino logging, Helmet security, HTTP-only cookie JWTs, and Redis-backed rate limiting.','Express 5 • Cluster Mode • Redis • Mongoose','warning']
 ]
 
 export function SkillsMatrix({
@@ -33,61 +43,44 @@ export function SkillsMatrix({
 }) {
   const category = (typeof searchParams?.category === 'string' && searchParams.category) || 'all'
   const visible = skillDomains.filter(domain => category === 'all' || domain.id === category)
+  const filterOptions = categories.map(([id, label]) => ({
+    id,
+    label,
+    count: id === 'all'
+      ? skillDomains.reduce((sum, domain) => sum + domain.skills.length, 0)
+      : (skillDomains.find(domain => domain.id === id)?.skills.length ?? 0),
+  }))
 
   return (
     <div>
-      <div className="d-flex flex-wrap justify-content-center gap-2 mb-5">
-        {categories.map(([id, label]) => {
-          const isActive = category === id
-          const targetHref = `/skills?category=${id}`
-          const count = id === 'all'
-            ? skillDomains.reduce((sum, domain) => sum + domain.skills.length, 0)
-            : (skillDomains.find(domain => domain.id === id)?.skills.length ?? 0)
-
-          return (
-            <Link
-              key={id}
-              scroll={false}
-              href={targetHref}
-              className={`btn btn-sm rounded-pill fw-medium px-3 text-decoration-none cg-button-filter ${isActive ? 'btn-primary' : 'btn-outline-primary'}`}
-            >
-              {label}
-              <span
-                className={`badge rounded-pill ms-1 small ${isActive ? 'bg-primary-subtle text-primary-emphasis' : 'bg-secondary-subtle text-secondary-emphasis'}`}
-              >
-                {count}
-              </span>
-            </Link>
-          )
-        })}
-      </div>
+      <SkillFilters category={category} options={filterOptions} />
       <div className="d-flex flex-column gap-4 mb-5">
         {visible.map(domain => (
-          <section key={domain.id} className="bg-body-tertiary border shadow-sm rounded-4 p-4">
+          <section key={domain.id} className={`cg-glass-surface rounded-4 p-4 ${styles['cg-skill-domain']} ${styles[`cg-skill-domain-${domain.id}`]}`}>
             <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
               <div className="d-flex align-items-start gap-3">
-                <div className="d-flex align-items-center justify-content-center rounded-3 flex-shrink-0 p-3 bg-primary-subtle text-primary">
+                <div className={`d-flex align-items-center justify-content-center rounded-3 flex-shrink-0 ${styles['cg-skill-category-icon']}`}>
                   <SkillIcon id={domain.id} />
                 </div>
                 <div>
                   <h2 className="fs-5 fw-semibold mb-1">{domain.name}</h2>
-                  <p className="text-body-secondary mb-0 small">{domain.summary}</p>
+                  <p className={`text-body-secondary mb-0 ${styles['cg-skill-summary']}`}>{domain.summary}</p>
                 </div>
               </div>
-              <span className="badge rounded-pill fw-medium bg-primary-subtle text-primary-emphasis border border-primary-subtle">
+              <span className={`badge rounded-pill fw-medium ${styles['cg-skill-category-badge']}`}>
                 {domain.skills.length} Technologies
               </span>
             </div>
             <div className="row g-3">
-              {domain.skills.map(([name, context, projects]) => (
-                <div key={name} className="col-12 col-md-6 col-xl-4">
-                  <div className="p-3 rounded-3 h-100 bg-body-tertiary border border-secondary-subtle">
+              {domain.skills.map(([name, context, projects], index) => (
+                <div key={name} className={`col-12 col-md-6 col-xl-4 ${styles['cg-skill-column']}`} data-skill-index={index}>
+                  <div className={`p-3 rounded-3 h-100 ${styles['cg-skill-tile']}`}>
                     <span className="small fw-semibold d-block mb-2">{name}</span>
-                    <div className="progress mb-2">
-                      <div className="progress-bar w-100 bg-primary" />
+                    <div className={`mb-2 ${styles['cg-skill-progress']} ${styles[`cg-skill-progress-${skillProgressTones[domain.id][index]}`]}`}>
+                      <div className={styles['cg-skill-progress-bar']} />
                     </div>
                     <p className="text-body-secondary mb-1 small lh-base">{context}</p>
-                    <div className="small">
+                    <div className={styles['cg-skill-utilization']}>
                       <span className="text-body-secondary fw-semibold">Utilized in:</span>
                       <span className="text-body-secondary"> {projects}</span>
                     </div>
@@ -105,10 +98,10 @@ export function SkillsMatrix({
           <p className="text-body-secondary">Specific design patterns and high-performance protocols engineered across production projects.</p>
         </div>
         <div className="row g-4">
-          {architecture.map(([badge, title, desc, meta]) => (
+          {architecture.map(([badge, title, desc, meta, tone]) => (
             <div key={title} className="col-12 col-md-6">
-              <article className="bg-body-tertiary border shadow-sm rounded-4 p-4 h-100">
-                <span className="badge rounded-pill fw-medium mb-3 bg-primary-subtle text-primary-emphasis border border-primary-subtle">
+              <article className="cg-glass-surface rounded-4 p-4 h-100">
+                <span className={`badge rounded-pill fw-medium mb-3 bg-${tone}-subtle text-${tone}-emphasis border border-${tone}-subtle`}>
                   {badge}
                 </span>
                 <h3 className="fs-6 fw-semibold mb-2">{title}</h3>
