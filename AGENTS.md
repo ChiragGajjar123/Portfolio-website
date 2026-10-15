@@ -8,7 +8,7 @@
 4. Keep authored theme tokens in exactly two blocks: `:root` for default/light values and `.dark` for dark-mode overrides. Do not add `.light` or `[data-bs-theme]` selectors to authored token blocks; Bootstrap's generated selectors are framework output.
 5. Use CSS variables for values in authored custom CSS. Store shared tokens in the shared Sass source and component-specific values in that component's CSS Module. Token declarations may contain concrete values.
 6. Write default custom styles without a theme wrapper and scope dark-specific overrides under `.dark`.
-7. Do not add `!important` to app-authored CSS or inline styles; resolve conflicts with appropriate specificity. The existing vendored Bootstrap block may retain upstream `!important` declarations; preserve its license notice and do not expand those declarations into custom styles.
+7. Do not use CSS priority modifiers; resolve conflicts with appropriate specificity.
 8. Use `backdrop-filter` only; do not add `-webkit-backdrop-filter` declarations.
 
 ## Git and publishing instructions
